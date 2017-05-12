@@ -1,2 +1,1 @@
-console.log('\'Allo \'Allo!');
-
+console.log('Hello. Элекард-Мед!');
