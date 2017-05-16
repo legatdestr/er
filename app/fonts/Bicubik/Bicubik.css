@@ -1,0 +1,8 @@
+@font-face {
+  font-family: "BicubikRegular";
+  src: url("BicubikRegular.eot");
+  src: url("BicubikRegular.woff") format("woff"),
+  url("BicubikRegular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}

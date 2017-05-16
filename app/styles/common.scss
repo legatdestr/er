@@ -1,9 +1,27 @@
 html, body {
-  box-sizing: border-box;
   background: #cffa9d;
-  font {
-    size: 15px;
-  };
-  color: #333;
-  line-height: 1.5
+}
+
+html, body, h1, h2, h3, h4, h5, h6 {
+  font: {
+    family: 'Muli', AppleGothic, sans-serif;
+  }
+}
+
+.em-header-red {
+  color: #ab2626;
+}
+
+
+.main-menu__site-title {
+  font: {
+    family: 'BicubikRegular', AppleGothic, sans-serif;
+    size: 1.6523em;
+  }
+}
+
+.main-menu__mobile__item {
+  font: {
+    size: 3.333333em;
+  }
 }

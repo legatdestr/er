@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="utf-8">
-    <meta name="description" content="">
+    <meta name="description" content="Медицинский портал">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Медицинский портал</title>
 
@@ -14,12 +14,21 @@
     <!-- endbower -->
     <!-- endbuild -->
 
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+    <link href="/fonts/Bicubik/Bicubik.css" rel="stylesheet">
+
+    <!-- for autocomplete only DELETE ME!!! in production! -->
+    <link rel="deleteme" href="../.tmp/styles/em.css">
+    <link rel="deleteme" href="../.tmp/styles/common.css">
+
+
     <!-- build:css styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
 
+
 </head>
-<body>
+<body class="em-light-grey">
 <!--[if IE]>
 <p class="browserupgrade">Вы используете <strong>устаревший</strong> браузер. Пожалуйста <a
         href="http://browsehappy.com/">обновите ваш браузер</a> иначе сайт может функционировать некорректно.</p>
@@ -27,65 +36,68 @@
 
 
 <!-- main code  -->
-<section class="header">
-    <div class="em-bar em-white">
-        <a href="#" class="em-bar-item em-button em-animate-zoom">МЕДИЦИНСКИЙ ПОРТАЛ</a>
-        <a href="#" class="em-bar-item em-button em-hide-small">расписание</a>
-        <a href="#" class="em-bar-item em-button em-hide-small">результаты</a>
-        <a href="#" class="em-bar-item em-button em-hide-small">рейтинг</a>
-        <a href="#" class="em-bar-item em-button em-hide-small">услуги</a>
-        <a href="#" class="em-bar-item em-button em-hide-small">о нас</a>
+
+<!--Main-menu-->
+<div class="main-menu">
+    <!--for mobile-->
+    <div class="main-menu__mobile em-bar em-white">
+        <a href="/" class="main-menu__mobile__item  em-bar-item em-button main-menu__site-title">МЕДИЦИНСКИЙ ПОРТАЛ</a>
+        <a href="#" class="main-menu__mobile__item  em-bar-item em-button em-hide-small">Расписание</a>
+        <a href="#" class="main-menu__mobile__item  em-bar-item em-button em-hide-small">Результаты</a>
+        <a href="#" class="main-menu__mobile__item  em-bar-item em-button em-hide-small">Рейтинг</a>
+        <a href="#" class="main-menu__mobile__item  em-bar-item em-button em-hide-small">Услуги</a>
+        <a href="#" class="main-menu__mobile__item  em-bar-item em-button em-hide-small">О нас</a>
         <a href="javascript:void(0)" class="em-bar-item em-button em-right em-hide-large em-hide-medium"
-           onclick="myFunction()">&#9776;</a>
+           onclick="mainMenuClick()">&#9776;</a>
     </div>
-    <div id="main-menu" class="em-bar-block em-white em-hide em-hide-large em-hide-medium">
-        <a href="#" class="em-bar-item em-button">расписание</a>
-        <a href="#" class="em-bar-item em-button">результаты</a>
-        <a href="#" class="em-bar-item em-button">рейтинг</a>
-        <a href="#" class="em-bar-item em-button">услуги</a>
-        <a href="#" class="em-bar-item em-button">о нас</a>
-    </div>
-
-</section>
-
-
-<div class="em-container">
-    <h3>Медицинский портал</h3>
-    <p class="em-large">Попробуйте поменять ширину окна браузера!</p>
-</div>
-
-<div class="em-container">
-    <h3>Медицинский портал</h3>
-    <p class="em-large">Попробуйте поменять ширину окна браузера!</p>
-</div>
-
-<div class="em-row">
-    <div class="em-col m1 em-center em-jumbo">1</div>
-    <div class="em-col m1 em-center em-light-grey">2</div>
-    <div class="em-col m1 em-center em-grey em-jumbo">3</div>
-    <div class="em-col m1 em-center em-light-grey">4</div>
-    <div class="em-col m1 em-center em-grey">5</div>
-    <div class="em-col m1 em-center em-light-grey">6</div>
-    <div class="em-col m1 em-center em-grey">7</div>
-    <div class="em-col m1 em-center em-light-grey">8</div>
-    <div class="em-col m1 em-center em-grey">9</div>
-    <div class="em-col m1 em-center em-light-grey em-jumbo">10</div>
-    <div class="em-col m1 em-center em-grey">11</div>
-    <div class="em-col m1 em-center em-light-grey">12</div>
-</div>
-
-<div class="em-row">
-    <div class="em-col em-container m4 l3 em-yellow">
-        <p>This part will occupy 12 columns on a small screen, 4 on a medium screen, and 3 on a large screen.</p>
-    </div>
-    <div class="em-col em-container m8 l9">
-        <p>This part will occupy 12 columns on a small screen, 8 on a medium screen, and 9 on a large screen.</p>
-        <p>This part will occupy 12 columns on a small screen, 8 on a medium screen, and 9 on a large screen.</p>
+    <!--for NOT mobile-->
+    <div id="main-menu-wide" class="main-menu__nomobile em-bar-block em-white em-hide em-hide-large em-hide-medium">
+        <a href="#" class="main-menu__nomobile__item  em-bar-item em-button">Расписание</a>
+        <a href="#" class="main-menu__nomobile__item  em-bar-item em-button">Результаты</a>
+        <a href="#" class="main-menu__nomobile__item  em-bar-item em-button">Рейтинг</a>
+        <a href="#" class="main-menu__nomobile__item  em-bar-item em-button">Услуги</a>
+        <a href="#" class="main-menu__nomobile__item  em-bar-item em-button">О нас</a>
     </div>
 </div>
 
+<script>
+    var
+        title = document.querySelector('.main-menu__site-title'),
+        cs = getComputedStyle(title);
+    console.log('.main-menu__site-title', cs.fontSize);
 
-<!-- /main code -->
+
+    var
+        item = document.querySelector('.main-menu__mobile__item'),
+        cs = getComputedStyle(item);
+    console.log('.main-menu__mobile__item', cs.fontSize);
+
+</script>
+
+<!--//Main-menu-->
+
+
+<div class="welcome em-card-4">
+    <header class="em-container em-header-red">
+        <h1>Добро пожаловать на медицинский портал!</h1>
+    </header>
+
+    <div class="em-container">
+        <p>Томаты любят почти все люди, и нет дачника или садовода, который не выращивал бы их
+            на своём участке. Агротехника томатов довольно проста, независимо от того,
+            выращиваете Вы их в теплице или открытом грунте. Относительно того, как правильно
+            сажать помидоры, споров обычно не возникает. Во-первых, должно пройти время ночных
+            заморозков, а во-вторых, нужно выбрать для посадки пасмурный день, иначе томаты
+            будут долго болеть и плохо приживаться.</p>
+    </div>
+
+    <footer class="em-container em-blue">
+        <h5>Footer</h5> uyvuy
+    </footer>
+</div>
+
+
+<!-- //main code -->
 
 
 <!-- build:js scripts/vendor.js -->
