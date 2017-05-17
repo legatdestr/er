@@ -1,0 +1,62 @@
+html, body, h1, h2, h3, h4, h5, h6, .em-slim, .em-wide {
+  font: {
+    family: CenturyGothic, AppleGothic, sans-serif;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 400;
+  margin: 10px 0
+}
+
+html, body {
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+html {
+  overflow-x: hidden
+}
+
+h1 {
+  font-size: 3.6rem
+}
+
+h2 {
+  font-size: 3rem
+}
+
+h3 {
+  font-size: 2.4rem
+}
+
+h4 {
+  font-size: 2rem
+}
+
+h5 {
+  font-size: 1.8rem
+}
+
+h6 {
+  font-size: 1.6rem
+}
+
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+  font-weight: inherit
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #eee;
+  margin: 20px 0
+}
+
+img {
+  margin-bottom: -5px
+}
+
+a {
+  color: inherit
+}

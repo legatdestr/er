@@ -14,8 +14,8 @@
     <!-- endbower -->
     <!-- endbuild -->
 
-    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
     <link href="/fonts/Bicubik/Bicubik.css" rel="stylesheet">
+    <link href="/fonts/CenturyGothic/CenturyGothic.css" rel="stylesheet">
 
     <!-- for autocomplete only DELETE ME!!! in production! -->
     <link rel="deleteme" href="../.tmp/styles/em.css">
@@ -39,24 +39,25 @@
 
 <!--Main-menu-->
 <div class="main-menu">
-    <!--for mobile-->
-    <div class="main-menu__mobile em-bar em-white">
-        <a href="/" class="main-menu__mobile__item  em-bar-item em-button main-menu__site-title">МЕДИЦИНСКИЙ ПОРТАЛ</a>
-        <a href="#" class="main-menu__mobile__item  em-bar-item em-button em-hide-small">Расписание</a>
-        <a href="#" class="main-menu__mobile__item  em-bar-item em-button em-hide-small">Результаты</a>
-        <a href="#" class="main-menu__mobile__item  em-bar-item em-button em-hide-small">Рейтинг</a>
-        <a href="#" class="main-menu__mobile__item  em-bar-item em-button em-hide-small">Услуги</a>
-        <a href="#" class="main-menu__mobile__item  em-bar-item em-button em-hide-small">О нас</a>
+    <!--for NOT mobile-->
+    <div class="main-menu__nomobile em-bar em-white">
+        <a href="/" class="main-menu__nomobile__item  em-bar-item em-button main-menu__site-title">МЕДИЦИНСКИЙ
+            ПОРТАЛ</a>
+        <a href="#" class="main-menu__nomobile__item  em-bar-item em-button em-hide-small">Расписание</a>
+        <a href="#" class="main-menu__nomobile__item  em-bar-item em-button em-hide-small">Результаты</a>
+        <a href="#" class="main-menu__nomobile__item  em-bar-item em-button em-hide-small">Рейтинг</a>
+        <a href="#" class="main-menu__nomobile__item  em-bar-item em-button em-hide-small">Услуги</a>
+        <a href="#" class="main-menu__nomobile__item  em-bar-item em-button em-hide-small">О нас</a>
         <a href="javascript:void(0)" class="em-bar-item em-button em-right em-hide-large em-hide-medium"
            onclick="mainMenuClick()">&#9776;</a>
     </div>
-    <!--for NOT mobile-->
-    <div id="main-menu-wide" class="main-menu__nomobile em-bar-block em-white em-hide em-hide-large em-hide-medium">
-        <a href="#" class="main-menu__nomobile__item  em-bar-item em-button">Расписание</a>
-        <a href="#" class="main-menu__nomobile__item  em-bar-item em-button">Результаты</a>
-        <a href="#" class="main-menu__nomobile__item  em-bar-item em-button">Рейтинг</a>
-        <a href="#" class="main-menu__nomobile__item  em-bar-item em-button">Услуги</a>
-        <a href="#" class="main-menu__nomobile__item  em-bar-item em-button">О нас</a>
+    <!--for mobile-->
+    <div id="main-menu__mobile" class="main-menu__mobile em-bar-block em-white em-hide em-hide-large em-hide-medium">
+        <a href="#" class="main-menu__mobile__item  em-bar-item em-button">Расписание</a>
+        <a href="#" class="main-menu__mobile__item  em-bar-item em-button">Результаты</a>
+        <a href="#" class="main-menu__mobile__item  em-bar-item em-button">Рейтинг</a>
+        <a href="#" class="main-menu__mobile__item  em-bar-item em-button">Услуги</a>
+        <a href="#" class="main-menu__mobile__item  em-bar-item em-button">О нас</a>
     </div>
 </div>
 
@@ -78,22 +79,16 @@
 
 
 <div class="welcome em-card-4">
-    <header class="em-container em-header-red">
-        <h1>Добро пожаловать на медицинский портал!</h1>
-    </header>
-
-    <div class="em-container">
-        <p>Томаты любят почти все люди, и нет дачника или садовода, который не выращивал бы их
-            на своём участке. Агротехника томатов довольно проста, независимо от того,
-            выращиваете Вы их в теплице или открытом грунте. Относительно того, как правильно
-            сажать помидоры, споров обычно не возникает. Во-первых, должно пройти время ночных
-            заморозков, а во-вторых, нужно выбрать для посадки пасмурный день, иначе томаты
-            будут долго болеть и плохо приживаться.</p>
+    <header class="welcome__header em-container">Добро пожаловать на медицинский портал!</header>
+    <div class="welcome__content em-container em-cell">
+        Томаты любят почти все люди, и нет дачника или садовода, который не выращивал бы их
+        на своём участке. Агротехника томатов довольно проста, независимо от того,
+        выращиваете Вы их в теплице или открытом грунте. Относительно того, как правильно
+        сажать помидоры, споров обычно не возникает. Во-первых, должно пройти время ночных
+        заморозков, а во-вторых, нужно выбрать для посадки пасмурный день, иначе томаты
+        будут долго болеть и плохо приживаться.
     </div>
 
-    <footer class="em-container em-blue">
-        <h5>Footer</h5> uyvuy
-    </footer>
 </div>
 
 
