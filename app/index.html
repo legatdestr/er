@@ -28,7 +28,7 @@
 
 
 </head>
-<body class="em-light-grey">
+<body>
 <!--[if IE]>
 <p class="browserupgrade">Вы используете <strong>устаревший</strong> браузер. Пожалуйста <a
         href="http://browsehappy.com/">обновите ваш браузер</a> иначе сайт может функционировать некорректно.</p>
@@ -78,9 +78,9 @@
 <!--//Main-menu-->
 
 
-<div class="welcome em-card-4">
-    <header class="welcome__header em-container">Добро пожаловать на медицинский портал!</header>
-    <div class="welcome__content em-container em-cell">
+<div class="welcome em-panel em-card">
+    <header class="welcome__header em-container em-border-bottom">Добро пожаловать на медицинский портал!</header>
+    <div class="welcome__content em-container">
         Томаты любят почти все люди, и нет дачника или садовода, который не выращивал бы их
         на своём участке. Агротехника томатов довольно проста, независимо от того,
         выращиваете Вы их в теплице или открытом грунте. Относительно того, как правильно
@@ -88,8 +88,33 @@
         заморозков, а во-вторых, нужно выбрать для посадки пасмурный день, иначе томаты
         будут долго болеть и плохо приживаться.
     </div>
+</div>
+
+
+<div class="service-selector em-panel em-card">
+
+    <div class="em-row">
+        <a href="javascript:void(0)" onclick="openService(event, 'paid-services');">
+            <div class="tablink em-col m6 em-center em-bottombar  em-white em-hover-light-grey">платные услуги</div>
+        </a>
+        <a href="javascript:void(0)" onclick="openService(event, 'oms-services');">
+            <div class="tablink em-col m6 em-center em-bottombar em-gray em-hover-light-grey">ОМС</div>
+        </a>
+    </div>
+
+    <div id="paid-services" class="em-container service em-animate-zoom" style="display:none">
+        <div class="em-col m4 em-panel em-button">расписание</div>
+        <div class="em-col m4 em-panel em-button">услуги</div>
+        <div class="em-col m4 em-panel em-button">результаты</div>
+    </div>
+
+    <div id="oms-services" class="em-container service em-animate-zoom" style="display:none">
+        <div class="em-col m6 em-panel em-button">расписание</div>
+        <div class="em-col m6 em-panel em-button">результаты</div>
+    </div>
 
 </div>
+
 
 
 <!-- //main code -->
@@ -102,9 +127,10 @@
 
 <!-- build:js scripts/main.js -->
 <script src="scripts/main-menu.js"></script>
+<script src="scripts/service-selector.js"></script>
 <script src="scripts/main.js"></script>
 <!-- endbuild -->
 
-<script src="scripts/google-analytics.js"></script>
+<script src="scripts/google-analytics.js" defer async></script>
 </body>
 </html>

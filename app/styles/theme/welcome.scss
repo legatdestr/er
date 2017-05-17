@@ -1,9 +1,22 @@
+.welcome .em-container {
+  padding: {
+    left: 30px;
+    right: 30px;
+  };
+
+}
+
 .welcome__header {
   line-height: 1;
   color: #ab2626;
   font: {
     size: 2.802rem;
     weight: 400;
+  };
+  background-color: white;
+  padding: {
+    top: 18px;
+    bottom: 18px;
   };
 }
 
@@ -13,5 +26,10 @@
     weight: 400;
     size: 1.384rem;
   };
-  text-align: left;
+  background-color: #f1f3f4;
+  padding: {
+    top: 12px;
+    bottom: 12px;
+  };
 }
+
