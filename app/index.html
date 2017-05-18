@@ -26,9 +26,12 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
 
-
 </head>
 <body>
+
+<p class="browserupgrade">Вы используете <strong>устаревший</strong> браузер. Пожалуйста <a
+        href="http://browsehappy.com/">обновите ваш браузер</a> иначе сайт может функционировать некорректно. (это демо удалим)</p>
+
 <!--[if IE]>
 <p class="browserupgrade">Вы используете <strong>устаревший</strong> браузер. Пожалуйста <a
         href="http://browsehappy.com/">обновите ваш браузер</a> иначе сайт может функционировать некорректно.</p>
@@ -49,7 +52,7 @@
         <a href="#" class="main-menu__nomobile__item  em-bar-item em-button em-hide-small">Услуги</a>
         <a href="#" class="main-menu__nomobile__item  em-bar-item em-button em-hide-small">О нас</a>
         <a href="javascript:void(0)" class="em-bar-item em-button em-right em-hide-large em-hide-medium"
-           onclick="mainMenuClick()">&#9776;</a>
+           onclick="EM.ui.mainMenu.click()">&#9776;</a>
     </div>
     <!--for mobile-->
     <div id="main-menu__mobile" class="main-menu__mobile em-bar-block em-white em-hide em-hide-large em-hide-medium">
@@ -61,60 +64,53 @@
     </div>
 </div>
 
-<script>
-    var
-        title = document.querySelector('.main-menu__site-title'),
-        cs = getComputedStyle(title);
-    console.log('.main-menu__site-title', cs.fontSize);
-
-
-    var
-        item = document.querySelector('.main-menu__mobile__item'),
-        cs = getComputedStyle(item);
-    console.log('.main-menu__mobile__item', cs.fontSize);
-
-</script>
 
 <!--//Main-menu-->
 
 
-<div class="welcome em-panel em-card">
-    <header class="welcome__header em-container em-border-bottom">Добро пожаловать на медицинский портал!</header>
-    <div class="welcome__content em-container">
-        Томаты любят почти все люди, и нет дачника или садовода, который не выращивал бы их
-        на своём участке. Агротехника томатов довольно проста, независимо от того,
-        выращиваете Вы их в теплице или открытом грунте. Относительно того, как правильно
-        сажать помидоры, споров обычно не возникает. Во-первых, должно пройти время ночных
-        заморозков, а во-вторых, нужно выбрать для посадки пасмурный день, иначе томаты
-        будут долго болеть и плохо приживаться.
+<div class="welcome em-panel">
+    <div class="welcome__container em-card">
+        <header class="welcome__header em-container em-border-bottom"><h2>Добро пожаловать на медицинский портал!</h2></header>
+        <div class="welcome__content em-container">
+            Томаты любят почти все люди, и нет дачника или садовода, который не выращивал бы их
+            на своём участке. Агротехника томатов довольно проста, независимо от того,
+            выращиваете Вы их в теплице или открытом грунте. Относительно того, как правильно
+            сажать помидоры, споров обычно не возникает. Во-первых, должно пройти время ночных
+            заморозков, а во-вторых, нужно выбрать для посадки пасмурный день, иначе томаты
+            будут долго болеть и плохо приживаться.
+        </div>
     </div>
 </div>
 
 
-<div class="service-selector em-panel em-card">
 
-    <div class="em-row">
-        <a href="javascript:void(0)" onclick="openService(event, 'paid-services');">
-            <div class="tablink em-col m6 em-center em-bottombar  em-white em-hover-light-grey">платные услуги</div>
-        </a>
-        <a href="javascript:void(0)" onclick="openService(event, 'oms-services');">
-            <div class="tablink em-col m6 em-center em-bottombar em-gray em-hover-light-grey">ОМС</div>
-        </a>
-    </div>
+<div class="service-selector em-container">
 
-    <div id="paid-services" class="em-container service em-animate-zoom" style="display:none">
-        <div class="em-col m4 em-panel em-button">расписание</div>
-        <div class="em-col m4 em-panel em-button">услуги</div>
-        <div class="em-col m4 em-panel em-button">результаты</div>
-    </div>
+    <div class="service-selector__container em-card">
 
-    <div id="oms-services" class="em-container service em-animate-zoom" style="display:none">
-        <div class="em-col m6 em-panel em-button">расписание</div>
-        <div class="em-col m6 em-panel em-button">результаты</div>
+        <div class="service-selector__container__tabs em-row">
+            <a href="javascript:void(0)" onclick="EM.ui.serviceSelector.open(event, 'paid-services');">
+                <div class="service-selector__container__tabs__item em-col m6 em-center em-bottombar  em-white em-hover-light-grey"><h2>платные услуги</h2></div>
+            </a>
+            <a href="javascript:void(0)" onclick="EM.ui.serviceSelector.open(event, 'oms-services');">
+                <div class="service-selector__container__tabs__item em-col m6 em-center em-bottombar em-gray em-hover-light-grey"><h2>ОМС</h2></div>
+            </a>
+        </div>
+
+        <div id="paid-services" class="em-container service em-animate-zoom" style="display:none">
+            <div class="em-col m4 em-panel em-button">расписание</div>
+            <div class="em-col m4 em-panel em-button">услуги</div>
+            <div class="em-col m4 em-panel em-button">результаты</div>
+        </div>
+
+        <div id="oms-services" class="em-container service em-animate-zoom" style="display:none">
+            <div class="em-col m6 em-panel em-button">расписание</div>
+            <div class="em-col m6 em-panel em-button">результаты</div>
+        </div>
+
     </div>
 
 </div>
-
 
 
 <!-- //main code -->
@@ -126,6 +122,8 @@
 <!-- endbuild -->
 
 <!-- build:js scripts/main.js -->
+<script src="scripts/EM.js"></script>
+<script src="scripts/em.ui.js"></script>
 <script src="scripts/main-menu.js"></script>
 <script src="scripts/service-selector.js"></script>
 <script src="scripts/main.js"></script>

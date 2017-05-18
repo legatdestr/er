@@ -1,0 +1,1 @@
+window.EM = (typeof EM === 'object' ? EM : window.EM = {});
