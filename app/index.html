@@ -14,12 +14,11 @@
     <!-- endbower -->
     <!-- endbuild -->
 
-    <link href="/fonts/Bicubik/Bicubik.css" rel="stylesheet">
-    <link href="/fonts/CenturyGothic/CenturyGothic.css" rel="stylesheet">
+    <link href="fonts/Bicubik/Bicubik.css" rel="stylesheet">
+    <link href="fonts/CenturyGothic/CenturyGothic.css" rel="stylesheet">
 
     <!-- for autocomplete only DELETE ME!!! in production! -->
     <link rel="deleteme" href="../.tmp/styles/em.css">
-    <link rel="deleteme" href="../.tmp/styles/common.css">
 
 
     <!-- build:css styles/main.css -->
@@ -29,8 +28,11 @@
 </head>
 <body>
 
+
 <p class="browserupgrade">Вы используете <strong>устаревший</strong> браузер. Пожалуйста <a
-        href="http://browsehappy.com/">обновите ваш браузер</a> иначе сайт может функционировать некорректно. (это демо удалим)</p>
+        href="http://browsehappy.com/">обновите ваш браузер</a> иначе сайт может функционировать некорректно. <span
+        style="text-decoration: underline;"> (это демо
+    удалим)</span></p>
 
 <!--[if IE]>
 <p class="browserupgrade">Вы используете <strong>устаревший</strong> браузер. Пожалуйста <a
@@ -41,9 +43,10 @@
 <!-- main code  -->
 
 <!--Main-menu-->
+
 <div class="main-menu">
     <!--for NOT mobile-->
-    <div class="main-menu__nomobile em-bar em-white">
+    <div class="main-menu__nomobile em-bar em-white em-wide em-padding em-card-2">
         <a href="/" class="main-menu__nomobile__item  em-bar-item em-button main-menu__site-title">МЕДИЦИНСКИЙ
             ПОРТАЛ</a>
         <a href="#" class="main-menu__nomobile__item  em-bar-item em-button em-hide-small">Расписание</a>
@@ -65,12 +68,28 @@
 </div>
 
 
-<!--//Main-menu-->
+<!-- Navbar (sit on top) -->
+<!--<div class="em-top">
+    <div class="em-bar em-white em-wide em-padding em-card-2">
+        <a href="#home" class="em-bar-item em-button"><b>BR</b> Architects</a>
+        &lt;!&ndash; Float links to the right. Hide them on small screens &ndash;&gt;
+        <div class="em-right em-hide-small">
+            <a href="#projects" class="em-bar-item em-button">Projects</a>
+            <a href="#about" class="em-bar-item em-button">About</a>
+            <a href="#contact" class="em-bar-item em-button">Contact</a>
+        </div>
+    </div>
+</div>
+-->
 
+<!-- !PAGE CONTENT! -->
 
-<div class="welcome em-panel">
+<!-- Welcome section -->
+<div class="welcome em-panel em-amber">
     <div class="welcome__container em-card">
-        <header class="welcome__header em-container em-border-bottom"><h2>Добро пожаловать на медицинский портал!</h2></header>
+        <header class="welcome__header em-container em-border-bottom"><h2>Добро пожаловать на медицинский
+            портал!</h2>
+        </header>
         <div class="welcome__content em-container">
             Томаты любят почти все люди, и нет дачника или садовода, который не выращивал бы их
             на своём участке. Агротехника томатов довольно проста, независимо от того,
@@ -82,38 +101,38 @@
     </div>
 </div>
 
-
-
-<div class="service-selector em-container">
-
+<!-- Service selector section -->
+<div class="service-selector em-panel  em-amber">
     <div class="service-selector__container em-card">
-
-        <div class="service-selector__container__tabs em-row">
-            <a href="javascript:void(0)" onclick="EM.ui.serviceSelector.open(event, 'paid-services');">
-                <div class="service-selector__container__tabs__item em-col m6 em-center em-bottombar  em-white em-hover-light-grey"><h2>платные услуги</h2></div>
-            </a>
-            <a href="javascript:void(0)" onclick="EM.ui.serviceSelector.open(event, 'oms-services');">
-                <div class="service-selector__container__tabs__item em-col m6 em-center em-bottombar em-gray em-hover-light-grey"><h2>ОМС</h2></div>
-            </a>
+        <div class="tabs">
+            <div class="tabs__items-headers em-row">
+                <div class="tabs__item em-white em-hover-light-blue"><h2>платные услуги</h2></div>
+                <div class="tabs__item em-red em-hover-light-blue"><h2>ОМС</h2></div>
+            </div>
+            <div class="tabs__items-content em-row em-hover-light-red">
+                <div class="tabs__item -content em-container">кнопки платных услуг</div>
+                <div class="tabs__item -content em-container">кнопки ОМС</div>
+            </div>
         </div>
-
-        <div id="paid-services" class="em-container service em-animate-zoom" style="display:none">
-            <div class="em-col m4 em-panel em-button">расписание</div>
-            <div class="em-col m4 em-panel em-button">услуги</div>
-            <div class="em-col m4 em-panel em-button">результаты</div>
-        </div>
-
-        <div id="oms-services" class="em-container service em-animate-zoom" style="display:none">
-            <div class="em-col m6 em-panel em-button">расписание</div>
-            <div class="em-col m6 em-panel em-button">результаты</div>
-        </div>
-
     </div>
-
 </div>
 
-
-<!-- //main code -->
+<!-- Service selector section -->
+<div class="service-selector  em-panel  em-amber">
+    <div class="service-selector__container">
+        <!-- tabs -->
+        <div class="tabs">
+            <div class="tabs__switchers">
+                <div class="tabs__switcher"><h2>платные услуги</h2></div>
+                <div class="tabs__switcher"><h2>ОМС</h2></div>
+            </div>
+            <div class="tabs__items">
+                <div class="tabs__item" id="tabs-item-paid-services">кнопки платных услуг</div>
+                <div class="tabs__item" id="tabs-item-oms">кнопки ОМС</div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <!-- build:js scripts/vendor.js -->
