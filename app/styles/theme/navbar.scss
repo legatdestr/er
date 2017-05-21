@@ -1,6 +1,7 @@
 .navbar {
-  border-bottom: 14px solid #ab2626;
-  &__main {
+  border-bottom: $navbar-border-bottom-size solid #ab2626;
+  &__logo {
+     padding-top: 14px;
     font: {
       family: 'BicubikRegular', AppleGothic, sans-serif;
       size: 2.48rem;
@@ -13,14 +14,16 @@
     };
 
   };
-  margin: {
-    bottom: 22px;
-  };
 
-}
+  .em-bar-item {
+    min-height: 64px;
+    line-height: 1;
+  }
 
-.navbar-small-screens {
-  margin: {
-    top: 68px;
-  };
+  &__hamburger {
+    font: {
+      size: 3.85rem;
+    };
+  }
+
 }

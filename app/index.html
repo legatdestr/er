@@ -17,7 +17,13 @@
     <link href="fonts/Bicubik/Bicubik.css" rel="stylesheet">
     <link href="fonts/CenturyGothic/CenturyGothic.css" rel="stylesheet">
 
-    <!-- for autocomplete only DELETE ME!!! in production! -->
+    <!--
+        TODO: Оптимизировать. данный стиль используется лишь для 1-ой иконки гамбургера. ~80 килобайт лишних.
+        Живой гамбургер https://jonsuh.com/hamburgers/   извлечь из проекта минимально достаточную иконку
+    -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- For IDE autocomplete only DELETE ME in production!!! -->
     <link rel="deleteme" href="../.tmp/styles/em.css">
 
 
@@ -29,32 +35,152 @@
 <body>
 
 <!-- Navbar -->
-<div class="navbar em-top">
-    <div class="em-bar em-white em-card-2">
-        <a class="em-bar-item em-button em-padding-large em-hide-large em-right"
-           href="javascript:void(0)"
-           onclick="EM.ui.navbar.click()" title="Показать меню">&#9776;</a>
-        <a href="#" class="navbar__main em-bar-item em-button">Медицинский портал</a>
-        <a href="#schedule" class="em-bar-item em-button em-padding-large em-hide-medium em-hide-small">Расписание</a>
-        <a href="#analazys-results" class="em-bar-item em-button em-padding-large em-hide-medium em-hide-small">Результаты</a>
-        <a href="#rating" class="em-bar-item em-button em-padding-large em-hide-medium em-hide-small">Рейтинг</a>
-        <a href="#services" class="em-bar-item em-button em-padding-large em-hide-medium em-hide-small">Услуги</a>
-        <a href="#contacts" class="em-bar-item em-button em-padding-large em-hide-medium em-hide-small">О нас</a>
+<nav id="navbar" class="navbar em-top">
+    <div class="em-bar em-white em-card-2 em-left-align em-large">
+        <a class="navbar__hamburger em-bar-item em-button em-hide-large em-right em-hover-light-grey"
+           href="javascript:void(0);" onclick="EM.ui.navbar.click()" title="Показать\скрыть меню"><i
+                class="fa fa-bars"></i></a>
+        <a href="/" class="em-bar-item em-button em-white">
+            <div class="navbar__logo">Медицинский портал</div>
+        </a>
+        <a href="#schedule"
+           class="em-bar-item em-button em-hide-medium em-hide-small em-hover-light-grey">Расписание</a>
+        <a href="#analazys-results" class="em-bar-item em-button em-hide-medium em-hide-small em-hover-light-grey">Результаты</a>
+        <a href="#rating"
+           class="em-bar-item em-button em-hide-medium em-hide-small em-hover-light-grey">Рейтинг</a>
+        <a href="#services"
+           class="em-bar-item em-button em-hide-medium em-hide-small em-hover-light-grey">Услуги</a>
+        <a href="#contacts" class="em-bar-item em-button em-hide-medium em-hide-small em-hover-light-grey">О нас</a>
+    </div>
+
+    <!-- Navbar on small screens -->
+    <div id="navbar-small-screens" class="em-bar-block em-white em-hide em-hide-large em-large">
+        <a href="#schedule" class="em-bar-item em-button em-padding-large">Расписание</a>
+        <a href="#analazys-results" class="em-bar-item em-button em-padding-large">Результаты</a>
+        <a href="#rating" class="em-bar-item em-button em-padding-large">Рейтинг</a>
+        <a href="#services" class="em-bar-item em-button em-padding-large">Услуги</a>
+        <a href="#contacts" class="em-bar-item em-button em-padding-large">О нас</a>
+    </div>
+</nav>
+
+<!-- Header -->
+<header id="header" class="header em-section em-content">
+    <div class="em-card-2">
+        <div class="header__header em-container"><h2>Добро пожаловать на медицинский портал!</h2></div>
+        <div class="header__content em-container">Томаты любят почти все люди, и нет дачника или садовода, который не
+            выращивал бы их на своём участке. Агротехника томатов довольно проста, независимо от того, выращиваете Вы их
+            в
+            теплице или открытом грунте. Относительно того, как правильно сажать помидоры, споров обычно не возникает.
+            Во-первых, должно пройти время ночных заморозков, а во-вторых, нужно выбрать для посадки пасмурный день,
+            иначе
+            томаты будут долго болеть и плохо приживаться.
+        </div>
+    </div>
+</header>
+
+<!-- Service selector -->
+<div id="service-selector" class="em-section em-border em-card-2 em-content">
+    <div class="tabs em-container">
+        <div class="tabs__switcher em-row">
+            <div class="tabs__item em-green em-hover-light-grey"><h2>Платные услуги</h2></div>
+            <div class="tabs__item em-light-green em-hover-light-grey"><h2>ОМС</h2></div>
+        </div>
+        <div class="tabs__content em-row">
+            <div class="tabs__item">Содержимое вкладки "Платные услуги"</div>
+            <div class="tabs__item">Содержимое вкладки "ОМС"</div>
+        </div>
     </div>
 </div>
 
-<!-- Navbar on small screens -->
-<div id="navbar-small-screens" class="navbar navbar-small-screens em-bar-block em-white em-hide em-hide-large em-top">
-    <a href="#schedule" class="em-bar-item em-button em-padding-large">Расписание</a>
-    <a href="#analazys-results" class="em-bar-item em-button em-padding-large">Результаты</a>
-    <a href="#rating" class="em-bar-item em-button em-padding-large">Рейтинг</a>
-    <a href="#services" class="em-bar-item em-button em-padding-large">Услуги</a>
-    <a href="#contacts" class="em-bar-item em-button em-padding-large">О нас</a>
+
+<div id="main" class="em-main em-content em-text-white">
+
+    <div id="schedule" class="em-section em-border em-card-2">
+        <div class="em-container em-large">
+            Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной
+            "рыбой"
+            для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию
+            размеров и
+            форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без
+            заметных
+            изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили
+            публикация
+            листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной
+            вёрстки типа
+            Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.
+        </div>
+    </div>
+
+
+    <div id="analazys-results" class="em-section em-border em-card-2">
+        <div class="em-container em-large">
+            Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной
+            "рыбой"
+            для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию
+            размеров и
+            форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без
+            заметных
+            изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили
+            публикация
+            листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной
+            вёрстки типа
+            Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.
+        </div>
+    </div>
+
+    <div id="rating" class="em-section em-border em-card-2">
+        <div class="em-container em-large">
+            Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной
+            "рыбой"
+            для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию
+            размеров и
+            форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без
+            заметных
+            изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили
+            публикация
+            листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной
+            вёрстки типа
+            Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.
+        </div>
+    </div>
+
+    <div id="services" class="em-section em-border em-card-2">
+        <div class="em-container em-large">
+            Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной
+            "рыбой"
+            для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию
+            размеров и
+            форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без
+            заметных
+            изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили
+            публикация
+            листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной
+            вёрстки типа
+            Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.
+        </div>
+    </div>
+
+    <div id="contacts" class="em-section em-border em-card-2">
+        <div class="em-container em-large">
+            Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной
+            "рыбой"
+            для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию
+            размеров и
+            форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без
+            заметных
+            изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили
+            публикация
+            листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной
+            вёрстки типа
+            Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.
+        </div>
+    </div>
+
+
 </div>
 
 
-
-<footer class="em-bottom">
+<footer class="em-section em-border em-large">
     footer
 </footer>
 

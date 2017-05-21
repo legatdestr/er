@@ -1,7 +1,15 @@
 .tabs {
+
+  &__switcher {
+    display: flex;
+  }
+
+
   &__items-headers {
     display: flex;
   }
+
+  /*
   &__item {
     display: flex;
     align-items: center;
@@ -9,6 +17,8 @@
     justify-content: center;
     align-self: stretch;
     width: 49.9999%;
-    /*@media screen (max-width:)*/
-  };
+    !*@media screen (max-width:)*!
+  }*/;
 }
+
+

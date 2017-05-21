@@ -1,14 +1,10 @@
+@import "vars";
 @import "default";
 @import "navbar";
 
-@import "welcome";
-@import "service-selector";
+@import "header";
 @import "tabs";
 
-
-.em-bar .em-bar-item {
-  padding: 20px 16px;
-}
 
 html, body {
   background-color: #006d8c;
