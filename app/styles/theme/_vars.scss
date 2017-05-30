@@ -1,5 +1,8 @@
+$color-red: #ab2626;
+$color-grey: #b5b5b5;
+
 $navbar-main-height: 64px;
 $navbar-border-bottom-size: 14px;
 $navbar-item-min-height: $navbar-main-height;
 
-$header-padding-top: $navbar-item-min-height + $navbar-border-bottom-size;
+$header-padding-top: $navbar-item-min-height + $navbar-border-bottom-size +25px;

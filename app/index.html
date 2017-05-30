@@ -41,7 +41,7 @@
            href="javascript:void(0);" onclick="EM.ui.navbar.click()" title="Показать\скрыть меню"><i
                 class="fa fa-bars"></i></a>
         <a href="/" class="navbar__item em-button em-white">
-            <div class="navbar__logo em-animate-right">Медицинский портал</div>
+            <div class="navbar__logo">Медицинский портал</div>
         </a>
         <a href="#schedule"
            class="navbar__item em-button em-hide-medium em-hide-small em-hover-light-grey">Расписание</a>
@@ -64,114 +64,104 @@
     </div>
 </nav>
 
-<!-- Header -->
-<header id="header" class="em-border  em-section em-content  em-card-2">
-    <div class="header">
-        <div class="header__header em-container"><h2>Добро пожаловать на медицинский портал!</h2></div>
-        <div class="header__content em-container">Томаты любят почти все люди, и нет дачника или садовода, который
-            не
-            выращивал бы их на своём участке. Агротехника томатов довольно проста, независимо от того, выращиваете
-        </div>
-    </div>
-</header>
+<!-- Page -->
+<div class="em-content" style="max-width:1100px;">
 
-
-<!-- Service selector -->
-<section id="service-selector" class="em-section em-content em-border em-card-2">
-    <div class="service-selector">
-        <div class="tabs">
-            <div class="tabs__switcher em-row">
-                <div class="tabs__item em-hover-light-grey"><h2>Платные услуги</h2></div>
-                <div class="tabs__item em-hover-light-grey"><h2>ОМС</h2></div>
+    <!-- Header -->
+    <header id="header" class="em-row">
+        <div class="header em-card-2">
+            <div class="header__header em-container em-border-bottom"><h2>Добро пожаловать на медицинский портал!</h2>
             </div>
-            <div class="tabs__content em-row">
-                <div class="tabs__item"><button class="em-btn em-red">Платные услуги</button></div>
-                <div class="tabs__item"><button class="em-btn em-red">ОМС</button></div>
+            <div class="header__content em-container">Томаты любят почти все люди, и нет дачника или садовода, который
+                не выращивал бы их на своём участке. Агротехника томатов довольно проста, независимо от того,
+                выращиваете
             </div>
         </div>
-    </div>
-</section>
+    </header>
 
-<!-- Schedule -->
-<section id="schedule" class="em-section em-content em-border em-card-2">
-    <div class="schedule em-container em-large">
-        <div class="header__header em-container"><h2>Вступительное слово</h2></div>
+    <!-- Service selector --><!-- Платные услуги | ОМС -->
+    <section id="service-selector" class="site-section em-row">
+        <div class="service-selector  em-card-2">
 
-        <h1>Расписание</h1>
+            <!-- tablinks -->
+            <div class="service-selector__tabs-panel em-row">
+                <a href="javascript:void(0)" onclick="EM.ui.serviceSelector.openTab(event, 'paid-services');">
+                    <div class="service-selector__tablink em-half color-gray em-card-2 em-center"><h2>Платные
+                        услуги</h2>
+                    </div>
+                </a>
+                <a href="javascript:void(0)" onclick="EM.ui.serviceSelector.openTab(event, 'oms-service');">
+                    <div class="service-selector__tablink em-half em-card-2 em-center"><h2>ОМС</h2>
+                    </div>
+                </a>
+            </div>
 
-        <button class="em-btn em-red">Кнопка наша</button>
-    </div>
-</section>
+
+            <!-- tabs content -->
+            <div class="service-selector__tabs-content em-center">
+                <!-- active tab content by default -->
+                <div class="service-selector__tabs-content-item em-bar" tabName="paid-services">
+                    <a href="#schedule" class="em-button color-red em-text-white"><h2>расписание</h2></a>
+                    <a href="#services" class="em-button color-red em-text-white"><h2>услуги</h2></a>
+                    <a href="#analazys-results" class="em-button color-red em-text-white"><h2>результаты</h2></a>
+                    <a href="#rating" class="em-button color-red em-text-white"><h2>рейтинг</h2></a>
+                </div>
+                <div class="service-selector__tabs-content-item em-bar" tabName="oms-service" style="display:none">
+                    <a href="#schedule" class="em-button color-red em-text-white"><h2>расписание</h2></a>
+                    <a href="#services" class="em-button color-red em-text-white"><h2>услуги</h2></a>
+                    <a href="#analazys-results" class="em-button  color-red em-text-white"><h2>результаты</h2></a>
+                </div>
+            </div>
 
 
-<!-- Analazys results -->
-<section id="analazys-results" class="em-section em-content em-border em-card-2">
-    <div class="analazys-results em-container em-large">
-        Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной
-        "рыбой"
-        для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию
-        размеров и
-        форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без
-        заметных
-        изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили
-        публикация
-        листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной
-        вёрстки типа
-        Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.
-    </div>
-</section>
+        </div>
+    </section>
 
-<section id="rating" class="em-section em-content em-border em-card-2">
-    <div class="rating em-container em-large">
-        Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной
-        "рыбой"
-        для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию
-        размеров и
-        форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без
-        заметных
-        изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили
-        публикация
-        листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной
-        вёрстки типа
-        Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.
-    </div>
-</section>
 
-<section id="services" class="em-section em-border em-card-2">
-    <div class="services em-container em-large">
-        Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной
-        "рыбой"
-        для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию
-        размеров и
-        форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без
-        заметных
-        изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили
-        публикация
-        листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной
-        вёрстки типа
-        Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.
-    </div>
-</section>
+    <!-- Schedule -->
+    <section id="schedule" class="site-section em-section">
+        <div class="em-container">
+            <div class="site-section__header">Расписание</div>
+        </div>
+        <div class="em-container">
+            <div class="site-section__article-header">Вступительное слово</div>
+            <article class="site-section__article">
+                Огурец – единственный овощ (а с точки зрения ботаники
+                - фрукт), который мы употребляем в пищу недозрелым.
+                Огурцы весьма популярны в составе овощных салатов, а
+                также в засоленном или маринованном виде. В России
+                и других славянских странах огурец - излюбленная
+                закуска, а его рассол – любимое средство от похмелья.
+                За многочисленные "заслуги" в 2007 году в г. Шклове
+                (Беларусь) был даже открыт памятник огурцу.
+            </article>
+        </div>
+        <a href="//er.em70.ru" target="_blank" class="em-button color-red em-text-white"><h2>расписание</h2></a>
+    </section>
 
-<section id="contacts" class="contacts em-section em-border em-card-2">
-    <div class="em-container em-large">
-        Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной
-        "рыбой"
-        для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал большую коллекцию
-        размеров и
-        форм шрифтов, используя Lorem Ipsum для распечатки образцов. Lorem Ipsum не только успешно пережил без
-        заметных
-        изменений пять веков, но и перешагнул в электронный дизайн. Его популяризации в новое время послужили
-        публикация
-        листов Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной
-        вёрстки типа
-        Aldus PageMaker, в шаблонах которых используется Lorem Ipsum.
-    </div>
-</section>
 
-<footer class="footer em-section em-border em-large">
-    footer
-</footer>
+    <script type="text/javascript">
+        !(function () {
+            "use strict";
+            var sections = ['analazys-results', 'rating', 'services', 'contacts'],
+                schedule = document.querySelector('#schedule');
+            sections.forEach(function (name) {
+                var newSection = schedule.cloneNode(true);
+                newSection.id = name;
+                document.body.appendChild(newSection);
+            });
+
+        }());
+
+
+    </script>
+
+
+    <!-- End page content -->
+</div>
+
+
+<footer id="footer" class="em-section em-green">footer</footer>
 
 
 <!-- build:js scripts/vendor.js -->

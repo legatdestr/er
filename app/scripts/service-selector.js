@@ -1,15 +1,19 @@
 EM.ui.serviceSelector = {
-    open: (evt, serviceName) => {
-        var i, x, tablinks;
-        x = document.getElementsByClassName('service');
-        for (i = 0; i < x.length; i++) {
-            x[i].style.display = 'none';
-        }
-        tablinks = document.getElementsByClassName('tablink');
-        for (i = 0; i < x.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace('em-border-red', '');
-        }
-        document.getElementById(serviceName).style.display = 'block';
-        evt.currentTarget.firstElementChild.className += ' em-border-red';
+    openTab: function (evt, name) {
+        const activeCssClass = 'color-gray';
+        /* set active tab */
+        let tablinks = document.querySelectorAll('.service-selector__tablink');
+        tablinks.forEach(function(link){
+            link.className = link.className.replace(' ' + activeCssClass, '');
+        });
+        /* hide\show tabs content */
+        let services = document.querySelectorAll('.service-selector__tabs-content-item');
+        services.forEach(function (service) {
+            let tabName = service.getAttribute('tabName');
+            EM.isString(tabName) && (tabName === name) && (service.style.display = 'block')
+            && (evt.currentTarget.firstElementChild.className += (' ' + activeCssClass) )
+            || (service.style.display = 'none');
+
+        });
     }
 };

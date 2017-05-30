@@ -3,9 +3,25 @@
 @import "navbar";
 
 @import "header";
-@import "tabs";
+
+@import "service-selector";
+@import "site-sections";
 
 
 html, body {
- /* background-color: #006d8c;*/
+  background-color: #006d8c;
+  background: {
+    image: url("../images/header_background.png");
+    repeat: repeat;
+    position: right top;
+    attachment: fixed;
+  }
+}
+
+.color-gray {
+  background-color: $color-grey !important;
+}
+
+.color-red {
+  background-color: $color-red !important;
 }

@@ -2,6 +2,9 @@
   padding: {
     top: $header-padding-top;
   };
+  margin: {
+    bottom: 42px;
+  };
 }
 
 .header {
@@ -15,7 +18,7 @@
 
   &__header {
     line-height: 1;
-    color: #ab2626;
+    color: $color-red;
     background-color: white;
   }
 ;

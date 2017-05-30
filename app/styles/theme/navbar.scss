@@ -1,6 +1,6 @@
 
 .navbar {
-  border-bottom: $navbar-border-bottom-size solid #ab2626;
+  border-bottom: $navbar-border-bottom-size solid $color-red;
   &__logo {
     font: {
       family: 'BicubikRegular', AppleGothic, sans-serif;
@@ -13,7 +13,8 @@
       }
     }
   ;
-  };
+  }
+;
 
   &__hamburger {
     font: {
@@ -23,9 +24,8 @@
   }
 
   &__item {
-    display: block;
     text-align: left;
-    float: left;
     min-height: $navbar-item-min-height;
+
   }
 }

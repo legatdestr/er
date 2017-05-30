@@ -1,0 +1,40 @@
+.site-section {
+  background-color: white;
+
+  &__header {
+    font-size: 3.933rem;
+  }
+;
+
+  &__article-header {
+    font-size: 5.333rem;
+    color: $color-red;
+  }
+;
+
+  &__article {
+    font-size: 2.172rem;
+  }
+;
+}
+
+#schedule {
+
+  $icon-width: 84px;
+  $icon-height: 75px;
+
+  .site-section {
+    &__header {
+      background: {
+        image: url("../images/schedule-icon-black.png");
+        repeat: no-repeat;
+        position: left top;
+      };
+      padding: {
+        left: $icon-width + 14px;
+      };
+      min-height: $icon-height;
+      line-height: $icon-height;
+    }
+  }
+}
