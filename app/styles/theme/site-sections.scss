@@ -1,22 +1,62 @@
 .site-section {
-  background-color: white;
+  background-color: rgba(245, 248, 250, 0.85);
+
+  font-weight: 400;
 
   &__header {
-    font-size: 3.933rem;
+    $fontsize: 3.933rem;
+    font-size: $fontsize;
+    @media all and (max-width: 500px) {
+      font-size: $fontsize / 2;
+    }
   }
 ;
 
+  $common-margin: 40px;
+  $header-padding-left: $common-margin;
+  $article-margin-bottom: $common-margin * .5;
+
   &__article-header {
-    font-size: 5.333rem;
+    $fontsize: 5.333rem;
+    font-size: $fontsize;
+    @media all and (max-width: 500px) {
+      font-size: $fontsize / 2;
+      margin: {
+        left: $common-margin /2;
+        right: $common-margin /2;
+      };
+      padding: {
+        left: $header-padding-left /2;
+      };
+    }
     color: $color-red;
+
+    margin: {
+      left: $common-margin;
+      right: $common-margin;
+
+    };
+
+    padding: {
+      left: $header-padding-left;
+    };
   }
 ;
 
   &__article {
     font-size: 2.172rem;
+    margin: {
+      left: $common-margin;
+      right: $common-margin;
+      bottom: $article-margin-bottom;
+    };
   }
 ;
 }
+
+
+$site-section-header-paddinng-left: 14px;
+
 
 #schedule {
 
@@ -29,10 +69,105 @@
         image: url("../images/schedule-icon-black.png");
         repeat: no-repeat;
         position: left top;
-      };
+      }
+    ;
       padding: {
-        left: $icon-width + 14px;
-      };
+        left: $icon-width + $site-section-header-paddinng-left;
+      ;
+      }
+    ;
+      min-height: $icon-height;
+      line-height: $icon-height;
+    }
+  }
+}
+
+
+#analazys-results {
+  $icon-width: 58px;
+  $icon-height: 100px;
+
+  .site-section {
+    &__header {
+      background: {
+        image: url("../images/analazys-results-icon-black.png");
+        repeat: no-repeat;
+        position: left top;
+      }
+    ;
+      padding: {
+        left: $icon-width + $site-section-header-paddinng-left;
+
+      }
+    ;
+      min-height: $icon-height;
+      line-height: $icon-height;
+    }
+  }
+}
+
+#rating {
+  $icon-width: 82px;
+  $icon-height: 71px;
+
+  .site-section {
+    &__header {
+      background: {
+        image: url("../images/rating-icon-black.png");
+        repeat: no-repeat;
+        position: left top;
+      }
+    ;
+      padding: {
+        left: $icon-width + $site-section-header-paddinng-left;
+      }
+    ;
+      min-height: $icon-height;
+      line-height: $icon-height;
+    }
+  }
+}
+
+
+#services {
+  $icon-width: 73px;
+  $icon-height: 79px;
+
+  .site-section {
+    &__header {
+      background: {
+        image: url("../images/services-icon-black.png");
+        repeat: no-repeat;
+        position: left top;
+      }
+    ;
+      padding: {
+        left: $icon-width + $site-section-header-paddinng-left;
+      }
+    ;
+      min-height: $icon-height;
+      line-height: $icon-height;
+    }
+  }
+}
+
+
+#about {
+  $icon-width: 78px;
+  $icon-height: 69px;
+
+  .site-section {
+    &__header {
+      background: {
+        image: url("../images/about-icon-black.png");
+        repeat: no-repeat;
+        position: left top;
+      }
+    ;
+      padding: {
+        left: $icon-width + $site-section-header-paddinng-left;
+      }
+    ;
       min-height: $icon-height;
       line-height: $icon-height;
     }

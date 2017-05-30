@@ -8,3 +8,16 @@ EM.ui.navbar = {
         }
     }
 };
+
+/**
+ * Вносит поправку на padding хедера при переходе по якорю.. Иначе после кликка заголовок секции скрыт под меню
+ */
+!(function () {
+    const menu = window.document.querySelector('#navbar-small-screens');
+    menu.addEventListener('click', function (e) {
+        setTimeout(function () {
+            let headerPaddingTop = 105, val = headerPaddingTop ;
+            window.scrollTo(0, window.scrollY - val);
+        }, 20);
+    });
+}());

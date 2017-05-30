@@ -6,6 +6,7 @@
 
 @import "service-selector";
 @import "site-sections";
+@import "controls";
 
 
 html, body {
@@ -17,6 +18,7 @@ html, body {
     attachment: fixed;
   }
 }
+
 
 .color-gray {
   background-color: $color-grey !important;

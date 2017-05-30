@@ -1,9 +1,11 @@
 .browserupgrade {
   position: absolute;
-  margin: .2em .2em;
-  background: #ccc;
+  background-color: black;
+  min-height: 1rem;
   color: #fa0c14;
   padding: 0.2em 0;
-  top: 0px;
+  top: 0;
+  left: 0;
   opacity: 0.8;
+  z-index: 9999;
 }
