@@ -1,29 +1,31 @@
+
 .navbar {
   border-bottom: $navbar-border-bottom-size solid #ab2626;
   &__logo {
-     padding-top: 14px;
     font: {
       family: 'BicubikRegular', AppleGothic, sans-serif;
       size: 2.48rem;
     }
-    line-height: 1;
+  ;
     @media (max-width: 460px) {
       font: {
         size: 1.5rem;
       }
-    };
-
+    }
+  ;
   };
-
-  .em-bar-item {
-    min-height: 64px;
-    line-height: 1;
-  }
 
   &__hamburger {
     font: {
       size: 3.85rem;
-    };
+    }
+  ;
   }
 
+  &__item {
+    display: block;
+    text-align: left;
+    float: left;
+    min-height: $navbar-item-min-height;
+  }
 }

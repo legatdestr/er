@@ -1,2 +1,5 @@
+$navbar-main-height: 64px;
 $navbar-border-bottom-size: 14px;
-$navbar-height: 78px;
+$navbar-item-min-height: $navbar-main-height;
+
+$header-padding-top: $navbar-item-min-height + $navbar-border-bottom-size;
