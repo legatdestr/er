@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Медицинский портал">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Тестовая страница для виджета платных услуг</title>
+
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <link href="fonts/CenturyGothic/CenturyGothic.css" rel="stylesheet">
+
+    <!-- build:css styles/main.css -->
+        <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+    <style>
+        .content {
+            padding: 20px;
+            height:500px;
+            max-width: 1100px; 
+            margin: 50px auto; 
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 
+                        0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
+            background: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div id="paid-services-widget"></div>
+    </div>
+<!-- build:js scripts/vendor.js -->
+<!-- bower:js -->
+<script src="/bower_components/handlebars/handlebars.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+
+<!-- build:js scripts/main.js -->
+<script src="templates/templates.js"></script>
+<!-- endbuild -->
+
+<script>
+    var ps_widget_params = {
+        psId: "#paid-services-widget"
+    }
+</script>
+<script src="http://10.10.10.143:9000/scripts/ps-widget/ps-widget.js"></script>
+
+
+</body>
+</html>
