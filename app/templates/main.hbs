@@ -1,0 +1,38 @@
+<div class="loading-overlay">
+	<div class="spinner"></div>
+</div>
+
+<div class="em-container em-teal">
+    <h2>{{formHeader}}</h2>
+</div>
+<form id={{searchFormId}} class="em-container em-card-4 em-padding">
+    <br>
+    <p>      
+        <label class="em-text-grey">{{searchInputLabel}}</label>
+        <input placeholder={{searchPlaceholder}} class="em-input em-border" type="text" required="">
+    </p>
+    <a class="em-button em-teal em-text-white" onclick="toggleAdvancedSearch()">расширенный поиск</a>
+    <div id={{advancedSearchId}} class="advanced-search em-margin-top">
+    	<div class="advanced-search-group em-margin-bottom">
+    		<label class="em-text-grey">Тип услуги</label><br>
+    		<select name="category" id="category">
+    			<option value="default">-- Не выбран --</option>
+	    		{{#each categories}}
+	    			<option value="{{this}}">{{this}}</option>
+	    		{{/each}}
+	    	</select>
+    	</div>
+    	<div class="advanced-search-group em-margin-bottom">
+	    	<label class="em-text-grey">Название учреждения</label><br>
+	    	<select name="category" id="category">
+	    		<option value="default">-- Не выбран --</option>
+	    		{{#each lpus}}
+	    			<option value="{{this}}">{{this}}</option>
+	    		{{/each}}
+	    	</select>
+	    </div>
+    </div>
+    <a class="em-button em-red em-text-white" onclick="runSearch(this)">Поиск</a>
+    <a class="em-button em-red em-text-white" onclick="resetSearchForm()">Сбросить</a>
+</form>
+<div id={{psContentId}} class="ps-content em-margin-top em-margin-bottom"></div>
