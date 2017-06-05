@@ -1,16 +1,27 @@
 <div class="em-row">
-{{#each services}}
-	<ul class="em-ul em-card-4 ps-content__item" style="width:100%">
-	  <li><strong>Услуга</strong>: {{this.service_name}}</li>
-	  <li><strong>Цена</strong>: {{this.service_price}}</li>
-	  <li><strong>Описание</strong>: {{this.service_desc}}</li>
-	  <li><strong>Учреждение</strong>: {{this.lpu_name}}</li>
-	  <li><strong>Рейтинг учреждения</strong>: {{this.lpu_ratio}}</li>
-	  <li><strong class="em-block em-margin-bottom">Адреса:</strong>
-			{{#each this.lpu_addresses}}
-				<div class="em-leftbar em-border-red em-padding em-margin-bottom">{{this.name}}: {{this.address}}</div>
-			{{/each}}
-	  </li>
-	</ul>
-{{/each}}	
+	<div class="ps-sorting em-row">
+	    <div class="em-right">
+	        <div class="ps-sorting__title">Сортировать по:</div>
+	        <div class="ps-sorting__item ps-button em-red" data-sort-field="service_price" onclick="EM.ps.sort(this);">Цена</div>
+	        <div class="ps-sorting__item ps-button em-red" data-sort-field="lpu_ratio" onclick="EM.ps.sort(this);">Рейтинг учреждения</div>
+	        <div class="ps-sorting__item ps-button em-red" data-sort-field="service_name" onclick="EM.ps.sort(this);">Название услуги</div>
+	        <div class="ps-sorting__item ps-button em-red" data-sort-field="category_name" onclick="EM.ps.sort(this);">Категория услуги</div>
+	    </div>
+	</div>
+	<div class="ps-items">
+		{{#each services}}
+			<ul class="em-ul em-card-4 ps-content__item">
+			  <li><strong>Услуга</strong>: {{this.service_name}}</li>
+			  <li><strong>Цена</strong>: {{this.service_price}}</li>
+			  <li><strong>Описание</strong>: {{this.service_desc}}</li>
+			  <li><strong>Учреждение</strong>: {{this.lpu_name}}</li>
+			  <li><strong>Рейтинг учреждения</strong>: {{this.lpu_ratio}}</li>
+			  <li><strong class="em-block em-margin-bottom">Адреса:</strong>
+					{{#each this.lpu_addresses}}
+						<div class="em-leftbar em-border-red em-padding em-margin-bottom">{{this.name}}: {{this.address}}</div>
+					{{/each}}
+			  </li>
+			</ul>
+		{{/each}}
+	</div>
 </div>

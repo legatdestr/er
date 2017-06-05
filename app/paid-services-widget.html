@@ -53,18 +53,20 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
 <script>
-    var ps_widget_params = {
-        psId: "paid-services-widget",
-        formHeader: 'Поиск услуг',
-        searchPlaceholder: 'Поиск...',
-        searchInputLabel: 'Поисковый запрос',
-        advancedSearchId: 'advancedSearch'
-    }
+    document.addEventListener('DOMContentLoaded', function() {
+        EM.ps.run({
+            psId: "paid-services-widget",
+            formHeader: 'Поиск услуг',
+            searchPlaceholder: 'Поиск...',
+            searchInputLabel: 'Поисковый запрос',
+            advancedSearchId: 'advancedSearch'
+        });
+    })
 </script>
 <!-- build:js scripts/ps-widget.js -->
-<script src="scripts/ps-widget.js"></script>
-<script src="templates/templates.js"></script>
-<script src="scripts/select.js"></script>
+<script src="templates/templates.js" defer></script>
+<script src="scripts/select.js" defer></script>
+<script src="scripts/ps-widget.js" defer></script>
 <!-- endbuild -->
 
 </body>

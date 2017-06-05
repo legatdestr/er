@@ -1,6 +1,6 @@
-<div class="loading-overlay">
-	<div class="spinner"></div>
-</div>
+<!-- <div class="loading-overlay">
+    <div class="spinner"></div>
+</div> -->
 
 <div class="em-container em-teal">
     <h2>{{formHeader}}</h2>
@@ -9,30 +9,33 @@
     <br>
     <p>      
         <label class="em-text-grey">{{searchInputLabel}}</label>
-        <input placeholder={{searchPlaceholder}} class="em-input em-border" type="text" required="">
+        <input placeholder={{searchPlaceholder}} id="searchString" class="em-input em-border" type="text" required="">
     </p>
-    <a class="em-button em-teal em-text-white" onclick="toggleAdvancedSearch()">расширенный поиск</a>
+    <a class="em-button em-teal em-text-white" onclick="EM.ps.toggleAdvancedSearch()">расширенный поиск</a>
     <div id={{advancedSearchId}} class="advanced-search em-margin-top">
-    	<div class="advanced-search-group em-margin-bottom">
+    	<div class="advanced-search-group advanced-search-group_cat em-margin-bottom">
     		<label class="em-text-grey">Тип услуги</label><br>
-    		<select name="category" id="category">
+    		<select class="filter-fields" name="category" id="categorySelect">
     			<option value="default">-- Не выбран --</option>
 	    		{{#each categories}}
-	    			<option value="{{this}}">{{this}}</option>
+	    			<option value="{{this.id}}">{{this.name}}</option>
 	    		{{/each}}
 	    	</select>
     	</div>
-    	<div class="advanced-search-group em-margin-bottom">
+    	<div class="advanced-search-group advanced-search-group_lpu em-margin-bottom">
 	    	<label class="em-text-grey">Название учреждения</label><br>
-	    	<select name="category" id="category">
-	    		<option value="default">-- Не выбран --</option>
+	    	<select name="category" id="lpuSelect">
+	    		<option class="filter-fields" value="default">-- Не выбран --</option>
 	    		{{#each lpus}}
-	    			<option value="{{this}}">{{this}}</option>
+	    			<option value="{{this.lpu}}">{{this.name}}</option>
 	    		{{/each}}
 	    	</select>
 	    </div>
     </div>
-    <a class="em-button em-red em-text-white" onclick="runSearch(this)">Поиск</a>
-    <a class="em-button em-red em-text-white" onclick="resetSearchForm()">Сбросить</a>
+    <a class="em-button em-red em-text-white" onclick="EM.ps.runSearch(this)">Поиск</a>
+    <a class="em-button em-red em-text-white" onclick="EM.ps.resetSearchForm()">Сбросить</a>
+    <div class="spinner"></div>
+    <div class="error-message em-text-red">Пожалуйста, уточните запрос с помощью формы поиска выше.</div>
 </form>
+
 <div id={{psContentId}} class="ps-content em-margin-top em-margin-bottom"></div>

@@ -18,6 +18,29 @@
   overflow: inherit;
 }
 
+.error-message {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  opacity: 0;
+  -webkit-transition: opacity 0.5s ease;
+     -moz-transition: opacity 0.5s ease;
+       -o-transition: opacity 0.5s ease;
+          transition: opacity 0.5s ease;
+}
+
+.error-message_active {
+  opacity: 1;
+  -webkit-transition: opacity 0.5s ease;
+     -moz-transition: opacity 0.5s ease;
+       -o-transition: opacity 0.5s ease;
+          transition: opacity 0.5s ease;
+}
+
+.ps-sorting .ps-sorting__item,
+.ps-sorting .ps-sorting__title {
+  display: inline-block;
+}
+
 .ps-content .ps-content__item {
   margin-bottom: 30px;
 }
@@ -26,7 +49,52 @@
   margin-bottom: none;
 }
 
-.loading-overlay {
+.ps-button {
+  border: none;
+  display: inline-block;
+  outline: 0;
+  padding: 6px 16px;
+  vertical-align: middle;
+  overflow: hidden;
+  text-decoration: none !important;
+  color: #fff;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  white-space: nowrap;
+  border-radius: 5px;
+}
+
+.ps-sorting .ps-button {
+  padding: 6px 30px;
+}
+
+.ps-sorting__item {
+  position: relative;
+}
+
+.ps-sorting__item_sorted:after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 0;
+  top: 14px;
+  right: 14px;
+}
+
+.ps-sorting__item_sorted.asc:after {
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid #fff;
+}
+
+.ps-sorting__item_sorted.desc:after {
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-bottom: 4px solid #fff;
+}
+
+/* .loading-overlay {
   display: none;
   justify-content: center;
   align-items: center;
@@ -41,14 +109,21 @@
 
 .loading-overlay_show {
   display: flex;
-}
+} */
 
 .spinner {
-  width: 100px;
-  height: 100px;
-  background-color: #e74c3c;
+  display: none;
+  vertical-align: bottom;
+  margin-left: 10px;
+  width: 36px;
+  height: 36px;
+  background-color: #f44336;
   -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
   animation: sk-rotateplane 1.2s infinite ease-in-out;
+}
+
+.spinner_show {
+  display: inline-block;
 }
 
 @-webkit-keyframes sk-rotateplane {
