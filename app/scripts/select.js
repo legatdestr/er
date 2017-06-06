@@ -5,7 +5,7 @@
           
             $this.addClass('select-hidden'); 
             $this.wrap('<div class="select"></div>');
-            $this.after('<div class="select-styled"></div>');
+            $this.after('<div class="select-styled color-red"></div>');
 
             var $styledSelect = $this.next('div.select-styled');
             $styledSelect.text($this.children('option').eq(0).text());
@@ -17,7 +17,8 @@
             for (var i = 0; i < numberOfOptions; i++) {
                 $('<li />', {
                     text: $this.children('option').eq(i).text(),
-                    rel: $this.children('option').eq(i).val()
+                    rel: $this.children('option').eq(i).val(),
+                    'class': 'color-red'
                 }).appendTo($list);
             }
           
@@ -32,10 +33,14 @@
             });
           
             $listItems.click(function(e) {
+                var event = new CustomEvent('category-change', {detail: {value: $(this).attr('rel')}});
+
                 e.stopPropagation();
                 $styledSelect.text($(this).text()).removeClass('active');
                 $this.val($(this).attr('rel'));
                 $list.hide();
+
+                document.dispatchEvent(event);
             });
           
             $(document).click(function() {
@@ -46,7 +51,7 @@
     }
 
     document.addEventListener('clear-form', function() {
-        var defaultText = '--Не выбрано--';
+        var defaultText = '-- Не выбрано --';
         document.getElementById('categorySelect').value = 'default';
         document.getElementById('lpuSelect').value = 'default';
 

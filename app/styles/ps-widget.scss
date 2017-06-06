@@ -1,3 +1,27 @@
+/* to em.scss */
+
+.em-leftbar,
+.em-border-bottom {
+  border-color: #ab2626 !important;
+}
+
+.em-button {
+  color: #fff !important;
+  background: #ab2626 !important;
+}
+
+.em-button:hover {
+  color: #fff !important;
+  background: #8c1f1f !important;
+}
+
+
+/*------------*/
+
+#paid-services-widget {
+  font-size: 1.384rem;
+}
+
 /* advanced search */
 
 .advanced-search {
@@ -16,6 +40,23 @@
            -o-transition: max-height .1s ease-out;
               transition: max-height .1s ease-out; */
   overflow: inherit;
+}
+
+.advanced-toggle {
+  -webkit-transition: background, color 0.5s ease;
+     -moz-transition: background, color 0.5s ease;
+       -o-transition: background, color 0.5s ease;
+          transition: background, color 0.5s ease;
+}
+
+.advanced-toggle:hover {
+  background-color: #ab2626;
+  color: #fff;
+  -webkit-transition: background, color 0.5s ease;
+     -moz-transition: background, color 0.5s ease;
+       -o-transition: background, color 0.5s ease;
+          transition: background, color 0.5s ease;
+  cursor: pointer;
 }
 
 .error-message {
@@ -62,7 +103,6 @@
   text-align: center;
   cursor: pointer;
   white-space: nowrap;
-  border-radius: 5px;
 }
 
 .ps-sorting .ps-button {
@@ -94,22 +134,27 @@
     border-bottom: 4px solid #fff;
 }
 
-/* .loading-overlay {
+.ps-sorting {
   display: none;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.8);
-  z-index: 1000;
 }
 
-.loading-overlay_show {
-  display: flex;
-} */
+.ps-sorting_show {
+  display: block;
+}
+
+.ps-items {
+  font-size: 0;
+}
+
+.ps-content__item {
+  font-size: 1.384rem;
+}
+
+.ps-items .ps-content__item {
+  width: 49.9999%;
+  display: inline-block;
+  vertical-align: top;
+}
 
 .spinner {
   display: none;
@@ -149,7 +194,7 @@
 /* select */
 $background: #e74c3c;
 $select-color: #fff;
-$select-background: #c0392b;
+$select-background: #8c1f1f;
 $select-width: 220px;
 $select-height: 40px; 
 
@@ -216,11 +261,28 @@ $select-height: 40px;
     border-top: 1px solid darken($select-background, 10);
     transition: all 0.15s ease-in;
     &:hover {
-      color: $select-background;
-      background: $select-color;
+      color: $select-color;
+      background: $select-background !important;
     }
     &[rel="hide"] {
       display: none;
     }
   }
+}
+
+#pagination a {
+  margin-right: 10px;
+}
+
+#pagination .current {
+  background-color: #8c1f1f !important;
+}
+
+#pagination .pagination__next {
+  margin-right: 0;
+}
+
+#pagination .separator {
+  display: inline-block;
+  margin-right: 10px;
 }

@@ -10,7 +10,149 @@
 	        psContentId: 'psContent',
 	        psCount: 10
 		},
-		advancedSearch;
+		advancedSearch,
+		categories,
+		limit = 10;
+
+	var Pagination = {
+
+	    code: '',
+
+	    // --------------------
+	    // Utility
+	    // --------------------
+
+	    // converting initialize data
+	    Extend: function(data) {
+	        data = data || {};
+	        Pagination.size = data.size || 300;
+	        Pagination.page = data.page || 1;
+	        Pagination.step = data.step || 3;
+	    },
+
+	    // add pages by number (from [s] to [f])
+	    Add: function(s, f) {
+	        for (var i = s; i < f; i++) {
+	            Pagination.code += '<a>' + i + '</a>';
+	        }
+	    },
+
+	    // add last page with separator
+	    Last: function() {
+	        Pagination.code += '<i class="separator">...</i><a>' + Pagination.size + '</a>';
+	    },
+
+	    // add first page with separator
+	    First: function() {
+	        Pagination.code += '<a>1</a><i class="separator">...</i>';
+	    },
+
+	    // --------------------
+	    // Handlers
+	    // --------------------
+
+	    // change page
+	    Click: function() {
+	    	runSearch((+this.innerHTML) - 1);
+	    },
+
+	    // previous page
+	    Prev: function() {
+	    	if (Pagintation.page !== 1) {
+	    		runSearch(Pagination.page - 1);
+	    	}
+	    },
+
+	    // next page
+	    Next: function() {
+	        if (Pagination.page < Pagination.size) {
+	        	runSearch(Pagination.page + 1);
+	        }
+	    },
+
+	    // --------------------
+	    // Script
+	    // --------------------
+
+	    // binding pages
+	    Bind: function() {
+	        var a = Pagination.e.getElementsByTagName('a');
+	        for (var i = 0; i < a.length; i++) {
+	            if (+a[i].innerHTML === Pagination.page) a[i].className = 'current';
+	            a[i].classList.add('pagination__link', 'em-button');
+	            a[i].classList.add('color-red');
+	            a[i].addEventListener('click', Pagination.Click, false);
+	        }
+	    },
+
+	    // write pagination
+	    Finish: function() {
+	        Pagination.e.innerHTML = Pagination.code;
+	        Pagination.code = '';
+	        Pagination.Bind();
+	    },
+
+	    // find pagination type
+	    Start: function() {
+	        if (Pagination.size < Pagination.step * 2 + 6) {
+	            Pagination.Add(1, Pagination.size + 1);
+	        }
+	        else if (Pagination.page < Pagination.step * 2 + 1) {
+	            Pagination.Add(1, Pagination.step * 2 + 4);
+	            Pagination.Last();
+	        }
+	        else if (Pagination.page > Pagination.size - Pagination.step * 2) {
+	            Pagination.First();
+	            Pagination.Add(Pagination.size - Pagination.step * 2 - 2, Pagination.size + 1);
+	        }
+	        else {
+	            Pagination.First();
+	            Pagination.Add(Pagination.page - Pagination.step, Pagination.page + Pagination.step + 1);
+	            Pagination.Last();
+	        }
+	        Pagination.Finish();
+	    },
+
+	    // --------------------
+	    // Initialization
+	    // --------------------
+
+	    // binding buttons
+	    Buttons: function(e) {
+	        var nav = e.getElementsByTagName('a');
+	        nav[0].addEventListener('click', Pagination.Prev, false);
+	        nav[1].addEventListener('click', Pagination.Next, false);
+	    },
+
+	    // create skeleton
+	    Create: function(e) {
+
+	        var html = [
+	            '<a class="pagination__prev em-button">&#9668;</a>', // previous button
+	            '<span></span>',  // pagination container
+	            '<a class="pagination__next em-button">&#9658;</a>'  // next button
+	        ];
+
+	        e.innerHTML = html.join('');
+	        Pagination.e = e.getElementsByTagName('span')[0];
+	        Pagination.Buttons(e);
+	    },
+
+	    // init
+	    Init: function(e, data) {
+	        Pagination.Extend(data);
+	        Pagination.Create(e);
+	        Pagination.Start();
+	    },
+
+	    run: function(size, page, step) {
+	    	Pagination.Init(document.getElementById('pagination'), {
+		        size: size, // pages size
+		        page: page,  // selected page
+		        step: step   // pages before and after current
+		    });
+	    }
+	};
 
 	function setupSettings(external, internal) {
 		var inter = internal || {},
@@ -27,6 +169,36 @@
 				internal[prop] = external[prop];
 			}
 		}
+	}
+
+	function getCategories(rowCats) {
+		var result = {},
+			i,
+			currentCat,
+			currentId;
+
+		for (i = 0; i < rowCats.length; i++) {
+			currentCat = rowCats[i];
+			if (currentCat.parent_id === 0 && result[currentCat.parent_id] === undefined) {
+				currentId = currentCat.id;
+				result[currentId] = {};
+				result[currentId].name = currentCat.name;
+				result[currentId].childs = [];
+			}
+		}
+
+		for (i = 0; i < rowCats.length; i++) {
+			currentCat = rowCats[i];
+
+			if (result[currentCat.parent_id]) {
+				result[currentCat.parent_id].childs.push({
+					id: currentCat.id,
+					name: currentCat.name
+				})
+			}
+		}
+
+		return result;
 	}
 
 	function renderTemplate(template, params, target) {
@@ -46,8 +218,8 @@
 
     	if (document.getElementById('searchString').value !== '' ||
     		(document.getElementById(settings.advancedSearchId).classList.contains('advanced-search_show') && (
-    			document.getElementById('categorySelect').value !== 'default' ||
-    			document.getElementById('lpuSelect').value !== 'default'
+    			document.getElementById('categorySelect').value !== '-1' ||
+    			document.getElementById('lpuSelect').value !== '-1'
     		))) {
     		result = true;
     	}
@@ -58,7 +230,7 @@
     function firstReq() {
     	return new Promise(function(resolve, reject) {
     		setTimeout(function() {
-    			resolve('{"lpus":[{"name":"Поликлиника 1","lpu":"0001"}],"paidcategories":[{"id":1,"name":"Анализы","parent_id":0}]}');
+    			resolve('{"lpus":[{"name":"Поликлиника 1","lpu":"0001"}],"paidcategories":[{"id":1,"name":"Анализы","parent_id":0}, {"id":2,"name":"Кровь","parent_id":1}]}');
     		}, 100);
     	});
     }
@@ -66,17 +238,54 @@
     function secondReq() {
     	return new Promise(function(resolve, reject) {
     		setTimeout(function() {
-    			resolve('{"total":"100000","offset":"100","limit":"3","items":[{"service_name":"Услуга","service_price":"1000","service_desc":"описание услуги","lpu_name":"Поликлиника 1","lpu_ratio":"10.0","lpu_addresses":[{"name":"Отделение 1","address":"улица Пушкина"},{"name":"Отделение 2","address":"улица Колотушкина"}],"category_name":"Диагностика"},{"service_name":"Услуга №2","service_price":"1000","service_desc":"описание услуги","lpu_name":"Поликлиника 1","lpu_ratio":"10.0","lpu_addresses":[{"name":"Отделение 1","address":"улица Пушкина"},{"name":"Отделение 2","address":"улица Колотушкина"}],"category_name":"Диагностика"},{"service_name":"Услуга №3","service_price":"1000","service_desc":"описание услуги","lpu_name":"Поликлиника 1","lpu_ratio":"10.0","lpu_addresses":[{"name":"Отделение 1","address":"улица Пушкина"},{"name":"Отделение 2","address":"улица Колотушкина"}],"category_name":"Диагностика"}]}');
+    			resolve('{"total":"3","offset":"0","limit":"2","items":[{"service_name":"Услуга","service_price":"1000","service_desc":"описание услуги","lpu_name":"Поликлиника 1","lpu_ratio":"10.0","lpu_addresses":[{"name":"Отделение 1","address":"улица Пушкина"},{"name":"Отделение 2","address":"улица Колотушкина"}],"category_name":"Диагностика"},{"service_name":"Услуга №2","service_price":"1000","service_desc":"описание услуги","lpu_name":"Поликлиника 1","lpu_ratio":"10.0","lpu_addresses":[{"name":"Отделение 1","address":"улица Пушкина"},{"name":"Отделение 2","address":"улица Колотушкина"}],"category_name":"Диагностика"}]}');
     		}, 100);
     	});
     }
+	function getFilteringFields() {
+		var result = [],
+			fields = Array.prototype.slice.call(document.querySelectorAll('.filter-fields')),
+			i;
 
-    function runSearch() {
+		result = fields.filter(function(field) {
+			return field.value !== '-1';
+		});
+
+		return result.map(function(field) {
+			return {
+				name: field.name,
+				value: field.value
+			}
+		});
+	}
+
+	function createSearchObject() {
+		var searchString = document.getElementById('searchString'),
+			sortedItems = document.querySelectorAll('.ps-sorting__item_sorted'),
+			result = {},
+			i;
+
+		result.searching_string = searchString.value;
+		result.sorting_fields = [];
+		result.filtering_fields = getFilteringFields();
+
+		for (i = 0; i < sortedItems.length; i++) {
+			result.sorting_fields[i] = {
+				'name': sortedItems[i].getAttribute('data-sort-field'),
+				'order_by': sortedItems[i].classList.contains('asc') ? 'asc' : 'desc'
+			}
+		}
+
+		return result;
+	}
+
+    function runSearch(offset) {
     	if (!validateSearchForm()) {
     		document.querySelector('.error-message').classList.add('error-message_active');
     	} else {
+    		offset = offset || 0;
     		document.querySelector('.error-message').classList.remove('error-message_active');
-	        showLoading();
+	        //showLoading();
             
             //fetch('https://er.em70.ru/api/paidservices/find')
             secondReq()
@@ -91,17 +300,49 @@
                         services: response.items
                     },
                     '#' + settings.psContentId
-                )
-                hideLoading();
+                );
+                document.querySelector('.ps-sorting').classList.add('ps-sorting_show');
+                Pagination.run(
+                	Math.ceil(parseInt(response.total,10) / parseInt(response.limit, 10)), 
+                	parseInt(response.offset, 10) + 1, 
+                	parseInt(response.limit, 10)
+                );
+                //hideLoading();
             });
     	}
     }
 
+    function onCategoryChangeHandler(event) {
+    	var categoryId = parseInt(event.detail.value, 10),
+    		selectedCategory = categories[categoryId];
+
+    	if (selectedCategory && selectedCategory.childs && selectedCategory.childs.length > 0) {
+    		renderTemplate(
+    			EM.templates.subcategories,
+    			{
+    				subcats: selectedCategory.childs
+    			},
+    			'#subcat'
+    		)
+    	} else {
+    		document.getElementById('subcat').innerHTML = '';
+    	}
+    }
+
     function resetSearchForm() {
-    	var resetEvent = new Event('clear-form');
+    	var resetEvent = new Event('clear-form'),
+    		sortFields = document.querySelectorAll('.ps-sorting__item_sorted'),
+    		i;
+
     	document.dispatchEvent(resetEvent);
         document.getElementById(settings.searchFormId).reset();
         document.getElementById(settings.psContentId).innerHTML = '';
+        document.querySelector('.ps-sorting').classList.remove('ps-sorting_show');
+
+        for (i = 0; i < sortFields.length; i++) {
+        	sortFields[i].classList.remove('asc');
+        	sortFields[i].classList.remove('desc');
+        }
     }
 
     function toggleAdvancedSearch() {
@@ -124,6 +365,7 @@
             return JSON.parse(response)
         })
         .then(function(response) {
+        	categories = getCategories(response.paidcategories);
             renderTemplate(
 	            EM.templates.main, 
 	            {
@@ -131,7 +373,7 @@
 	                searchPlaceholder: settings.searchPlaceholder,
 	                searchInputLabel: settings.searchInputLabel,
 	                advancedSearchId: settings.advancedSearchId,
-	                categories: response.paidcategories,
+	                categories: categories,
 	                lpus: response.lpus,
 	                searchFormId: settings.searchFormId,
 	                psContentId: settings.psContentId
@@ -143,29 +385,6 @@
         });
 	}
 
-	function createSearchObject() {
-		var searchString = document.getElementById('searchString'),
-			advancedSearch = document.getElementById(settings.advancedSearchId),
-			isAdvancedSearch = advancedSearch.classList.contains('advanced-search_show'),
-			sortedItems = document.querySelector('.ps-sorting__item_sorted'),
-			result = {},
-			i;
-
-		result.searching_string = searchString.value;
-		result.sorting_fields = [];
-		result.filtering_fields = [];
-
-		for (i = 0; i < sortedItems.length; i++) {
-			result.sorting_fileds[i] = {
-				'name': sortedItems[i].getAttribute('data-sort-field'),
-				'order_by': sortedItems[i].classList.contains('asc') ? 'asc' : 'desc'
-			}
-		}
-
-		if (isAdvancedSearch) {
-
-		}
-	}
 
 	function changeSortingButtonOrder(btn) {
 		if (!btn.classList.contains('ps-sorting__item_sorted')) {
@@ -183,7 +402,10 @@
 
 	function sort(sortingButton) {
 		changeSortingButtonOrder(sortingButton);
+		runSearch();
 	}
+
+	//document.addEventListener('category-change', onCategoryChangeHandler);
 
 	global.EM = (typeof EM === 'object' ? EM : window.EM = {});
 	EM.ps = {};
@@ -192,4 +414,5 @@
 	EM.ps.resetSearchForm = resetSearchForm;
 	EM.ps.sort = sort;
 	EM.ps.run = run;
+	EM.ps.onCategoryChangeHandler = onCategoryChangeHandler;
 }(window));
