@@ -1,19 +1,19 @@
 @font-face {
 			font-family: "AaarghRegular";
-			src: url("../AaarghRegular/AaarghRegular.eot");
-			src: url("../AaarghRegular/AaarghRegular.eot?#iefix")format("embedded-opentype"),
-			url("../AaarghRegular/AaarghRegular.woff") format("woff"),
-			url("../AaarghRegular/AaarghRegular.ttf") format("truetype");
+			src: url("../Aaargh/AaarghRegular/AaarghRegular.eot");
+			src: url("../Aaargh/AaarghRegular/AaarghRegular.eot?#iefix")format("embedded-opentype"),
+			url("../Aaargh/AaarghRegular/AaarghRegular.woff") format("woff"),
+			url("../Aaargh/AaarghRegular/AaarghRegular.ttf") format("truetype");
 			font-style: normal;
 			font-weight: normal;
 	}
 
 	@font-face {
 			font-family: "AaarghBold";
-			src: url("../AaarghBold/AaarghBold.eot");
-			src: url("../AaarghBold/AaarghBold.eot?#iefix")format("embedded-opentype"),
-			url("../AaarghBold/AaarghBold.woff") format("woff"),
-			url("../AaarghBold/AaarghBold.ttf") format("truetype");
+			src: url("../Aaargh/AaarghBold/AaarghBold.eot");
+			src: url("../Aaargh/AaarghBold/AaarghBold.eot?#iefix")format("embedded-opentype"),
+			url("../Aaargh/AaarghBold/AaarghBold.woff") format("woff"),
+			url("../Aaargh/AaarghBold/AaarghBold.ttf") format("truetype");
 			font-style: normal;
 			font-weight: normal;
 	}

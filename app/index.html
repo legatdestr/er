@@ -28,51 +28,286 @@
     <!-- endbuild -->
 
 </head>
-<body>
-
-
-<!--[if IE]>
-<p class="browserupgrade">Вы используете <strong>устаревший</strong> браузер. Пожалуйста, <a
-        href="http://browsehappy.com/">обновите браузер. </a>Иначе сайт может отображаться не вполне корректно</p>
-<![endif]-->
-
-<!-- Navbar -->
-<!-- <nav id="navbar" class="navbar em-top">
-    <div class="em-bar em-white em-card-2 em-left-align em-large">
-        <a class="navbar__hamburger navbar__item em-button em-hide-large em-right em-hover-light-grey"
-           href="javascript:void(0);" onclick="EM.ui.navbar.click()" title="Показать\скрыть меню"><i
-                class="fa fa-bars"></i></a>
-        <a href="/" class="navbar__item em-button em-white">
-            <div class="navbar__logo">Медицинский портал</div>
-        </a>
-        <a href="#schedule"
-           class="navbar__item em-button em-hide-medium em-hide-small em-hover-light-grey">Расписание</a>
-        <a href="#analazys-results" class="navbar__item em-button em-hide-medium em-hide-small em-hover-light-grey">Результаты</a>
-        <a href="#rating"
-           class="navbar__item em-button em-hide-medium em-hide-small em-hover-light-grey">Рейтинг</a>
-        <a href="#services"
-           class="navbar__item em-button em-hide-medium em-hide-small em-hover-light-grey">Услуги</a>
-        <a href="#about" class="navbar__item em-button em-hide-medium em-hide-small em-hover-light-grey">О нас</a>
-    </div>
-
-
-    Navbar on small screens
-    <div id="navbar-small-screens" class="em-bar-block em-white em-hide em-hide-large em-large em-animate-right">
-        <a href="#schedule" class="navbar__item em-bar-item em-button em-padding-large">Расписание</a>
-        <a href="#analazys-results" class="navbar__item em-bar-item em-button em-padding-large">Результаты</a>
-        <a href="#rating" class="navbar__item em-button em-bar-item em-padding-large">Рейтинг</a>
-        <a href="#services" class="navbar__item em-button em-bar-item em-padding-large">Услуги</a>
-        <a href="#about" class="navbar__item em-button em-bar-item em-padding-large">О нас</a>
-    </div>
-
-
-</nav>
- -->
-
+<body class="em-white">
 
 <!-- Page -->
-<div class="page em-content" style="max-width:1100px;">
-    
+<div class="page">
+    <div class="main-header-offset"></div>
+    <div class="main-header">
+        <div class="main-header__top em-blue">
+            <div class="container em-padding em-row">
+                <div class="main-header__title em-left">Свободный доктор</div>
+                <div class="em-right main-header__right">
+                    <div class="main-header__phone em-show-inline-block em-margin-right"><i class="fa fa-phone em-margin-right"></i><b>(999) 999-99-99</b></div>
+                    <div class="main-header__search em-show-inline-block"><i class="fa fa-search"></i></div>
+                </div>
+            </div>
+        </div>
+        <div class="main-header__bottom">
+            <div class="container em-row">
+                <div class="main-header__logo em-col">
+                    <a href="/">
+                        <img src="images/logo.jpg" alt="">
+                    </a>
+                </div>
+
+                <div class="main-header__bottom-right em-rest">
+                    <div class="main-header__buttons">
+                        <div class="main-header__button em-button em-blue">Оплатить</div>
+                        <div class="main-header__button em-button em-blue">Записаться на приём</div>
+                        <div class="main-header__button em-button em-blue">Заказать звонок</div>
+                        <div class="main-header__button em-button em-blue">Задать вопрос</div>
+                    </div>
+                    <div class="main-header__menu">
+                        <nav class="topmenu">
+                            <div class="topmenu__item em-show-inline-block em-margin-left"><a href="#">Главная</a></div>
+                            <div class="topmenu__item em-show-inline-block em-margin-left"><a href="#">Услуги и цены</a></div>
+                            <div class="topmenu__item em-show-inline-block em-margin-left"><a href="#">Врачи</a></div>
+                            <div class="topmenu__item em-show-inline-block em-margin-left"><a href="#">Врачи</a></div>
+                            <div class="topmenu__item em-show-inline-block em-margin-left"><a href="#">Программы</a></div>
+                            <div class="topmenu__item em-show-inline-block em-margin-left"><a href="#">Контакт</a>ы</div>
+                        </nav>
+                    </div>
+                </div>
+                <nav class="main-header-mobile-menu">
+                    <a href="#" class="main-header-mobile-menu__link"><i class="fa fa-bars" onclick="EM.ui.navbar.click()"></i></a>
+                    <div class="main-header-mobile-menu__current">Главная</div>
+                    <ul class="main-header-mobile-menu__container">
+                        <li class="main-header-mobile-menu__item"><a href="#">О клинике</a></li>
+                        <li class="main-header-mobile-menu__item"><a href="#">Услуги и цены</a></li>
+                        <li class="main-header-mobile-menu__item"><a href="#">Врачи</a></li>
+                        <li class="main-header-mobile-menu__item"><a href="#">Программы</a></li>
+                        <li class="main-header-mobile-menu__item"><a href="#">Аптека</a></li>
+                        <li class="main-header-mobile-menu__item"><a href="#">Акции</a></li>
+                        <li class="main-header-mobile-menu__item"><a href="#">Контакты</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <div class="intro-wrap">
+        <div class="container">
+            <div class="intro">
+                <div class="intro__list em-text-white">
+                    <div class="intro__item">
+                        <span class="intro__title">Только<br>лучшие врачи</span>
+                    </div>
+                    <div class="intro__item em-row">
+                        <div class="intro__digit em-left">7</div>
+                        <div class="intro__text">докторов<br> медицинских наук</div>
+                    </div>
+                    <div class="intro__item em-row">
+                        <div class="intro__digit em-left">5</div>
+                        <div class="intro__text">профессоров<br> медицины</div>
+                    </div>
+                    <div class="intro__item em-row">
+                        <div class="intro__digit em-left">30</div>
+                        <div class="intro__text">и более кандидатов<br> медицинских наук</div>
+                    </div>
+                    <div class="intro__item em-row">
+                        <div class="intro__digit em-left">100</div>
+                        <div class="intro__text">и более<br> высококвалифицированных специалистов</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="index">
+        <div class="container em-row">
+            <div class="reviews">
+                <div class="reviews__title title">Отзывы</div>
+                <div class="reviews__body em-margin-top em-row">
+                    <div class="reviews__image"><img src="images/review.jpg" alt=""></div>
+                    <div class="reviews__wrap">
+                        <div class="reviews__header">
+                            <div class="reviews__name">Автор отзыва <i class="em-text-blue">Пётр Петрович</i></div>
+                            <div class="reviews__name">Врач <i class="em-text-blue">Василий Иванович</i></div>
+                        </div>
+                        <div class="reviews__text">Выражаю огромную благодарность! Выражаю огромную благодарность! Выражаю огромную благодарность! Выражаю огромную благодарность! Выражаю огромную благодарность!</div>
+                        <div class="reviews__all em-text-blue">Все отзывы</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="index__about">
+                <div class="title">Клиника</div>
+                <p>Лучшая в стране клиника. Лучшая в стране клиника. Лучшая в стране клиника. Лучшая в стране клиника. Лучшая в стране клиника. Лучшая в стране клиника. Лучшая в стране клиника. Лучшая в стране клиника. </p>
+            </div>
+        </div>
+    </section>
+
+    <div class="actions-index">
+        <div class="container">
+            <div class="actions-index__header em-row">
+                <div class="title em-left">Акции</div>
+                <div class="actions-index__all em-right em-text-blue">Все акции клиники</div>
+            </div>
+            <div class="actions-index__carousel">
+                <div class="carousel">
+                    <div class="carousel__item em-row em-left">
+                        <a href="#" class="actions-index__item em-left" style="background-image: url('images/action.jpg')">
+                            <span class="actions-index__title">
+                                <span class="actions-index__text">Терапевтические услуги стоматологов для взрослых 20%</span>
+                            </span>
+                        </a>
+                    </div>
+                    <div class="carousel__item em-row em-left">
+                        <a href="#" class="actions-index__item em-left" style="background-image: url('images/action.jpg')">
+                            <span class="actions-index__title">
+                                <span class="actions-index__text">Терапевтические услуги стоматологов для взрослых 20%</span>
+                            </span>
+                        </a>
+                    </div>
+                    <div class="carousel__item em-row em-left">
+                        <a href="#" class="actions-index__item em-left" style="background-image: url('images/action.jpg')">
+                            <span class="actions-index__title">
+                                <span class="actions-index__text">Терапевтические услуги стоматологов для взрослых 20%</span>
+                            </span>
+                        </a>
+                    </div>
+                    <div class="carousel__item em-row em-left">
+                        <a href="#" class="actions-index__item em-left" style="background-image: url('images/action.jpg')">
+                            <span class="actions-index__title">
+                                <span class="actions-index__text">Терапевтические услуги стоматологов для взрослых 20%</span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="services-index">
+        <div class="container">
+            <div class="services-index__order">
+                <a href="#record" class="button i-button"><i class="icon ti-marker-alt"></i> Записаться на прием</a>
+            </div>
+            <div class="services-index__tabs">
+                <div class="tabs" data-block="tabs">
+                    <div class="tabs__header">
+                        <div class="services-index__maintabs em-row">
+                            <a href="#" class="tabs__button tabs__button_active" data-rel="section-1">Услуги</a>
+                            <a href="#" class="tabs__button" data-rel="section-2">Клиники</a>
+                            <a href="http://german.dental" class="tabs__button tabs__button_dental tabs__button_manual">Стоматология</a>
+                        </div>
+                    </div>
+                    <div class="tabs__content">
+                        <div class="tabs__item tabs__item_active" data-tab="section-1">
+                            <div class="tabs" data-block="tabs">
+                                <div class="tabs__header">
+                                    <div class="services__subtabs">
+                                        <a href="#" class="tabs__button" data-rel="section-1">Для детей</a>
+                                        <a href="#" class="tabs__button" data-rel="section-2">Для взрослых</a>
+                                    </div>
+                                </div>
+                                <div class="tabs__content">
+                                    <div class="tabs__item tabs__item_active" data-tab="section-1">
+                                        <ul class="services__list">
+                                            <li><a href="/services/adult/abonementy-i-programmy/">Абонементы и программы</a></li>
+                                            <li><a href="/services/children/allergologiya-immunologiya/">Аллергология-иммунология</a></li>
+                                            <li><a href="/services/children/analizy-detyam/">Анализы детям</a></li>
+                                            <li><a href="/services/children/analizy-detyam-za-15-minut-ekspress-laboratoriya/">Анализы детям за 15 минут. Экспресс-лаборатория.</a></li>
+                                            <li><a href="/services/adult/analises/">Анализы детям и взрослым</a></li>
+                                            <li><a href="/services/children/vaktsinatsiya/">Вакцинация и прививки</a></li>
+                                            <li><a href="/services/children/podgotovka-k-vaktsinatsii-korrektsiya-vaktsinalnykh-riskov/">Вакцинация: подготовка</a></li>
+                                            <li><a href="/services/children/vosstanovitelnoe-lechenie/">Восстановительное лечение</a></li>
+                                            <li><a href="/services/children/detskiy-gastroenterolog/">Гастроэнтерология</a></li>
+                                            <li><a href="/services/children/detskaya-ginekologiya/">Гинекология детям</a></li>
+                                            <li><a href="/services/children/gomeopatiya/">Гомеопатия</a></li>
+                                            <li><a href="/services/children/dermatologiya-det/">Дерматология</a></li>
+                                            <li><a href="/services/children/infektsionnye-bolezni/">Инфекционные болезни</a></li>
+                                            <li><a href="/services/children/detskiy-kardiolog/">Кардиология</a></li>
+                                            <li><a href="/services/adult/kruglosutochnaya-neotlozhnaya-pomoshch/">Круглосуточная неотложная помощь</a></li>
+                                            <li><a href="/services/children/logopediya-i-logomassazh/">Логопедия и логомассаж</a></li>
+                                        </ul>
+                                        <ul class="services__list">
+                                            <li><a href="/services/adult/manipulyatsii/">Манипуляции медсестры</a></li>
+                                            <li><a href="/services/children/massazh/">Массаж</a></li>
+                                            <li><a href="/services/children/detskiy-nevrolog/">Неврология</a></li>
+                                            <li><a href="/services/children/nefrologiya-det/">Нефрология</a></li>
+                                            <li><a href="/services/children/onkolog-mammolog-detyam/">Онкология</a></li>
+                                            <li><a href="/services/children/osteopatiya/">Остеопатия</a></li>
+                                            <li><a href="/services/children/otolaringologiya/">Отоларингология</a></li>
+                                            <li><a href="/services/children/medkarta_026/">Оформление медкарт 026/У и справок</a></li>
+                                            <li><a href="/services/children/oftalmologiya/">Офтальмология</a></li>
+                                            <li><a href="/services/children/priyem-pediatra/">Педиатрия</a></li>
+                                            <li><a href="/services/children/peskoterapiya-i-tsvetoterapiya-detyam/">Пескотерапия и цветотерапия</a></li>
+                                            <li><a href="/services/children/plavanie_dlya_grudnichkov/">Плавание в бассейне для грудничков</a></li>
+                                            <li><a href="/service_options/programmy_nabludeniya_detei/">Программы наблюдения детей</a></li>
+                                            <li><a href="/services/children/psikhologiya/">Психология</a></li>
+                                            <li><a href="/services/children/psikhoterapiya-chd/">Психотерапия</a></li>
+                                            <li><a href="/services/children/pulmonologiya-detyam/">Пульмонология</a></li>
+                                        </ul>
+                                        <ul class="services__list">
+                                            <li><a href="/services/children/platnyi_rentgen/">Рентген</a></li>
+                                            <li><a href="/services/adult/rentgenodiagnostika/">Рентгенодиагностика</a></li>
+                                            <li><a href="/services/adult/semeynaya-meditsina-obshchaya-vrachebnaya-praktika/">Семейный врач</a></li>
+                                            <li><a href="/services/adult/skoraya-pomoshch-i-ekstrennaya-gospitalizatsiya-detyam-i-vzroslym/">Скорая помощь и экстренная госпитализация детям и взрослым</a></li>
+                                            <li><a href="/services/children/travmatologiya-i-ortopediya/">Травматология и ортопедия</a></li>
+                                            <li><a href="/services/adult/travmpunkt-dlya-detey-i-vzroslykh/">Травмпункт для детей и взрослых</a></li>
+                                            <li><a href="/services/children/uzi/">УЗИ Детям</a></li>
+                                            <li><a href="/services/children/urologiya/">Урология</a></li>
+                                            <li><a href="/services/children/uslugi-na-domu/">Услуги на дому</a></li>
+                                            <li><a href="/services/children/detskiy-fizioterapevt/">Физиотерапия</a></li>
+                                            <li><a href="/services/children/funktsionalnaya-diagnostika/">Функциональная диагностика</a></li>
+                                            <li><a href="/services/children/khirurgiya-ambulatornaya-/">Хирургия амбулаторная</a></li>
+                                            <li><a href="/services/adult/ekspress-laboratoriya/">Экспресс-лаборатория</a></li>
+                                            <li><a href="/services/adult/elektrokardiografiya-ekg/">Электрокардиография (ЭКГ)</a></li>
+                                            <li><a href="/services/children/endokrinologiya-detyam/">Эндокринология</a></li>
+                                            <li><a href="/services/adult/ekhokardiografiya-ekhokg/">Эхокардиография (ЭХОКГ)</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer em-text-white em-blue">
+        <div class="container">
+            <div class="main-footer__top em-row">
+                <div class="main-footer__logo em-left em-xlarge">Свободный доктор</div>
+                <div class="main-footer-menu em-right">
+                    <div class="main-footer-menu__item em-show-inline-block em-margin-left"><a href="#">Главная</a></div>
+                    <div class="main-footer-menu__item em-show-inline-block em-margin-left"><a href="#">Услуги и цены</a></div>
+                    <div class="main-footer-menu__item em-show-inline-block em-margin-left"><a href="#">Врачи</a></div>
+                    <div class="main-footer-menu__item em-show-inline-block em-margin-left"><a href="#">Врачи</a></div>
+                    <div class="main-footer-menu__item em-show-inline-block em-margin-left"><a href="#">Программы</a></div>
+                    <div class="main-footer-menu__item em-show-inline-block em-margin-left"><a href="#">Контакт</a>ы</div>
+                </div>
+            </div>
+            <div class="main-footer__bottom em-row">
+                <div class="main-footer__cell">
+                    <div class="main-footer__title">Клиника на Невском</div>
+                    <div class="main-footer__text">                  
+                        Невский пр-т, 114-116, Бизнес-Центр «Невский Центр»<br>
+                        (БЦ «СТОКМАНН», ст.м. «Площадь Восстания»)
+                    </div>
+                    <a href="/contacts/" class="main-footer__map"><i class="fa fa-map-o"></i> смотреть на карте</a>
+                </div>
+                <div class="main-footer__cell">
+                    <div class="main-footer__title">Клиники на Варшавской</div>
+                    <div class="main-footer__text">                      
+                        Варшавская ул., д.23, к.1 (ст. м. «Парк Победы»)<br>
+                        пл. Чернышевского, д. 11, Бизнес-центр «БУРЖУА» 
+                    </div>
+                    <a href="/contacts/" class="main-footer__map"><i class="fa fa-map-o"></i> смотреть на карте</a>
+                </div>
+                <div class="main-footer__cell main-footer__cell_last">
+                    <a href="#question" class="main-footer__ask i-button"><i class="fa fa-question"></i> Задать вопрос</a>
+                    <a href="mailto:info@german.clinic" class="main-footer__mail"><i class="fa fa-send-o"></i> info@german.clinic</a>                    <div class="main-footer__social">
+                        <a href="https://vk.com/german.clinic" target="_blank" class="main-footer__social-item main-footer__social-item_1"><i class="fa fa-vk"></i></a>
+                        <a href="https://www.facebook.com/NSKlinika" target="_blank" class="main-footer__social-item main-footer__social-item_2"><i class="fa fa-facebook"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 </div>
 
 <!-- build:js scripts/vendor.js -->
