@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Медицинский портал</title>
 
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- <link rel="apple-touch-icon" href="apple-touch-icon.png"> -->
     <!-- Place favicon.ico in the root directory -->
 
     <!-- build:css styles/vendor.css -->
@@ -14,17 +14,13 @@
     <!-- endbower -->
     <!-- endbuild -->
 
-    <link href="fonts/Bicubik/Bicubik.css" rel="stylesheet">
-    <link href="fonts/CenturyGothic/CenturyGothic.css" rel="stylesheet">
+    <link href="fonts/Aaargh/Aaargh.css" rel="stylesheet">
 
     <!--
         TODO: Оптимизировать. данный стиль используется лишь для 1-ой иконки гамбургера. ~80 килобайт лишних.
         Живой гамбургер https://jonsuh.com/hamburgers/   извлечь из проекта минимально достаточную иконку
     -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-    <!-- For IDE autocomplete only DELETE ME in production!!! -->
-    <link rel="deleteme" href="../.tmp/styles/em.css">
 
 
     <!-- build:css styles/main.css -->
@@ -41,7 +37,7 @@
 <![endif]-->
 
 <!-- Navbar -->
-<nav id="navbar" class="navbar em-top">
+<!-- <nav id="navbar" class="navbar em-top">
     <div class="em-bar em-white em-card-2 em-left-align em-large">
         <a class="navbar__hamburger navbar__item em-button em-hide-large em-right em-hover-light-grey"
            href="javascript:void(0);" onclick="EM.ui.navbar.click()" title="Показать\скрыть меню"><i
@@ -60,7 +56,7 @@
     </div>
 
 
-    <!-- Navbar on small screens -->
+    Navbar on small screens
     <div id="navbar-small-screens" class="em-bar-block em-white em-hide em-hide-large em-large em-animate-right">
         <a href="#schedule" class="navbar__item em-bar-item em-button em-padding-large">Расписание</a>
         <a href="#analazys-results" class="navbar__item em-bar-item em-button em-padding-large">Результаты</a>
@@ -71,168 +67,13 @@
 
 
 </nav>
-
+ -->
 
 
 <!-- Page -->
 <div class="page em-content" style="max-width:1100px;">
-
-    <!-- Header -->
-    <header id="header" class="em-row">
-        <div class="header em-card-2">
-            <div class="header__header em-container em-border-bottom"><h2>Добро пожаловать на медицинский портал!</h2>
-            </div>
-            <div class="header__content em-container">Томаты любят почти все люди, и нет дачника или садовода, который
-                не выращивал бы их на своём участке. Агротехника томатов довольно проста, независимо от того,
-                выращиваете
-            </div>
-        </div>
-    </header>
-
-    <!-- Service selector --><!-- Платные услуги | ОМС -->
-    <section id="service-selector" class="site-section em-row">
-        <div class="service-selector  em-card-2">
-
-            <!-- tablinks -->
-            <div class="service-selector__tabs-panel em-row color-gray">
-                <a href="javascript:void(0)" onclick="EM.ui.serviceSelector.openTab(event, 'paid-services');">
-                    <div class="service-selector__tablink em-half em-white em-card-2 em-center"><h2>Платные
-                        услуги</h2>
-                    </div>
-                </a>
-                <a href="javascript:void(0)" onclick="EM.ui.serviceSelector.openTab(event, 'oms-service');">
-                    <div class="service-selector__tablink em-half em-card-2 em-center"><h2>ОМС</h2>
-                    </div>
-                </a>
-            </div>
-
-            <!-- tabs content -->
-            <div class="service-selector__tabs-content em-center em-white">
-                <!-- active tab content by default -->
-                <div class="service-selector__tabs-content-item em-bar" tabName="paid-services">
-                    <div class="controls">
-                        <a href="#schedule" class="controls__button em-button color-red em-text-white">расписание</a>
-                        <a href="#services" class="controls__button em-button color-red em-text-white">услуги</a>
-                        <a href="#analazys-results" class="controls__button em-button color-red em-text-white">результаты</a>
-                        <a href="#rating" class="controls__button em-button color-red em-text-white">рейтинг</a>
-                    </div>
-                </div>
-                <div class="service-selector__tabs-content-item em-bar" tabName="oms-service" style="display:none;">
-                    <div class="controls">
-                        <a href="#schedule" class="controls__button em-button color-red em-text-white">расписание</a>
-                        <a href="#services" class="controls__button em-button color-red em-text-white">услуги</a>
-                        <a href="#analazys-results" class="controls__button em-button  color-red em-text-white">результаты</a>
-                    </div>
-                </div>
-            </div>
-
-
-        </div>
-    </section>
-
-    <!-- Schedule -->
-    <section id="schedule" class="site-section em-section">
-        <div class="em-padding-12">
-            <div class="em-container">
-                <div class="site-section__header">Расписание</div>
-            </div>
-            <div class="em-container">
-                <div class="site-section__article-header">Вступительное слово</div>
-                <article class="site-section__article">
-                    Огурец – единственный овощ (а с точки зрения ботаники
-                    - фрукт), который мы употребляем в пищу недозрелым.
-                    Огурцы весьма популярны в составе овощных салатов, а
-                    также в засоленном или маринованном виде. В России
-                    и других славянских странах огурец - излюбленная
-                    закуска, а его рассол – любимое средство от похмелья.
-                    За многочисленные "заслуги" в 2007 году в г. Шклове
-                    (Беларусь) был даже открыт памятник огурцу.
-                </article>
-            </div>
-
-            <div class="controls em-center">
-                <a href="//er.em70.ru" target="_blank" class="controls__button em-button color-red em-text-white">расписание</a>
-            </div>
-
-        </div>
-    </section>
-
-    <script type="text/javascript">
-
-        !(function () {
-            "use strict";
-            var
-                schedule = document.querySelector('#schedule'),
-                parentEl = document.querySelector('.page'),
-                content = schedule.querySelector('.site-section__article').innerHTML,
-                model = [
-                    {
-                        id: 'analazys-results',
-                        name: 'Результаты анализов',
-                        pHeader: 'Вступительное слово',
-                        text: content
-                    },
-                    {
-                        id: 'rating',
-                        name: 'Рейтинг учреждений',
-                        pHeader: 'Вступительное слово',
-                        text: content
-                    },
-                    {
-                        id: 'services',
-                        name: 'Услуги',
-                        pHeader: 'Вступительное слово',
-                        text: content
-                    },
-                    {
-                        id: 'about',
-                        name: 'О нас',
-                        pHeader: 'Вступительное слово',
-                        text: content
-                    }
-                ];
-
-            console.warn('отключи этот скрипт после окончания  вёрстки');
-
-            model.forEach(function (sec) {
-                let newSection = schedule.cloneNode(true);
-                newSection.id = sec.id;
-                newSection.querySelector('.site-section__header').innerHTML = sec.name;
-                newSection.querySelector('.site-section__article-header').innerHTML = sec.pHeader;
-                newSection.querySelector('.site-section__article').innerHTML = sec.text;
-                newSection.querySelector('.controls__button').innerHTML = sec.name;
-
-                parentEl.appendChild(newSection);
-            });
-
-
-        }());
-
-
-    </script>
-
-
-    <!-- End page content -->
+    
 </div>
-
-
-<footer id="footer" class="em-container" style="min-height: 300px; background-color: rgba(158, 158, 158, 0.51);">
-    <div class="footer__text em-row em-center">
-        <h1>Подвал</h1>
-        <h2>Не решили что тут размещать</h2>
-    </div>
-    <div class="em-row em-xlarge  em-center">
-        <i class="fa fa-twitter"></i>
-        <i class="fa fa-vk"></i>
-        <i class="fa fa-facebook"></i>
-        <i class="fa fa-youtube-play"></i>
-    </div>
-
-    <div class="footer__copyright em-row em-center">
-        <h4>© 2017 "Медицинский портал", ООО "Элекард-Мед"</h4>
-    </div>
-</footer>
-
 
 <!-- build:js scripts/vendor.js -->
 <!-- bower:js -->
@@ -243,7 +84,6 @@
 <script src="scripts/EM.js"></script>
 <script src="scripts/em.ui.js"></script>
 <script src="scripts/navbar.js"></script>
-<script src="scripts/service-selector.js"></script>
 <script src="scripts/main.js"></script>
 <!-- endbuild -->
 

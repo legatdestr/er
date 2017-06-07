@@ -1,29 +1,6 @@
 @import "vars";
 @import "default";
-@import "navbar";
-
-@import "header";
-
-@import "service-selector";
-@import "site-sections";
-@import "controls";
-
 
 html, body {
-  background-color: #006d8c;
-  background: {
-    image: url("../images/header_background.png");
-    repeat: repeat;
-    position: right top;
-    attachment: fixed;
-  }
-}
-
-
-.color-gray {
-  background-color: $color-grey !important;
-}
-
-.color-red {
-  background-color: $color-red !important;
+  background-color: #fff;
 }
