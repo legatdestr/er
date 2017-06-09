@@ -1,0 +1,8 @@
+<label class="em-text-grey">Подкатегория</label><br>
+<select name="subcategory" id="subcatSelect">
+	<option value="-1">-- Не выбрано --</option>
+
+	{{#each subcats}}
+		<option value="{{@key}}">{{this.name}}</option>
+	{{/each}}
+</select>

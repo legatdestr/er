@@ -52,7 +52,7 @@ gulp.task('lint:test', () => {
     .pipe(gulp.dest('test/spec'));
 });
 
-gulp.task('html', ['styles', 'scripts'], () => {
+gulp.task('html', ['styles', 'templates', 'scripts'], () => {
   return gulp.src('app/*.html')
     .pipe($.useref({searchPath: ['.tmp', 'app', '.']}))
     .pipe($.if(/\.js$/, $.uglify({compress: {drop_console: true}})))
@@ -68,6 +68,21 @@ gulp.task('html', ['styles', 'scripts'], () => {
       removeStyleLinkTypeAttributes: true
     })))
     .pipe(gulp.dest('dist'));
+});
+
+gulp.task('templates', () => {
+  return gulp.src('app/templates/*.hbs')
+    .pipe($.plumber())
+    .pipe($.handlebars({
+      handlebars: require('handlebars')
+    }))
+    .pipe($.defineModule('plain'))
+    .pipe($.declare({
+      namespace: 'EM.templates', // change this to whatever you want
+      noRedeclare: true          // avoid duplicate declarations
+    }))
+    .pipe($.concat('templates.js'))
+    .pipe(gulp.dest('.tmp/templates'));
 });
 
 gulp.task('images', () => {
@@ -94,7 +109,7 @@ gulp.task('extras', () => {
 gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 
 gulp.task('serve', () => {
-  runSequence(['clean', 'wiredep'], ['styles', 'scripts', 'fonts'], () => {
+  runSequence(['clean', 'wiredep'], ['styles', 'scripts', 'templates', 'fonts'], () => {
     browserSync.init({
       notify: false,
       port: 9000,
@@ -109,10 +124,12 @@ gulp.task('serve', () => {
     gulp.watch([
       'app/*.html',
       'app/images/**/*',
-      '.tmp/fonts/**/*'
+      '.tmp/fonts/**/*',
+      '.tmp/templates/**/*.js'
     ]).on('change', reload);
 
     gulp.watch('app/styles/**/*.scss', ['styles']);
+    gulp.watch('app/templates/*.hbs', ['templates']);
     gulp.watch('app/scripts/**/*.js', ['scripts']);
     gulp.watch('app/fonts/**/*', ['fonts']);
     gulp.watch('bower.json', ['wiredep', 'fonts']);

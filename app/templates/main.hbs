@@ -1,0 +1,53 @@
+<!-- <div class="loading-overlay">
+    <div class="spinner"></div>
+</div> -->
+
+<div class="em-container em-teal">
+    <h2>{{formHeader}}</h2>
+</div>
+<form id={{searchFormId}} class="em-container em-row em-card-4 em-padding">
+    <br>
+    <div>      
+        <label class="em-text-grey">{{searchInputLabel}}</label>
+        <input placeholder={{searchPlaceholder}} id="searchString" class="em-input em-border" type="text" required="">
+        <div class="error-message em-text-red">Пожалуйста, уточните запрос с помощью формы поиска выше.</div>
+    </div>
+    <div class="em-left">
+        <a class="advanced-toggle em-border-bottom em-show-inline-block em-padding" onclick="EM.ps.toggleAdvancedSearch()">расширенный поиск</a>
+        <div id={{advancedSearchId}} class="advanced-search em-margin-top">
+        	<div class="advanced-search-group advanced-search-group_cat em-margin-bottom">
+        		<label class="em-text-grey">Тип услуги</label><br>
+        		<select class="filter-fields" name="category" id="categorySelect">
+        			<option value="-1">-- Не выбран --</option>
+    	    		{{#each categories}}
+    	    			<option value="{{@key}}">{{this.name}}</option>
+    	    		{{/each}}
+    	    	</select>
+        	</div>
+            <div id="subcat" class="advanced-search-group advanced-search-group_subcat"></div>
+        	<div class="advanced-search-group advanced-search-group_lpu em-margin-bottom">
+    	    	<label class="em-text-grey">Название учреждения</label><br>
+    	    	<select class="filter-fields" name="lpu_name" id="lpuSelect">
+    	    		<option value="-1">-- Не выбран --</option>
+    	    		{{#each lpus}}
+    	    			<option value="{{this.lpu}}">{{this.name}}</option>
+    	    		{{/each}}
+    	    	</select>
+    	    </div>
+        </div>
+        <a class="em-button color-red em-text-white" onclick="EM.ps.runSearch()">Поиск</a>
+        <a class="em-button color-red em-text-white" onclick="EM.ps.resetSearchForm()">Сбросить</a>
+        <div class="spinner"></div>
+    </div>
+    <div class="ps-sorting em-row em-right">
+        <div class="em-right">
+            <div class="ps-sorting__title">Сортировать:</div>
+            <div class="ps-sorting__item ps-button color-red" data-sort-field="service_price" onclick="EM.ps.sort(this);">Цена</div>
+            <div class="ps-sorting__item ps-button color-red" data-sort-field="lpu_ratio" onclick="EM.ps.sort(this);">Рейтинг учреждения</div>
+            <div class="ps-sorting__item ps-button color-red" data-sort-field="service_name" onclick="EM.ps.sort(this);">Название услуги</div>
+            <div class="ps-sorting__item ps-button color-red" data-sort-field="category_name" onclick="EM.ps.sort(this);">Категория услуги</div>
+        </div>
+    </div>
+</form>
+
+<div id={{psContentId}} class="ps-content em-margin-top em-margin-bottom"></div>
