@@ -23,14 +23,29 @@ html, body {
   background-color: $color-grey !important;
 }
 
-.color-red {
-  background-color: $color-red !important;
-}
-
 .page_services {
 	margin: 0 auto;
 	margin-top: 103px; 
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 
                 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
     background: #fff;
+}
+
+.body-services {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.page_services {
+  width: 100%;
+  margin-bottom: 30px;
+  display: flex;
+  flex: 1;
+}
+
+@media (min-width: 1101px) {
+  .page_services {
+    width: 1100px;
+  }
 }

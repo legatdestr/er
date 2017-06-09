@@ -36,23 +36,23 @@
         
     </style>
 </head>
-<body>
+<body class="body-services">
     <nav id="navbar" class="navbar em-top">
         <div class="em-bar em-white em-card-2 em-left-align em-large">
-            <a class="navbar__hamburger navbar__item em-button em-hide-large em-right em-hover-light-grey"
+            <a class="navbar__hamburger navbar__item em-hide-large em-right em-hover-light-grey"
                href="javascript:void(0);" onclick="EM.ui.navbar.click()" title="Показать\скрыть меню"><i
                     class="fa fa-bars"></i></a>
             <a href="/" class="navbar__item em-button em-white">
                 <div class="navbar__logo">Медицинский портал</div>
             </a>
             <a href="#schedule"
-               class="navbar__item em-button em-hide-medium em-hide-small em-hover-light-grey">Расписание</a>
-            <a href="#analazys-results" class="navbar__item em-button em-hide-medium em-hide-small em-hover-light-grey">Результаты</a>
+               class="navbar__item em-hide-medium em-hide-small em-hover-light-grey">Расписание</a>
+            <a href="#analazys-results" class="navbar__item em-hide-medium em-hide-small em-hover-light-grey">Результаты</a>
             <a href="#rating"
-               class="navbar__item em-button em-hide-medium em-hide-small em-hover-light-grey">Рейтинг</a>
+               class="navbar__item em-hide-medium em-hide-small em-hover-light-grey">Рейтинг</a>
             <a href="#services"
-               class="navbar__item em-button em-hide-medium em-hide-small em-hover-light-grey">Услуги</a>
-            <a href="#about" class="navbar__item em-button em-hide-medium em-hide-small em-hover-light-grey">О нас</a>
+               class="navbar__item em-hide-medium em-hide-small em-hover-light-grey">Услуги</a>
+            <a href="#about" class="navbar__item em-hide-medium em-hide-small em-hover-light-grey">О нас</a>
         </div>
 
 
@@ -88,6 +88,9 @@
             <h4>© 2017 "Медицинский портал", ООО "Элекард-Мед"</h4>
         </div>
     </footer>
+    <div id="serviceWrap">
+        
+    </div>
 <!-- build:js scripts/vendor.js -->
 <!-- bower:js -->
 <script src="/bower_components/handlebars/handlebars.js"></script>
@@ -99,7 +102,7 @@
     document.addEventListener('DOMContentLoaded', function() {
         EM.ps.run({
             psId: "paid-services-widget",
-            formHeader: 'Поиск услуг',
+            formHeader: 'Платные услуги',
             searchPlaceholder: 'Поиск...',
             searchInputLabel: 'Поисковый запрос',
             advancedSearchId: 'advancedSearch'
@@ -107,7 +110,10 @@
     })
 </script>
 <!-- build:js scripts/ps-widget.js -->
-<script src="scripts/fetch.js"></script>
+<script src="scripts/EM.js" defer></script>
+<script src="scripts/em.ui.js" defer></script>
+<script src="scripts/navbar.js" defer></script>
+<script src="scripts/fetch.js" defer></script>
 <script src="templates/templates.js" defer></script>
 <script src="scripts/select.js" defer></script>
 <script src="scripts/ps-widget.js" defer></script>

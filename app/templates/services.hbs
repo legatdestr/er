@@ -1,12 +1,12 @@
 <div class="em-row">
-	<div class="ps-items">
+	<div class="ps-items em-padding">
 		{{#each services}}
 			<ul class="em-ul em-card-4 ps-content__item">
 			  <li><strong>Услуга</strong>: {{this.service_name}}</li>
 			  <li><strong>Цена</strong>: {{this.service_price}}</li>
 			  <li><strong>Описание</strong>: {{this.service_desc.preview}}
 			  {{#if this.service_desc.shorted}}
-			  	<br><div class="em-button color-red em-text-white" data-desc={{this.service_desc.id}} onclick="EM.ps.showFullDesc(this);">Читать подробнее</div>
+			  	<br><div class="em-button color-red" data-desc={{this.service_desc.id}} onclick="EM.ps.showService(this);">Читать подробнее</div>
 			  {{/if}}
 			  </li>
 			  <li><strong>Учреждение</strong>: {{this.lpu_name}}</li>

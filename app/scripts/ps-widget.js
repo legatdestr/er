@@ -12,8 +12,7 @@
 		},
 		advancedSearch,
 		categories,
-		services,
-		limit = 10;
+		services;
 
 	var Pagination = {
 
@@ -59,7 +58,7 @@
 
 	    // previous page
 	    Prev: function() {
-	    	if (Pagintation.page !== 1) {
+	    	if (Pagination.page !== 1) {
 	    		runSearch(Pagination.page - 1);
 	    	}
 	    },
@@ -447,8 +446,22 @@
 		runSearch();
 	}
 
-	function showFullDesc(button) {
-		console.log(services[button.getAttribute('data-desc')]);
+	function showService(button) {
+		var number = button.getAttribute('data-desc');
+		console.log(services[number]);
+		renderTemplate(
+			EM.templates.modal,
+			{
+				service: services[number]
+			},
+			'#serviceWrap'
+		);
+
+		document.getElementById('service').style.display = 'block';
+	}
+
+	function hideService() {
+		document.getElementById('service').style.display = 'none';
 	}
 
 	//document.addEventListener('category-change', onCategoryChangeHandler);
@@ -461,5 +474,6 @@
 	EM.ps.sort = sort;
 	EM.ps.run = run;
 	EM.ps.onCategoryChangeHandler = onCategoryChangeHandler;
-	EM.ps.showFullDesc = showFullDesc;
+	EM.ps.showService = showService;
+	EM.ps.hideService = hideService;
 }(window));

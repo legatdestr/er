@@ -1,0 +1,21 @@
+<!-- The Modal -->
+<div id="service" class="em-modal">
+  <div class="em-modal-content">
+    <div class="ps-modal">
+      <span onclick="EM.ps.hideService();" 
+      class="em-button em-display-topright">&times;</span>
+      <ul class="em-ul em-card-4 ps-modal-card">
+        <li><strong>Услуга:</strong> {{service.service_name}}</li>
+        <li><strong>Цена:</strong> {{service.service_price}}</li>
+        <li><strong>Описание:</strong> {{service.service_desc.desc}}</li>
+        <li><strong>Учреждение:</strong> {{service.lpu_name}}</li>
+        <li><strong>Рейтинг учреждения:</strong> {{service.lpu_ratio}}</li>
+        <li><strong class="em-block em-margin-bottom">Адреса:</strong>
+          {{#each service.lpu_addresses}}
+            <div class="em-leftbar em-padding em-margin-bottom">{{this.name}}: {{this.address}}</div>
+          {{/each}}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
