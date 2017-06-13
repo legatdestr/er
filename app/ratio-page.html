@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Медицинский портал">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Рейтинг учреждений</title>
+
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+    <link href="fonts/Bicubik/Bicubik.css" rel="stylesheet">
+    <link href="fonts/CenturyGothic/CenturyGothic.css" rel="stylesheet">
+
+    <!--
+        TODO: Оптимизировать. данный стиль используется лишь для 1-ой иконки гамбургера. ~80 килобайт лишних.
+        Живой гамбургер https://jonsuh.com/hamburgers/   извлечь из проекта минимально достаточную иконку
+    -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- build:css styles/main.css -->
+        <link rel="stylesheet" href="styles/main.css">
+        <link rel="stylesheet" href="styles/ratio-widget.css">
+        <link rel="stylesheet" href="styles/auth.css">
+    <!-- endbuild -->
+</head>
+<body class="body-ratio">
+    <div class="auth"></div>
+    <nav id="navbar" class="navbar em-top">
+        <div class="em-bar em-white em-card-2 em-left-align em-large">
+            <a class="navbar__hamburger navbar__item em-hide-large em-right em-hover-light-grey"
+               href="javascript:void(0);" onclick="EM.ui.navbar.click()" title="Показать\скрыть меню"><i
+                    class="fa fa-bars"></i></a>
+            <a href="/" class="navbar__item em-button em-white">
+                <div class="navbar__logo">Медицинский портал</div>
+            </a>
+            <a href="#schedule"
+               class="navbar__item em-hide-medium em-hide-small em-hover-light-grey">Расписание</a>
+            <a href="#analazys-results" class="navbar__item em-hide-medium em-hide-small em-hover-light-grey">Результаты</a>
+            <a href="#rating"
+               class="navbar__item em-hide-medium em-hide-small em-hover-light-grey">Рейтинг</a>
+            <a href="#services"
+               class="navbar__item em-hide-medium em-hide-small em-hover-light-grey">Услуги</a>
+            <a href="#about" class="navbar__item em-hide-medium em-hide-small em-hover-light-grey">О нас</a>
+            <a href="#about" class="navbar__item navbar__item_login em-hide-medium em-hide-small em-hover-light-grey" onclick="EM.auth.showLoginForm();">Войти</a>
+            <div class="user-info" id="userInfo">Вы зашли, как: <b class="user-info__name"></b><br><a href="#" onclick="EM.auth.logout();">Выйти</a></div>
+        </div>
+
+
+        <!-- Navbar on small screens -->
+        <div id="navbar-small-screens" class="em-bar-block em-white em-hide em-hide-large em-large em-animate-right">
+            <a href="#schedule" class="navbar__item em-bar-item em-button em-padding-large">Расписание</a>
+            <a href="#analazys-results" class="navbar__item em-bar-item em-button em-padding-large">Результаты</a>
+            <a href="#rating" class="navbar__item em-button em-bar-item em-padding-large">Рейтинг</a>
+            <a href="#services" class="navbar__item em-button em-bar-item em-padding-large">Услуги</a>
+            <a href="#about" class="navbar__item em-button em-bar-item em-padding-large">О нас</a>
+        </div>
+
+    </nav>
+    <div class="page em-content page_ratio em-padding" style="max-width:1100px;">
+        <div id="ratio-widget">
+            
+        </div>
+    </div>
+    <footer id="footer" class="em-container" style="min-height: 300px; background-color: rgba(158, 158, 158, 0.51);">
+        <div class="footer__text em-row em-center">
+            <h1>Подвал</h1>
+            <h2>Не решили что тут размещать</h2>
+        </div>
+        <div class="em-row em-xlarge  em-center">
+            <i class="fa fa-twitter"></i>
+            <i class="fa fa-vk"></i>
+            <i class="fa fa-facebook"></i>
+            <i class="fa fa-youtube-play"></i>
+        </div>
+
+        <div class="footer__copyright em-row em-center">
+            <h4>© 2017 "Медицинский портал", ООО "Элекард-Мед"</h4>
+        </div>
+    </footer>
+<!-- build:js scripts/vendor.js -->
+<!-- bower:js -->
+<script src="/bower_components/handlebars/handlebars.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        EM.ratio.run();
+    })
+</script>
+<script src="https://vk.com/js/api/openapi.js"></script>
+<!-- build:js scripts/main.js -->
+<script src="scripts/EM.js" defer></script>
+<script src="scripts/em.ui.js" defer></script>
+<script src="scripts/navbar.js" defer></script>
+<script src="scripts/fetch.js" defer></script>
+<script src="templates/templates.js" defer></script>
+<script src="scripts/select.js" defer></script>
+<script src="scripts/ratio.js" defer></script>
+<script src="scripts/em-auth.js" defer></script>
+<script src="scripts/vk-auth.js" defer></script>
+<!-- endbuild -->
+
+</body>
+</html>
