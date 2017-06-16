@@ -17,7 +17,7 @@
         <div id={{advancedSearchId}} class="advanced-search em-margin-top">
         	<div class="advanced-search-group advanced-search-group_cat em-margin-bottom">
         		<label class="em-text-grey">Тип услуги</label><br>
-        		<select class="filter-fields" name="category" id="categorySelect">
+        		<select class="filter-fields" name="cats" id="categorySelect">
         			<option value="-1">-- Не выбран --</option>
     	    		{{#each categories}}
     	    			<option value="{{@key}}">{{this.name}}</option>
@@ -27,7 +27,7 @@
             <div id="subcat" class="advanced-search-group advanced-search-group_subcat"></div>
         	<div class="advanced-search-group advanced-search-group_lpu em-margin-bottom">
     	    	<label class="em-text-grey">Название учреждения</label><br>
-    	    	<select class="filter-fields" name="lpu_name" id="lpuSelect">
+    	    	<select class="filter-fields" name="lpu_code" id="lpuSelect">
     	    		<option value="-1">-- Не выбран --</option>
     	    		{{#each lpus}}
     	    			<option value="{{this.lpu}}">{{this.name}}</option>
@@ -42,10 +42,10 @@
     <div class="ps-sorting em-row em-right">
         <div class="em-right">
             <div class="ps-sorting__title">Сортировать:</div>
-            <div class="ps-sorting__item ps-button em-button" data-sort-field="service_price" onclick="EM.ps.sort(this);">Цена</div>
-            <div class="ps-sorting__item ps-button em-button" data-sort-field="lpu_ratio" onclick="EM.ps.sort(this);">Рейтинг учреждения</div>
             <div class="ps-sorting__item ps-button em-button" data-sort-field="service_name" onclick="EM.ps.sort(this);">Название услуги</div>
-            <div class="ps-sorting__item ps-button em-button" data-sort-field="category_name" onclick="EM.ps.sort(this);">Категория услуги</div>
+            <div class="ps-sorting__item ps-button em-button" data-sort-field="price" onclick="EM.ps.sort(this);">Цена</div>
+            <!-- <div class="ps-sorting__item ps-button em-button" data-sort-field="lpu_ratio" onclick="EM.ps.sort(this);">Рейтинг учреждения</div> -->
+            <!-- <div class="ps-sorting__item ps-button em-button" data-sort-field="category_name" onclick="EM.ps.sort(this);">Категория услуги</div> -->
         </div>
     </div>
 </form>

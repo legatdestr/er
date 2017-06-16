@@ -12,7 +12,10 @@
 		},
 		advancedSearch,
 		categories,
-		services;
+		services,
+		searchString,
+		autocomplete,
+		timeoutId;
 
 	var Pagination = {
 
@@ -25,9 +28,9 @@
 	    // converting initialize data
 	    Extend: function(data) {
 	        data = data || {};
-	        Pagination.size = data.size || 300;
-	        Pagination.page = data.page || 1;
-	        Pagination.step = data.step || 3;
+	        Pagination.size = data.size || 0;
+	        Pagination.page = data.page || 0;
+	        Pagination.step = data.step || 0;
 	    },
 
 	    // add pages by number (from [s] to [f])
@@ -141,8 +144,10 @@
 	    // init
 	    Init: function(e, data) {
 	        Pagination.Extend(data);
-	        Pagination.Create(e);
-	        Pagination.Start();
+	        if (Pagination.size > 0) {
+	        	Pagination.Create(e);
+	        	Pagination.Start();
+	        }
 	    },
 
 	    run: function(size, page, step) {
@@ -179,7 +184,7 @@
 
 		for (i = 0; i < rowCats.length; i++) {
 			currentCat = rowCats[i];
-			if (currentCat.parent_id === 0 && result[currentCat.parent_id] === undefined) {
+			if (currentCat.parent_id === null && result[currentCat.parent_id] === undefined) {
 				currentId = currentCat.id;
 				result[currentId] = {};
 				result[currentId].name = currentCat.name;
@@ -223,17 +228,19 @@
 	function getFormattedServices(items) {
 		var i,
 			tmp,
+			result = null;
+		if (items && items.length) {
 			result = items;
-
-		for (i = 0; i < items.length; i++) {
-			tmp = result[i].service_desc;
-			result[i].service_desc = {
-				preview: getPreviewDesc(tmp),
-				desc: tmp,
-				id: i
-			}
-			if (result[i].service_desc.preview !== result[i].service_desc.desc) {
-				result[i].service_desc.shorted = true;
+			for (i = 0; i < items.length; i++) {
+				tmp = result[i].description;
+				result[i].description = {
+					preview: tmp ? getPreviewDesc(tmp): '',
+					desc: tmp || '',
+					id: i
+				}
+				if (result[i].description.preview !== result[i].description.desc) {
+					result[i].description.shorted = true;
+				}
 			}
 		}
 
@@ -291,14 +298,30 @@
 		});
 
 		return result.map(function(field) {
-			return {
-				name: field.name,
-				value: field.value
+			var type = field.name,
+				result = {};
+			switch (type) {
+				case 'cats':
+					result = {
+						name: field.name,
+						value: [
+							field.value
+						]
+					};
+					break;
+				default:
+					result = {
+						name: type,
+						value: field.value
+					};
+					break;
 			}
+
+			return result;
 		});
 	}
 
-	function createSearchObject() {
+	function createSearchObject(offset) {
 		var searchString = document.getElementById('searchString'),
 			sortedItems = document.querySelectorAll('.ps-sorting__item_sorted'),
 			result = {},
@@ -307,6 +330,8 @@
 		result.searching_string = searchString.value;
 		result.sorting_fields = [];
 		result.filtering_fields = getFilteringFields();
+		result.limit = 10;
+		result.offset = offset || 0;
 
 		for (i = 0; i < sortedItems.length; i++) {
 			result.sorting_fields[i] = {
@@ -325,15 +350,14 @@
     		offset = offset || 0;
     		document.querySelector('.error-message').classList.remove('error-message_active');
 	        //showLoading();
-            
-            //fetch('https://er.em70.ru/api/paidservices/find')
-            secondReq()
+           console.log(createSearchObject(offset));
+            fetch('https://er.em70.ru/api/paidservices/find?data=' + encodeURI(JSON.stringify(createSearchObject(offset))), {method: 'GET'})
             .then(function(response) {
-                //return response.json()
-                return JSON.parse(response);
+                return response.json()
             })
             .then(function(response) {
-            	services = getFormattedServices(response.items);
+            	console.log(response);
+            	services = response.items ? getFormattedServices(response.items) : null;
                 renderTemplate(
                     EM.templates.services,
                     {
@@ -369,10 +393,25 @@
     	}
     }
 
-    function resetSearchForm() {
-    	var resetEvent = new Event('clear-form'),
-    		sortFields = document.querySelectorAll('.ps-sorting__item_sorted'),
+    function resetSorting(params) {
+    	var sortFields = Array.prototype.slice.call(document.querySelectorAll('.ps-sorting__item_sorted')),
     		i;
+
+    	if (params && params.exclude) {
+    		sortFields = sortFields.filter(function(item) {
+    			return (item !== params.exclude);
+    		})
+    	}
+
+		for (i = 0; i < sortFields.length; i++) {
+        	sortFields[i].classList.remove('asc');
+        	sortFields[i].classList.remove('desc');
+        	sortFields[i].classList.remove('ps-sorting__item_sorted');
+        }
+    }
+
+    function resetSearchForm() {
+    	var resetEvent = new Event('clear-form');
 
     	document.dispatchEvent(resetEvent);
         document.getElementById(settings.searchFormId).reset();
@@ -380,10 +419,7 @@
         document.querySelector('.ps-sorting').classList.remove('ps-sorting_show');
         document.querySelector('.error-message').classList.remove('error-message_active');
 
-        for (i = 0; i < sortFields.length; i++) {
-        	sortFields[i].classList.remove('asc');
-        	sortFields[i].classList.remove('desc');
-        }
+        resetSorting();
     }
 
     function toggleAdvancedSearch() {
@@ -396,14 +432,51 @@
         }
     }
 
+    function onSearchStringChange(e) {
+    	clearTimeout(timeoutId);
+
+    	timeoutId = setTimeout(function() {
+    		fetch('https://er.em70.ru/api/paidservices/find?data=' + encodeURI(JSON.stringify(createSearchObject(0))), {method: 'GET'})
+            .then(function(response) {
+                return response.json()
+            })
+            .then(function(response) {
+            	var names;
+
+            	if (response.items) {
+            		names = response.items
+	            		.map(function(item) {
+	            			return item.service_name || ''
+	            		})
+	            		.filter(function(item) {
+	            			return item !== ''
+	            		});
+
+	            	autocomplete._list = names;
+            	}
+            });
+    	}, 400);
+    }
+
+    function bindSearchString(input) {
+    	input.oninput = onSearchStringChange;
+    	input.onpropertychange = input.oninput;
+
+    	autocomplete = new Awesomplete(input, {
+    		list: [],
+    		minChars: 3,
+    		autoFirst: true
+    	});
+    }
+
 	function run(params) {
 		setupSettings(params, settings);
 
-		//fetch('https://er.em70.ru/api/lpuspaidcategories/')
-		firstReq()
+		fetch('https://er.em70.ru/api/paidcategories/')
+		//firstReq()
         .then(function(response) {
-            //return response.json();
-            return JSON.parse(response)
+            return response.json();
+            //return JSON.parse(response)
         })
         .then(function(response) {
         	categories = getCategories(response.paidcategories);
@@ -422,6 +495,8 @@
 	            '#' + settings.psId
 	        );
 	        EM.initSelects();
+	        searchString = document.getElementById('searchString');
+	        bindSearchString(searchString);
         	advancedSearch = document.getElementById(settings.advancedSearchId);
         });
 	}
@@ -442,6 +517,9 @@
 	}
 
 	function sort(sortingButton) {
+		resetSorting({
+			exclude: sortingButton
+		});
 		changeSortingButtonOrder(sortingButton);
 		runSearch();
 	}
@@ -463,8 +541,6 @@
 	function hideService() {
 		document.getElementById('service').style.display = 'none';
 	}
-
-	//document.addEventListener('category-change', onCategoryChangeHandler);
 
 	global.EM = (typeof EM === 'object' ? EM : window.EM = {});
 	EM.ps = {};
