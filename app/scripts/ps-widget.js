@@ -15,7 +15,7 @@
 		services,
 		searchString,
 		autocomplete,
-		timeoutId;
+		autocompleteList;
 
 	var Pagination = {
 
@@ -263,10 +263,9 @@
     	var result = false;
 
     	if (document.getElementById('searchString').value !== '' ||
-    		(document.getElementById(settings.advancedSearchId).classList.contains('advanced-search_show') && (
-    			document.getElementById('categorySelect').value !== '-1' ||
-    			document.getElementById('lpuSelect').value !== '-1'
-    		))) {
+    		document.getElementById('categorySelect').value !== '-1' ||
+    		document.getElementById('lpuSelect').value !== '-1'
+    		) {
     		result = true;
     	}
 
@@ -322,8 +321,7 @@
 	}
 
 	function createSearchObject(offset) {
-		var searchString = document.getElementById('searchString'),
-			sortedItems = document.querySelectorAll('.ps-sorting__item_sorted'),
+		var sortedItems = document.querySelectorAll('.ps-sorting__item_sorted'),
 			result = {},
 			i;
 
@@ -345,18 +343,18 @@
 
     function runSearch(offset) {
     	if (!validateSearchForm()) {
+    		document.getElementById('psContent').innerHTML = '';
+    		resetSorting({hide: true});
     		document.querySelector('.error-message').classList.add('error-message_active');
     	} else {
     		offset = offset || 0;
     		document.querySelector('.error-message').classList.remove('error-message_active');
 	        //showLoading();
-           console.log(createSearchObject(offset));
             fetch('https://er.em70.ru/api/paidservices/find?data=' + encodeURI(JSON.stringify(createSearchObject(offset))), {method: 'GET'})
             .then(function(response) {
                 return response.json()
             })
             .then(function(response) {
-            	console.log(response);
             	services = response.items ? getFormattedServices(response.items) : null;
                 renderTemplate(
                     EM.templates.services,
@@ -397,10 +395,16 @@
     	var sortFields = Array.prototype.slice.call(document.querySelectorAll('.ps-sorting__item_sorted')),
     		i;
 
-    	if (params && params.exclude) {
-    		sortFields = sortFields.filter(function(item) {
-    			return (item !== params.exclude);
-    		})
+    	if (params) {
+    		if (params.exclude) {
+	    		sortFields = sortFields.filter(function(item) {
+	    			return (item !== params.exclude);
+	    		});
+    		}
+
+    		if (params.hide) {
+    			document.querySelector('.ps-sorting').classList.remove('ps-sorting_show');
+    		}
     	}
 
 		for (i = 0; i < sortFields.length; i++) {
@@ -414,7 +418,11 @@
     	var resetEvent = new Event('clear-form');
 
     	document.dispatchEvent(resetEvent);
-        document.getElementById(settings.searchFormId).reset();
+    	
+        searchString.value = '';
+        document.getElementById('categorySelect').value = -1;
+        document.getElementById('lpuSelect').value = -1;
+
         document.getElementById(settings.psContentId).innerHTML = '';
         document.querySelector('.ps-sorting').classList.remove('ps-sorting_show');
         document.querySelector('.error-message').classList.remove('error-message_active');
@@ -433,40 +441,52 @@
     }
 
     function onSearchStringChange(e) {
-    	clearTimeout(timeoutId);
+		fetch('https://er.em70.ru/api/paidservices/find?data=' + encodeURI(JSON.stringify(createSearchObject(0))), {method: 'GET'})
+        .then(function(response) {
+            return response.json()
+        })
+        .then(function(response) {
+        	var names = [],
+        		event;
 
-    	timeoutId = setTimeout(function() {
-    		fetch('https://er.em70.ru/api/paidservices/find?data=' + encodeURI(JSON.stringify(createSearchObject(0))), {method: 'GET'})
-            .then(function(response) {
-                return response.json()
-            })
-            .then(function(response) {
-            	var names;
+        	if (response.items) {
+        		names = response.items
+            		.map(function(item) {
+            			return item.service_name || ''
+            		})
+            		.filter(function(item) {
+            			return item !== ''
+            		});
 
-            	if (response.items) {
-            		names = response.items
-	            		.map(function(item) {
-	            			return item.service_name || ''
-	            		})
-	            		.filter(function(item) {
-	            			return item !== ''
-	            		});
+            	/*autocomplete._list = names;*/
+        	}
 
-	            	autocomplete._list = names;
-            	}
-            });
-    	}, 400);
+        	if (names.length > 0) {
+        		event = new CustomEvent('search-data', {
+        			detail: {
+        				list: names
+        			}
+        		});
+
+        		document.dispatchEvent(event);
+        	}
+        });
+
     }
 
-    function bindSearchString(input) {
-    	input.oninput = onSearchStringChange;
-    	input.onpropertychange = input.oninput;
+    function initAwesomplete(input) {
+    	document.addEventListener('input-change', onSearchStringChange);
 
     	autocomplete = new Awesomplete(input, {
     		list: [],
     		minChars: 3,
-    		autoFirst: true
+    		autoFirst: false,
+    		filter: function(text, input) {
+    			return true;
+    		}
     	});
+
+    	autocompleteList = document.querySelector('.awesomplete ul');
     }
 
 	function run(params) {
@@ -496,7 +516,8 @@
 	        );
 	        EM.initSelects();
 	        searchString = document.getElementById('searchString');
-	        bindSearchString(searchString);
+	        searchString.addEventListener('keydown', keyPressed);
+	        initAwesomplete(searchString);
         	advancedSearch = document.getElementById(settings.advancedSearchId);
         });
 	}
@@ -540,6 +561,12 @@
 
 	function hideService() {
 		document.getElementById('service').style.display = 'none';
+	}
+
+	function keyPressed(e) {
+		if (e.keyCode == 13 && autocompleteList && autocompleteList.getAttribute('hidden') !== null) {
+			runSearch();
+		}
 	}
 
 	global.EM = (typeof EM === 'object' ? EM : window.EM = {});

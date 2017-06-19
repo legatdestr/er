@@ -1,6 +1,42 @@
 (function(global) {
+    function getChoiceById(list, id) {
+        var i;
+
+        if (list) {
+            for (i = 0; i < list.length; i++) {
+                if (list[i].getAttribute('data-value') == id) {
+                    return list[i];
+                }
+            }
+        }
+
+        return false;
+    }
+
+    function deleteChoice(e) {
+        var choice = e.target.parentNode,
+            choiceId = choice.getAttribute('data-value'),
+            choiceInList = getChoiceById(document.getElementById(choice.getAttribute('data-parent')));
+    }
+
+    function toggleSelect(select) {
+        if (select) {
+            select.querySelector('.select-list').classList.toggle('select-list_show');
+        }
+    }
+
     function initSelects() {
-        $('select').each(function(){
+
+        var selects = document.querySelectorAll('.select'),
+            i;
+
+        for (i = 0; i < selects.length; i++) {
+            (function (i) {
+                selects[i].querySelector('.select__label').addEventListener('click', toggleSelect.bind(null, selects[i]));
+            }(i));
+        }
+
+        /*$('select').each(function(){
             var $this = $(this), numberOfOptions = $(this).children('option').length;
           
             $this.addClass('select-hidden'); 
@@ -47,7 +83,7 @@
                 $styledSelect.removeClass('active');
                 $list.hide();
             });
-        });
+        });*/
     }
 
     document.addEventListener('clear-form', function() {
@@ -59,48 +95,6 @@
         document.querySelector('.advanced-search-group_lpu .select-styled').textContent = defaultText;
     });
 
-/*    function initSelects() {
-        var selects = global.document.querySelectAll('select'),
-            i,
-            currentSelect,
-            numberOfOptions;
-
-        function wrap(wrapper, elems) {
-            if (!elms.length) elms = [elms];
-
-            // Loops backwards to prevent having to clone the wrapper on the
-            // first element (see `child` below).
-            for (var i = elms.length - 1; i >= 0; i--) {
-                var child = (i > 0) ? wrapper.cloneNode(true) : wrapper;
-                var el    = elms[i];
-
-                // Cache the current parent and sibling.
-                var parent  = el.parentNode;
-                var sibling = el.nextSibling;
-
-                // Wrap the element (is automatically removed from its current
-                // parent).
-                child.appendChild(el);
-
-                // If the element had a sibling, insert the wrapper before
-                // the sibling to maintain the HTML structure; otherwise, just
-                // append it to the parent.
-                if (sibling) {
-                    parent.insertBefore(child, sibling);
-                } else {
-                    parent.appendChild(child);
-                }
-            }
-        }
-
-        for (i = 0; i < selects.length; i++) {
-            currentSelect = selects[i];
-            numberOfOptions = currentSelect.querySelectAll('option').length;
-
-            currentSelect.classList.add('select-hidden');
-            wrap(document.createElement('div'), currentSelect);
-        }
-    }*/
     global.EM = (typeof EM === 'object' ? EM : window.EM = {});
     EM.initSelects = initSelects;
 })(window);

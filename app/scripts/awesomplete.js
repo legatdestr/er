@@ -8,7 +8,8 @@
 (function () {
 
 var _ = function (input, o) {
-	var me = this;
+	var me = this,
+		timeoutId;
 
 	// Setup
 
@@ -57,7 +58,7 @@ var _ = function (input, o) {
 
 	this._events = {
 		input: {
-			"input": this.evaluate.bind(this),
+			"input": this.onInputChange.bind(this),
 			"blur": this.close.bind(this, { reason: "blur" }),
 			"keydown": function(evt) {
 				var c = evt.keyCode;
@@ -98,12 +99,16 @@ var _ = function (input, o) {
 					}
 				}
 			}
+		},
+		data: {
+			'search-data': this.evaluate.bind(this)
 		}
 	};
 
 	$.bind(this.input, this._events.input);
 	$.bind(this.input.form, this._events.form);
 	$.bind(this.ul, this._events.ul);
+	$.bind(document, this._events.data);
 
 	if (this.input.hasAttribute("list")) {
 		this.list = "#" + this.input.getAttribute("list");
@@ -164,6 +169,7 @@ _.prototype = {
 		this.ul.setAttribute("hidden", "");
 		this.isOpened = false;
 		this.index = -1;
+		this._list = [];
 
 		$.fire(this.input, "awesomplete-close", o || {});
 	},
@@ -260,11 +266,20 @@ _.prototype = {
 				});
 			}
 		}
+
+		EM.ps.runSearch();
 	},
 
-	evaluate: function() {
+	evaluate: function(e) {
+		
+		if (e && e.detail) {
+			this._list = e.detail.list;
+		}
+
 		var me = this;
 		var value = this.input.value;
+
+
 
 		if (value.length >= this.minChars && this._list.length > 0) {
 			this.index = -1;
@@ -298,6 +313,24 @@ _.prototype = {
 		else {
 			this.close({ reason: "nomatches" });
 		}
+	},
+
+	onInputChange: function() {
+		var self = this;
+		clearTimeout(_.timeoutId);
+
+		_.timeoutId = setTimeout(function() {
+			var event;
+			self.close();
+			if (self.input.value.length > 2) {
+				event = new CustomEvent('input-change', {
+					detail: {
+						searchString: self.input.value
+					}
+				});
+				document.dispatchEvent(event);
+			}
+		}, 400);
 	}
 };
 
@@ -472,6 +505,10 @@ if (typeof Document !== "undefined") {
 	// DOM already loaded?
 	if (document.readyState !== "loading") {
 		init();
+		/*document.addEventListener('search-data', function(e) {
+			_.list = e.detail.list;
+			_.evaluate();
+		})*/
 	}
 	else {
 		// Wait for it
