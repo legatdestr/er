@@ -13,43 +13,28 @@
         <div class="error-message em-text-red">Пожалуйста, уточните запрос с помощью формы поиска выше.</div>
     </div>
     <div class="em-left">
-        <!-- <a class="advanced-toggle em-border-bottom em-show-inline-block em-padding" onclick="EM.ps.toggleAdvancedSearch()">расширенный поиск</a> -->
         <div class="advanced-search">
-        	<div class="advanced-search-group em-margin-bottom">
+        	<div class="advanced-search-group">
                 <div class="select" id="catSelect">
                     <div class="select__label">Тип услуги</div>
                     <div class="select-list">
                         {{#each categories}}
-                            <div data-value="{{@key}}" class="select-list__item">{{this.name}}</div>
+                            <div data-value="{{@key}}" data-parent="catSelect" class="select-list__item" onclick="EM.selects.makeChoice(this);">{{this.name}}</div>
                         {{/each}}
                     </div>
-                    <div class="select__choices"></div>
+                    <div class="select-choices"></div>
                 </div>
-        		<!-- <label class="em-text-grey">Тип услуги</label><br>
-                <select class="filter-fields" name="cats" id="categorySelect">
-                    <option value="-1">-- Не выбран --</option>
-                                    {{#each categories}}
-                                        <option value="{{@key}}">{{this.name}}</option>
-                                    {{/each}}
-                                </select> -->
         	</div>
             <!-- <div id="subcat" class="advanced-search-group advanced-search-group_subcat"></div> -->
-        	<div class="advanced-search-group em-margin-bottom">
-    	    	<!-- <label class="em-text-grey">Название учреждения</label><br>
-                <select class="filter-fields" name="lpu_code" id="lpuSelect">
-                    <option value="-1">-- Не выбран --</option>
-                    {{#each lpus}}
-                        <option value="{{this.lpu}}">{{this.name}}</option>
-                    {{/each}}
-                </select> -->
+        	<div class="advanced-search-group">
                 <div class="select" id="lpuSelect">
                     <div class="select__label">Название учреждения</div>
                     <div class="select-list">
                         {{#each lpus}}
-                            <div data-value="{{this.lpu}}" class="select-list__item">{{this.name}}</div>
+                            <div data-value="{{this.lpu}}" data-parent="lpuSelect" class="select-list__item" onclick="EM.selects.makeChoice(this);">{{this.name}}</div>
                         {{/each}}
                     </div>
-                    <div class="select__choices"></div>
+                    <div class="select-choices"></div>
                 </div>
     	    </div>
         </div>

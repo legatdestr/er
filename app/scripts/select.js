@@ -9,20 +9,50 @@
                 }
             }
         }
-
         return false;
     }
 
-    function deleteChoice(e) {
-        var choice = e.target.parentNode,
-            choiceId = choice.getAttribute('data-value'),
-            choiceInList = getChoiceById(document.getElementById(choice.getAttribute('data-parent')));
+    function makeChoice(target) {
+        if (target && target.className.indexOf('select-list__item') !== -1) {
+            renderTemplate(
+                EM.templates.selectsChoice,
+                {
+                    text: target.textContent,
+                    dataParent: target.getAttribute('data-parent'),
+                    dataValue: target.getAttribute('data-value')
+                },
+                '#' + target.getAttribute('data-parent') + ' .select-choices'
+            );
+            toggleSelect(document.getElementById(target.getAttribute('data-parent')));
+            target.classList.add('select-list__item_hide');
+
+            if (document.querySelectorAll('#' + target.getAttribute('data-parent') + ' .select-list__item:not(.select-list__item_hide)').length === 0) {
+                document.querySelector('#' + target.getAttribute('data-parent') + ' .select__label').classList.add('select__label_disabled');
+            }
+        }
+    }
+
+    function deleteChoice(target) {
+        var choice = target.parentNode,
+            list = Array.prototype.slice.call(document.querySelectorAll('#' + choice.getAttribute('data-parent') + ' .select-list__item')),
+            choiceInList = getChoiceById(list, choice.getAttribute('data-value'));
+
+        choice.parentNode.removeChild(choice);
+        choiceInList.classList.remove('select-list__item_hide');
+
+        if (document.querySelectorAll('#' + choice.getAttribute('data-parent') + ' .select-list__item:not(.select-list__item_hide)').length > 0) {
+            document.querySelector('#' + choice.getAttribute('data-parent') + ' .select__label').classList.remove('select__label_disabled');
+        }
     }
 
     function toggleSelect(select) {
         if (select) {
             select.querySelector('.select-list').classList.toggle('select-list_show');
         }
+    }
+
+    function renderTemplate(template, params, target) {
+        document.querySelector(target).innerHTML += template(params);
     }
 
     function initSelects() {
@@ -35,66 +65,27 @@
                 selects[i].querySelector('.select__label').addEventListener('click', toggleSelect.bind(null, selects[i]));
             }(i));
         }
-
-        /*$('select').each(function(){
-            var $this = $(this), numberOfOptions = $(this).children('option').length;
-          
-            $this.addClass('select-hidden'); 
-            $this.wrap('<div class="select"></div>');
-            $this.after('<div class="select-styled color-red"></div>');
-
-            var $styledSelect = $this.next('div.select-styled');
-            $styledSelect.text($this.children('option').eq(0).text());
-          
-            var $list = $('<ul />', {
-                'class': 'select-options'
-            }).insertAfter($styledSelect);
-          
-            for (var i = 0; i < numberOfOptions; i++) {
-                $('<li />', {
-                    text: $this.children('option').eq(i).text(),
-                    rel: $this.children('option').eq(i).val(),
-                    'class': 'color-red'
-                }).appendTo($list);
-            }
-          
-            var $listItems = $list.children('li');
-          
-            $styledSelect.click(function(e) {
-                e.stopPropagation();
-                $('div.select-styled.active').not(this).each(function(){
-                    $(this).removeClass('active').next('ul.select-options').hide();
-                });
-                $(this).toggleClass('active').next('ul.select-options').toggle();
-            });
-          
-            $listItems.click(function(e) {
-                var event = new CustomEvent('category-change', {detail: {value: $(this).attr('rel')}});
-
-                e.stopPropagation();
-                $styledSelect.text($(this).text()).removeClass('active');
-                $this.val($(this).attr('rel'));
-                $list.hide();
-
-                document.dispatchEvent(event);
-            });
-          
-            $(document).click(function() {
-                $styledSelect.removeClass('active');
-                $list.hide();
-            });
-        });*/
     }
 
     document.addEventListener('clear-form', function() {
-        var defaultText = '-- Не выбрано --';
-        document.getElementById('categorySelect').value = 'default';
-        document.getElementById('lpuSelect').value = 'default';
+        var selects = document.querySelectorAll('.select'),
+            listItems = document.querySelectorAll('.select-list__item'),
+            i;
 
-        document.querySelector('.advanced-search-group_cat .select-styled').textContent = defaultText;
-        document.querySelector('.advanced-search-group_lpu .select-styled').textContent = defaultText;
+        for (i = 0; i < selects.length; i++) {
+            selects[i].querySelector('.select-choices').innerHTML = '';
+        }
+
+        for (i = 0; i < listItems.length; i++) {
+            listItems[i].classList.remove('select-list__item_hide');
+        }
+
+
     });
 
     global.EM = (typeof EM === 'object' ? EM : window.EM = {});
-    EM.initSelects = initSelects;
+    global.EM.selects = {};
+    global.EM.selects.makeChoice = makeChoice;
+    global.EM.selects.deleteChoice = deleteChoice;
+    global.EM.selects.initSelects = initSelects;
 })(window);

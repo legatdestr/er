@@ -263,8 +263,7 @@
     	var result = false;
 
     	if (document.getElementById('searchString').value !== '' ||
-    		document.getElementById('categorySelect').value !== '-1' ||
-    		document.getElementById('lpuSelect').value !== '-1'
+    		document.querySelectorAll('.selects-choices__item').length > 0
     		) {
     		result = true;
     	}
@@ -288,35 +287,29 @@
     	});
     }
 	function getFilteringFields() {
-		var result = [],
-			fields = Array.prototype.slice.call(document.querySelectorAll('.filter-fields')),
+		var result = [
+				{
+					value: [],
+					name: 'cats'
+				}
+			],
+			fields = Array.prototype.slice.call(document.querySelectorAll('.selects-choices__item')),
 			i;
 
-		result = fields.filter(function(field) {
-			return field.value !== '-1';
-		});
-
-		return result.map(function(field) {
-			var type = field.name,
-				result = {};
-			switch (type) {
-				case 'cats':
-					result = {
-						name: field.name,
-						value: [
-							field.value
-						]
-					};
-					break;
-				default:
-					result = {
-						name: type,
-						value: field.value
-					};
-					break;
+		for (i = 0; i < fields.length; i++) {
+			if (fields[i].getAttribute('data-parent') === 'catSelect') {
+				result[0].value.push(fields[i].getAttribute('data-value'));
+			} else if (fields[i].getAttribute('data-parent') === 'lpuSelect') {
+				//result[1].value.push(fields[i].getAttribute('data-value'));
+				result.push({
+					name: 'lpu_code',
+					value: fields[i].getAttribute('data-value')
+				});
 			}
+		}
 
-			return result;
+		return result.filter(function(item) {
+			return item.value.length > 0;
 		});
 	}
 
@@ -350,6 +343,7 @@
     		offset = offset || 0;
     		document.querySelector('.error-message').classList.remove('error-message_active');
 	        //showLoading();
+	        console.log(createSearchObject(offset));
             fetch('https://er.em70.ru/api/paidservices/find?data=' + encodeURI(JSON.stringify(createSearchObject(offset))), {method: 'GET'})
             .then(function(response) {
                 return response.json()
@@ -418,10 +412,8 @@
     	var resetEvent = new Event('clear-form');
 
     	document.dispatchEvent(resetEvent);
-    	
+
         searchString.value = '';
-        document.getElementById('categorySelect').value = -1;
-        document.getElementById('lpuSelect').value = -1;
 
         document.getElementById(settings.psContentId).innerHTML = '';
         document.querySelector('.ps-sorting').classList.remove('ps-sorting_show');
@@ -514,7 +506,7 @@
 	            },
 	            '#' + settings.psId
 	        );
-	        EM.initSelects();
+	        EM.selects.initSelects();
 	        searchString = document.getElementById('searchString');
 	        searchString.addEventListener('keydown', keyPressed);
 	        initAwesomplete(searchString);

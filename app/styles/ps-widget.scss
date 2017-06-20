@@ -1,3 +1,7 @@
+.advanced-search-group {
+  margin-bottom: 25px;
+}
+
 #paid-services-widget {
   width: 100%;
   font-size: 1.384rem;
@@ -171,7 +175,6 @@ $select-height: 40px;
   display: inline-block;
   position: relative;
   font-size: 16px;
-  color: #fff;
   width: 400px;
   height: 40px;
 }
@@ -181,6 +184,7 @@ $select-height: 40px;
   bottom: 0;
   left: 0;
   background-color: #ab2626;
+  color: #fff;
   padding: 8px 15px;
   transition: all 0.2s ease-in;
   &:after {
@@ -198,10 +202,11 @@ $select-height: 40px;
   }
   &:active, &.active {
     background-color: #c53333;
-    &:after {
-      top: 9px;
-      border-color: transparent transparent #fff transparent;
-    }
+  }
+  &_disabled,
+  &_disabled:hover,
+  &_disabled:active {
+    background-color: #808080;
   }
 }
 
@@ -218,6 +223,7 @@ $select-height: 40px;
   overflow: auto;
   list-style: none;
   background-color: #ab2626;
+  color: #fff;
   &__item {
     margin: 0;
     padding: 12px 10px;
@@ -232,9 +238,23 @@ $select-height: 40px;
       display: none;
     }
   }
+  &__item_hide {
+    display: none;
+  }
   &_show {
     display: block;
   }
+}
+
+.selects-choices__item {
+  position: relative;
+  padding-right: 30px !important;
+}
+
+.selects-choices__delete {
+  position: absolute;
+  right: 10px;
+  top: 5%;
 }
 
 #pagination {
