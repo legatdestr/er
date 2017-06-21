@@ -73,14 +73,13 @@
 }
 
 .em-button {
-  color: #000;
-  background-color: #f1f1f1;
+  color: #fff;
+  background-color: #ab2626;
   padding: 8px 16px
 }
 
 .em-button:hover {
-  color: #000 !important;
-  background-color: #ccc !important
+  background-color: #c53333;
 }
 
 .em-btn, .em-btn-floating, .em-btn-floating-large, .em-closenav, .em-opennav, .em-btn-block, .em-button {
@@ -554,7 +553,6 @@ input[type=checkbox].em-check:disabled + .em-validate, input[type=radio].em-radi
 }
 
 .em-bar .em-button {
-  background-color: inherit;
   color: inherit;
   white-space: normal
 }
@@ -1190,19 +1188,19 @@ input[type=checkbox].em-check:disabled + .em-validate, input[type=radio].em-radi
 }
 
 .em-topbar {
-  border-top: 6px solid #ccc !important
+  border-top: 6px solid #ab2626 !important
 }
 
 .em-bottombar {
-  border-bottom: 6px solid #ccc !important
+  border-bottom: 6px solid #ab2626 !important
 }
 
 .em-leftbar {
-  border-left: 6px solid #ccc !important
+  border-left: 6px solid #ab2626 !important
 }
 
 .em-rightbar {
-  border-right: 6px solid #ccc !important
+  border-right: 6px solid #ab2626 !important
 }
 
 .em-row-padding, .em-row-padding > .em-half, .em-row-padding > .em-third, .em-row-padding > .em-twothird, .em-row-padding > .em-threequarter, .em-row-padding > .em-quarter, .em-row-padding > .em-col {
