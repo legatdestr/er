@@ -1,9 +1,14 @@
-.site-section {
-  background-color: rgba(245, 248, 250, 0.85);
+  $common-margin: 40px;
+  $header-padding-left: $common-margin;
+  $article-margin-bottom: $common-margin * .5;
 
+.site-section {
+  padding-top: 30px;
+  padding-bottom: 30px;
   font-weight: 400;
 
   &__header {
+    width: 100%;
     $fontsize: 3.933rem;
     font-size: $fontsize;
     @media all and (max-width: 500px) {
@@ -12,9 +17,6 @@
   }
 ;
 
-  $common-margin: 40px;
-  $header-padding-left: $common-margin;
-  $article-margin-bottom: $common-margin * .5;
 
   &__article-header {
     $fontsize: 5.333rem;
@@ -36,10 +38,10 @@
       right: $common-margin;
 
     };
+  }
 
-    padding: {
-      left: $header-padding-left;
-    };
+  &__wrap {
+    max-width: 800px;
   }
 ;
 
@@ -54,11 +56,58 @@
 ;
 }
 
+.screen {
+  position: relative;
+  overflow: hidden;
+}
+
+.screen-wrap {
+  z-index: 10;
+  background: rgba(245, 248, 250, 0.85);
+  min-height: 590px;
+}
+
+.em-icon {
+  position: absolute;
+  z-index: -1;
+  font-size: 800px;
+}
+
+.screen > .icon-schedule {
+  top: -190px;
+  left: -60px;
+  font-size: 800px;
+}
+
+.screen > .icon-results {
+  top: -435px;
+  right: -240px;
+  font-size: 1000px;
+}
+
+.screen > .icon-ratio {
+  left: -100px;
+  top: -225px;
+  font-size: 865px;
+}
+
+.screen > .icon-services {
+  top: -235px;
+  right: -120px;
+  font-size: 800px;
+}
+
+.screen > .icon-about {
+  left: -100px;
+  top: -225px;
+  font-size: 865px;
+}
+
 
 $site-section-header-paddinng-left: 14px;
 
 
-#schedule {
+/* #schedule {
 
   $icon-width: 84px;
   $icon-height: 75px;
@@ -80,10 +129,10 @@ $site-section-header-paddinng-left: 14px;
       line-height: $icon-height;
     }
   }
-}
+} */
 
 
-#analazys-results {
+/* #analazys-results {
   $icon-width: 58px;
   $icon-height: 100px;
 
@@ -172,4 +221,4 @@ $site-section-header-paddinng-left: 14px;
       line-height: $icon-height;
     }
   }
-}
+} */

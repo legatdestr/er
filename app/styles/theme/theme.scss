@@ -10,13 +10,17 @@
 
 
 html, body {
-  background-color: #006d8c;
-  background: {
+  background-color: rgba(245, 248, 250, 0.85);;
+  /* background: {
     image: url("../images/header_background.png");
     repeat: repeat;
     position: right top;
     attachment: fixed;
-  }
+  } */
+}
+
+.body-index {
+  background: none;
 }
 
 .color-gray {
@@ -30,6 +34,10 @@ html, body {
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 
                 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important;
     background: #fff;
+}
+
+.page_ratio {
+  margin-top: 165px;
 }
 
 .body-services,
