@@ -5,34 +5,37 @@
 <div class="em-container em-white">
     <h2>{{formHeader}}</h2>
 </div>
-<form id={{searchFormId}} class="em-container em-row em-padding">
+<div id={{searchFormId}} class="em-container em-row em-padding">
     Воспользуйтесь поиском для нахождения интересующих вас услуг.<br><br>
     <div>
         <label class="em-text-grey">{{searchInputLabel}}</label>
-        <input placeholder={{searchPlaceholder}} id="searchString" class="em-input em-border" type="text" required="">
+        <input placeholder={{searchPlaceholder}} id="searchString" class="em-input em-border" type="text">
         <div class="error-message em-text-red">Пожалуйста, уточните запрос с помощью формы поиска выше.</div>
     </div>
     <div class="em-left">
-        <a class="advanced-toggle em-border-bottom em-show-inline-block em-padding" onclick="EM.ps.toggleAdvancedSearch()">расширенный поиск</a>
-        <div id={{advancedSearchId}} class="advanced-search em-margin-top">
-        	<div class="advanced-search-group advanced-search-group_cat em-margin-bottom">
-        		<label class="em-text-grey">Тип услуги</label><br>
-        		<select class="filter-fields" name="category" id="categorySelect">
-        			<option value="-1">-- Не выбран --</option>
-    	    		{{#each categories}}
-    	    			<option value="{{@key}}">{{this.name}}</option>
-    	    		{{/each}}
-    	    	</select>
+        <div class="advanced-search">
+        	<div class="advanced-search-group">
+                <div class="select" id="catSelect">
+                    <div class="select__label">Тип услуги</div>
+                    <div class="select-list">
+                        {{#each categories}}
+                            <div data-value="{{@key}}" data-parent="catSelect" class="select-list__item" onclick="EM.selects.makeChoice(this);">{{this.name}}</div>
+                        {{/each}}
+                    </div>
+                    <div class="select-choices"></div>
+                </div>
         	</div>
-            <div id="subcat" class="advanced-search-group advanced-search-group_subcat"></div>
-        	<div class="advanced-search-group advanced-search-group_lpu em-margin-bottom">
-    	    	<label class="em-text-grey">Название учреждения</label><br>
-    	    	<select class="filter-fields" name="lpu_name" id="lpuSelect">
-    	    		<option value="-1">-- Не выбран --</option>
-    	    		{{#each lpus}}
-    	    			<option value="{{this.lpu}}">{{this.name}}</option>
-    	    		{{/each}}
-    	    	</select>
+            <!-- <div id="subcat" class="advanced-search-group advanced-search-group_subcat"></div> -->
+        	<div class="advanced-search-group">
+                <div class="select" id="lpuSelect">
+                    <div class="select__label">Название учреждения</div>
+                    <div class="select-list">
+                        {{#each lpus}}
+                            <div data-value="{{this.lpu}}" data-parent="lpuSelect" class="select-list__item" onclick="EM.selects.makeChoice(this);">{{this.name}}</div>
+                        {{/each}}
+                    </div>
+                    <div class="select-choices"></div>
+                </div>
     	    </div>
         </div>
         <a class="em-button color-red" onclick="EM.ps.runSearch()">Поиск</a>
@@ -42,12 +45,12 @@
     <div class="ps-sorting em-row em-right">
         <div class="em-right">
             <div class="ps-sorting__title">Сортировать:</div>
-            <div class="ps-sorting__item ps-button em-button" data-sort-field="service_price" onclick="EM.ps.sort(this);">Цена</div>
-            <div class="ps-sorting__item ps-button em-button" data-sort-field="lpu_ratio" onclick="EM.ps.sort(this);">Рейтинг учреждения</div>
             <div class="ps-sorting__item ps-button em-button" data-sort-field="service_name" onclick="EM.ps.sort(this);">Название услуги</div>
-            <div class="ps-sorting__item ps-button em-button" data-sort-field="category_name" onclick="EM.ps.sort(this);">Категория услуги</div>
+            <div class="ps-sorting__item ps-button em-button" data-sort-field="price" onclick="EM.ps.sort(this);">Цена</div>
+            <!-- <div class="ps-sorting__item ps-button em-button" data-sort-field="lpu_ratio" onclick="EM.ps.sort(this);">Рейтинг учреждения</div> -->
+            <!-- <div class="ps-sorting__item ps-button em-button" data-sort-field="category_name" onclick="EM.ps.sort(this);">Категория услуги</div> -->
         </div>
     </div>
-</form>
+</div>
 
 <div id={{psContentId}} class="ps-content em-margin-top em-margin-bottom"></div>

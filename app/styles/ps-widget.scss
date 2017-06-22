@@ -1,43 +1,10 @@
+.advanced-search-group {
+  margin-bottom: 25px;
+}
+
 #paid-services-widget {
   width: 100%;
   font-size: 1.384rem;
-}
-
-/* advanced search */
-
-.advanced-search {
-	max-height: 0;
-	/* -webkit-transition: max-height .1s ease-in;
-         -moz-transition: max-height .1s ease-in;
-           -o-transition: max-height .1s ease-in;
-              transition: max-height .1s ease-in; */
-    overflow: hidden;
-}
-
-.advanced-search_show {
-	max-height: 300px;
-	/* -webkit-transition: max-height .1s ease-out;
-         -moz-transition: max-height .1s ease-out;
-           -o-transition: max-height .1s ease-out;
-              transition: max-height .1s ease-out; */
-  overflow: inherit;
-}
-
-.advanced-toggle {
-  -webkit-transition: background, color 0.5s ease;
-     -moz-transition: background, color 0.5s ease;
-       -o-transition: background, color 0.5s ease;
-          transition: background, color 0.5s ease;
-}
-
-.advanced-toggle:hover {
-  background-color: #ab2626;
-  color: #fff;
-  -webkit-transition: background, color 0.5s ease;
-     -moz-transition: background, color 0.5s ease;
-       -o-transition: background, color 0.5s ease;
-          transition: background, color 0.5s ease;
-  cursor: pointer;
 }
 
 .error-message {
@@ -138,6 +105,10 @@
   font-size: 1.384rem;
 }
 
+.services-not-found {
+  font-size: 1.384rem;
+}
+
 @media (min-width: 991px) {
   .ps-items {
     display: flex;
@@ -191,7 +162,7 @@
 $background: #e74c3c;
 $select-color: #fff;
 $select-background: #8c1f1f;
-$select-width: 220px;
+$select-width: 400px;
 $select-height: 40px; 
 
 .select-hidden {
@@ -204,17 +175,16 @@ $select-height: 40px;
   display: inline-block;
   position: relative;
   font-size: 16px;
-  color: $select-color;
-  width: $select-width;
-  height: $select-height;
+  width: 400px;
+  height: 40px;
 }
-.select-styled {
-  position: absolute; 
+.select__label {
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: $select-background;
+  background-color: #ab2626;
+  color: #fff;
   padding: 8px 15px;
   transition: all 0.2s ease-in;
   &:after {
@@ -222,24 +192,25 @@ $select-height: 40px;
     width: 0;
     height: 0;
     border: 7px solid transparent;
-    border-color: $select-color transparent transparent transparent;
+    border-color: #fff transparent transparent transparent;
     position: absolute;
     top: 16px;
     right: 10px;
   }
   &:hover {
-    background-color: darken($select-background, 2);
+    background-color: #c53333;
   }
   &:active, &.active {
-    background-color: darken($select-background, 5);
-    &:after {
-      top: 9px;
-      border-color: transparent transparent $select-color transparent;
-    }
+    background-color: #c53333;
+  }
+  &_disabled,
+  &_disabled:hover,
+  &_disabled:active {
+    background-color: #808080;
   }
 }
 
-.select-options {
+.select-list {
   display: none; 
   position: absolute;
   top: 100%;
@@ -248,22 +219,42 @@ $select-height: 40px;
   z-index: 999;
   margin: 0;
   padding: 0;
+  max-height: 200px;
+  overflow: auto;
   list-style: none;
-  background-color: darken($select-background, 5);
-  li {
+  background-color: #ab2626;
+  color: #fff;
+  &__item {
     margin: 0;
-    padding: 12px 0;
+    padding: 12px 10px;
     text-indent: 15px;
-    border-top: 1px solid darken($select-background, 10);
+    border-top: 1px solid #ab2626;
     transition: all 0.15s ease-in;
     &:hover {
-      color: $select-color;
-      background: $select-background !important;
+      color: #fff;
+      background: #c53333 !important;
     }
     &[rel="hide"] {
       display: none;
     }
   }
+  &__item_hide {
+    display: none;
+  }
+  &_show {
+    display: block;
+  }
+}
+
+.selects-choices__item {
+  position: relative;
+  padding-right: 30px !important;
+}
+
+.selects-choices__delete {
+  position: absolute;
+  right: 10px;
+  top: 5%;
 }
 
 #pagination {
@@ -272,10 +263,15 @@ $select-height: 40px;
 
 #pagination a {
   margin-right: 10px;
+  vertical-align: top;
 }
 
 #pagination .current {
   background-color: #c53333 !important;
+}
+
+#pagination .pagination__link {
+  margin-bottom: 20px;
 }
 
 #pagination .pagination__next {
