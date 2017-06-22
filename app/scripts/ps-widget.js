@@ -351,7 +351,7 @@
             .then(function(response) {
             	services = response.items ? getFormattedServices(response.items) : null;
                 renderTemplate(
-                    EM.templates.services,
+                    EM.templates.psServices,
                     {
                         services: services
                     },
@@ -493,7 +493,7 @@
         .then(function(response) {
         	categories = getCategories(response.paidcategories);
             renderTemplate(
-	            EM.templates.main, 
+	            EM.templates.psMain, 
 	            {
 	                formHeader: settings.formHeader,
 	                searchPlaceholder: settings.searchPlaceholder,
@@ -541,7 +541,7 @@
 		var number = button.getAttribute('data-desc');
 		console.log(services[number]);
 		renderTemplate(
-			EM.templates.modal,
+			EM.templates.psModal,
 			{
 				service: services[number]
 			},
