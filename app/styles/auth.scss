@@ -1,0 +1,19 @@
+.auth {
+	font-size: 1.384rem;
+}
+
+.auth__item:hover {
+	display: inline-block;
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+.user-info {
+	display: none;
+	padding: 6px 16px;
+	vertical-align: bottom;
+}
+
+.user-info_show {
+	display: inline-block;
+}

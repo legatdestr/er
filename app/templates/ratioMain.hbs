@@ -1,0 +1,131 @@
+<h2 class="ratio__header">Рейтинг учреждений</h2>
+<div id="tmp-console"></div>
+<table class="em-table-all">
+<thead>
+  <tr class="em-red">
+    <th>Позиция</th>
+    <th>Учреждение</th>
+    <th>Рейтинг</th>
+    <th>Зачтено отзывов</th>
+    <th>Голосование</th>
+  </tr>
+</thead>
+<tr>
+  <td>1</td>
+  <td>Поликлиника 1</td>
+  <td>3.80</td>
+  <td>9 из 11</td>
+  <td>
+  	<div class="em-button vote-button" onclick="EM.ratio.showModal();">+</div>
+  	<div class="em-button vote-button" onclick="EM.ratio.showModal();">-</div>
+  </td>
+</tr>
+<tr>
+  <td>2</td>
+  <td>Поликлиника 1</td>
+  <td>3.80</td>
+  <td>9 из 11</td>
+  <td>
+  	<div class="em-button vote-button" onclick="EM.ratio.showModal();">+</div>
+  	<div class="em-button vote-button" onclick="EM.ratio.showModal();">-</div>
+  </td>
+</tr>
+<tr>
+  <td>3</td>
+  <td>Поликлиника 1</td>
+  <td>3.80</td>
+  <td>9 из 11</td>
+  <td>
+  	<div class="em-button vote-button" onclick="EM.ratio.showModal();">+</div>
+  	<div class="em-button vote-button" onclick="EM.ratio.showModal();">-</div>
+  </td>
+</tr>
+<tr>
+  <td>4</td>
+  <td>Поликлиника 1</td>
+  <td>3.80</td>
+  <td>9 из 11</td>
+  <td>
+  	<div class="em-button vote-button" onclick="EM.ratio.showModal();">+</div>
+  	<div class="em-button vote-button" onclick="EM.ratio.showModal();">-</div>
+  </td>
+</tr>
+<tr>
+  <td>5</td>
+  <td>Поликлиника 1</td>
+  <td>3.80</td>
+  <td>9 из 11</td>
+  <td>
+  	<div class="em-button vote-button" onclick="EM.ratio.showModal();">+</div>
+  	<div class="em-button vote-button" onclick="EM.ratio.showModal();">-</div>
+  </td>
+</tr>
+<tr>
+  <td>6</td>
+  <td>Поликлиника 1</td>
+  <td>3.80</td>
+  <td>9 из 11</td>
+  <td>
+  	<div class="em-button vote-button" onclick="EM.ratio.showModal();">+</div>
+  	<div class="em-button vote-button" onclick="EM.ratio.showModal();">-</div>
+  </td>
+</tr>
+<tr>
+  <td>7</td>
+  <td>Поликлиника 1</td>
+  <td>3.80</td>
+  <td>9 из 11</td>
+  <td>
+  	<div class="em-button vote-button" onclick="EM.ratio.showModal();">+</div>
+  	<div class="em-button vote-button" onclick="EM.ratio.showModal();">-</div>
+  </td>
+</tr>
+<tr>
+  <td>8</td>
+  <td>Поликлиника 1</td>
+  <td>3.80</td>
+  <td>9 из 11</td>
+  <td>
+  	<div class="em-button vote-button" onclick="EM.ratio.showModal();">+</div>
+  	<div class="em-button vote-button" onclick="EM.ratio.showModal();">-</div>
+  </td>
+</tr>
+<tr>
+  <td>9</td>
+  <td>Поликлиника 1</td>
+  <td>3.80</td>
+  <td>9 из 11</td>
+  <td>
+  	<div class="em-button vote-button" onclick="EM.ratio.showModal();">+</div>
+  	<div class="em-button vote-button" onclick="EM.ratio.showModal();">-</div>
+  </td>
+</tr>
+</table>
+
+<div id="review" class="em-modal">
+	<div class="em-modal-content">
+	    <div class="ratio-modal">
+	    	<span onclick="document.getElementById('review').style.display='none'" 
+	      class="em-button em-display-topright">&times;</span>
+			<div class="review__form">
+				<div class="em-container em-white">
+					<h2>Оставьте отзыв</h2>
+				</div>
+				<form class="em-container em-card-4 em-padding">
+					<br>
+					<p>
+					<label class="em-text-grey">Отзыв (не является обязательным полем)</label>
+					<textarea class="em-input em-border" type="text"></textarea>
+					</p>
+					<p>
+					<label class="em-text-grey">Выберите тип голоса:</label>
+					<div class="em-button vote-button">+</div>
+					<div class="em-button vote-button">-</div>
+					</p>
+					<br>
+					<p><button type="button" class="em-button em-padding em-red" style="width:150px">Проголосовать &nbsp; ❯</button></p>
+				</form>
+			</div>
+	    </div>
+	  </div>
+</div>

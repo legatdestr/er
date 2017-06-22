@@ -23,7 +23,8 @@ html, body {
   background-color: $color-grey !important;
 }
 
-.page_services {
+.page_services,
+.page_ratio {
 	margin: 0 auto;
 	margin-top: 103px; 
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 
@@ -31,21 +32,25 @@ html, body {
     background: #fff;
 }
 
-.body-services {
+.body-services,
+.body-ratio {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
 }
 
-.page_services {
+.page_services,
+.page_ratio  {
   width: 100%;
   margin-bottom: 30px;
   display: flex;
   flex: 1;
+  font-size: 1.384rem;
 }
 
 @media (min-width: 1101px) {
-  .page_services {
+  .page_services,
+  .page_ratio {
     width: 1100px;
   }
 }
