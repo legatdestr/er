@@ -23,10 +23,6 @@
     -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <!-- For IDE autocomplete only DELETE ME in production!!! -->
-    <link rel="deleteme" href="../.tmp/styles/em.css">
-
-
     <!-- build:css styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
@@ -244,11 +240,21 @@
 <script src="scripts/EM.js"></script>
 <script src="scripts/em.ui.js"></script>
 <script src="scripts/navbar.js"></script>
+<!-- endbuild -->
+
+<!-- build:js scripts/common.js -->
+<script src="scripts/fetch.js" defer></script>
+<script src="templates/templates.js" defer></script>
+<!-- endbuild -->
+
+<!-- build:js scripts/google-analytics.js -->
+<script src="scripts/google-analytics.js" defer async></script>
+<!-- endbuild -->
+
+<!-- build:js scripts/main-page.js -->
 <script src="scripts/service-selector.js"></script>
 <script src="scripts/main.js"></script>
 <!-- endbuild -->
-
-<script src="scripts/google-analytics.js" defer async></script>
 
 </body>
 </html>
