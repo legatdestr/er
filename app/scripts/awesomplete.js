@@ -16,8 +16,8 @@ var _ = function (input, o) {
 	this.isOpened = false;
 
 	this.input = $(input);
-	this.input.setAttribute("autocomplete", "off");
-	this.input.setAttribute("aria-autocomplete", "list");
+	this.input.setAttribute('autocomplete', 'off');
+	this.input.setAttribute('aria-autocomplete', 'list');
 
 	o = o || {};
 
@@ -36,21 +36,21 @@ var _ = function (input, o) {
 
 	// Create necessary elements
 
-	this.container = $.create("div", {
-		className: "awesomplete",
+	this.container = $.create('div', {
+		className: 'awesomplete',
 		around: input
 	});
 
-	this.ul = $.create("ul", {
-		hidden: "hidden",
+	this.ul = $.create('ul', {
+		hidden: 'hidden',
 		inside: this.container
 	});
 
-	this.status = $.create("span", {
-		className: "visually-hidden",
-		role: "status",
-		"aria-live": "assertive",
-		"aria-relevant": "additions",
+	this.status = $.create('span', {
+		className: 'visually-hidden',
+		role: 'status',
+		'aria-live': 'assertive',
+		'aria-relevant': 'additions',
 		inside: this.container
 	});
 
@@ -58,9 +58,9 @@ var _ = function (input, o) {
 
 	this._events = {
 		input: {
-			"input": this.onInputChange.bind(this),
-			"blur": this.close.bind(this, { reason: "blur" }),
-			"keydown": function(evt) {
+			'input': this.onInputChange.bind(this),
+			'blur': this.close.bind(this, { reason: 'blur' }),
+			'keydown': function(evt) {
 				var c = evt.keyCode;
 
 				// If the dropdown `ul` is in view, then act on keydown for the following keys:
@@ -71,20 +71,20 @@ var _ = function (input, o) {
 						me.select();
 					}
 					else if (c === 27) { // Esc
-						me.close({ reason: "esc" });
+						me.close({ reason: 'esc' });
 					}
 					else if (c === 38 || c === 40) { // Down/Up arrow
 						evt.preventDefault();
-						me[c === 38? "previous" : "next"]();
+						me[c === 38? 'previous' : 'next']();
 					}
 				}
 			}
 		},
 		form: {
-			"submit": this.close.bind(this, { reason: "submit" })
+			'submit': this.close.bind(this, { reason: 'submit' })
 		},
 		ul: {
-			"mousedown": function(evt) {
+			'mousedown': function(evt) {
 				var li = evt.target;
 
 				if (li !== this) {
@@ -110,12 +110,12 @@ var _ = function (input, o) {
 	$.bind(this.ul, this._events.ul);
 	$.bind(document, this._events.data);
 
-	if (this.input.hasAttribute("list")) {
-		this.list = "#" + this.input.getAttribute("list");
-		this.input.removeAttribute("list");
+	if (this.input.hasAttribute('list')) {
+		this.list = '#' + this.input.getAttribute('list');
+		this.input.removeAttribute('list');
 	}
 	else {
-		this.list = this.input.getAttribute("data-list") || o.list || [];
+		this.list = this.input.getAttribute('data-list') || o.list || [];
 	}
 
 	_.all.push(this);
@@ -126,7 +126,7 @@ _.prototype = {
 		if (Array.isArray(list)) {
 			this._list = list;
 		}
-		else if (typeof list === "string" && list.indexOf(",") > -1) {
+		else if (typeof list === 'string' && list.indexOf(',') > -1) {
 				this._list = list.split(/\s*,\s*/);
 		}
 		else { // Element or CSS selector
@@ -139,7 +139,7 @@ _.prototype = {
 						var text = el.textContent.trim();
 						var value = el.value || text;
 						var label = el.label || text;
-						if (value !== "") {
+						if (value !== '') {
 							items.push({ label: label, value: value });
 						}
 					}
@@ -166,23 +166,23 @@ _.prototype = {
 			return;
 		}
 
-		this.ul.setAttribute("hidden", "");
+		this.ul.setAttribute('hidden', '');
 		this.isOpened = false;
 		this.index = -1;
 		this._list = [];
 
-		$.fire(this.input, "awesomplete-close", o || {});
+		$.fire(this.input, 'awesomplete-close', o || {});
 	},
 
 	open: function () {
-		this.ul.removeAttribute("hidden");
+		this.ul.removeAttribute('hidden');
 		this.isOpened = true;
 
 		if (this.autoFirst && this.index === -1) {
 			this.goto(0);
 		}
 
-		$.fire(this.input, "awesomplete-open");
+		$.fire(this.input, 'awesomplete-open');
 	},
 
 	destroy: function() {
@@ -197,8 +197,8 @@ _.prototype = {
 		parentNode.removeChild(this.container);
 
 		//remove autocomplete and aria-autocomplete attributes
-		this.input.removeAttribute("autocomplete");
-		this.input.removeAttribute("aria-autocomplete");
+		this.input.removeAttribute('autocomplete');
+		this.input.removeAttribute('aria-autocomplete');
 
 		//remove this awesomeplete instance from the global array of instances
 		var indexOfAwesomplete = _.all.indexOf(this);
@@ -225,19 +225,19 @@ _.prototype = {
 		var lis = this.ul.children;
 
 		if (this.selected) {
-			lis[this.index].setAttribute("aria-selected", "false");
+			lis[this.index].setAttribute('aria-selected', 'false');
 		}
 
 		this.index = i;
 
 		if (i > -1 && lis.length > 0) {
-			lis[i].setAttribute("aria-selected", "true");
+			lis[i].setAttribute('aria-selected', 'true');
 			this.status.textContent = lis[i].textContent;
 
 			// scroll to highlighted element in case parent's height is fixed
 			this.ul.scrollTop = lis[i].offsetTop - this.ul.clientHeight + lis[i].clientHeight;
 
-			$.fire(this.input, "awesomplete-highlight", {
+			$.fire(this.input, 'awesomplete-highlight', {
 				text: this.suggestions[this.index]
 			});
 		}
@@ -253,15 +253,15 @@ _.prototype = {
 		if (selected) {
 			var suggestion = this.suggestions[this.index];
 
-			var allowed = $.fire(this.input, "awesomplete-select", {
+			var allowed = $.fire(this.input, 'awesomplete-select', {
 				text: suggestion,
 				origin: origin || selected
 			});
 
 			if (allowed) {
 				this.replace(suggestion);
-				this.close({ reason: "select" });
-				$.fire(this.input, "awesomplete-selectcomplete", {
+				this.close({ reason: 'select' });
+				$.fire(this.input, 'awesomplete-selectcomplete', {
 					text: suggestion
 				});
 			}
@@ -284,7 +284,7 @@ _.prototype = {
 		if (value.length >= this.minChars && this._list.length > 0) {
 			this.index = -1;
 			// Populate list with options that match
-			this.ul.innerHTML = "";
+			this.ul.innerHTML = '';
 
 			this.suggestions = this._list
 				.map(function(item) {
@@ -305,13 +305,13 @@ _.prototype = {
 				});
 
 			if (this.ul.children.length === 0) {
-				this.close({ reason: "nomatches" });
+				this.close({ reason: 'nomatches' });
 			} else {
 				this.open();
 			}
 		}
 		else {
-			this.close({ reason: "nomatches" });
+			this.close({ reason: 'nomatches' });
 		}
 	},
 
@@ -339,11 +339,11 @@ _.prototype = {
 _.all = [];
 
 _.FILTER_CONTAINS = function (text, input) {
-	return RegExp($.regExpEscape(input.trim()), "i").test(text);
+	return RegExp($.regExpEscape(input.trim()), 'i').test(text);
 };
 
 _.FILTER_STARTSWITH = function (text, input) {
-	return RegExp("^" + $.regExpEscape(input.trim()), "i").test(text);
+	return RegExp('^' + $.regExpEscape(input.trim()), 'i').test(text);
 };
 
 _.SORT_BYLENGTH = function (a, b) {
@@ -355,10 +355,10 @@ _.SORT_BYLENGTH = function (a, b) {
 };
 
 _.ITEM = function (text, input) {
-	var html = input.trim() === "" ? text : text.replace(RegExp($.regExpEscape(input.trim()), "gi"), "<mark>$&</mark>");
-	return $.create("li", {
+	var html = input.trim() === '' ? text : text.replace(RegExp($.regExpEscape(input.trim()), 'gi'), '<mark>$&</mark>');
+	return $.create('li', {
 		innerHTML: html,
-		"aria-selected": "false"
+		'aria-selected': 'false'
 	});
 };
 
@@ -373,24 +373,24 @@ _.DATA = function (item/*, input*/) { return item; };
 function Suggestion(data) {
 	var o = Array.isArray(data)
 	  ? { label: data[0], value: data[1] }
-	  : typeof data === "object" && "label" in data && "value" in data ? data : { label: data, value: data };
+	  : typeof data === 'object' && 'label' in data && 'value' in data ? data : { label: data, value: data };
 
 	this.label = o.label || o.value;
 	this.value = o.value;
 }
-Object.defineProperty(Suggestion.prototype = Object.create(String.prototype), "length", {
+Object.defineProperty(Suggestion.prototype = Object.create(String.prototype), 'length', {
 	get: function() { return this.label.length; }
 });
 Suggestion.prototype.toString = Suggestion.prototype.valueOf = function () {
-	return "" + this.label;
+	return '' + this.label;
 };
 
 function configure(instance, properties, o) {
 	for (var i in properties) {
 		var initial = properties[i],
-		    attrValue = instance.input.getAttribute("data-" + i.toLowerCase());
+		    attrValue = instance.input.getAttribute('data-' + i.toLowerCase());
 
-		if (typeof initial === "number") {
+		if (typeof initial === 'number') {
 			instance[i] = parseInt(attrValue);
 		}
 		else if (initial === false) { // Boolean options must be false by default anyway
@@ -414,7 +414,7 @@ function configure(instance, properties, o) {
 var slice = Array.prototype.slice;
 
 function $(expr, con) {
-	return typeof expr === "string"? (con || document).querySelector(expr) : expr || null;
+	return typeof expr === 'string'? (con || document).querySelector(expr) : expr || null;
 }
 
 function $$(expr, con) {
@@ -427,10 +427,10 @@ $.create = function(tag, o) {
 	for (var i in o) {
 		var val = o[i];
 
-		if (i === "inside") {
+		if (i === 'inside') {
 			$(val).appendChild(element);
 		}
-		else if (i === "around") {
+		else if (i === 'around') {
 			var ref = $(val);
 			ref.parentNode.insertBefore(element, ref);
 			element.appendChild(ref);
@@ -471,7 +471,7 @@ $.unbind = function(element, o) {
 };
 
 $.fire = function(target, type, properties) {
-	var evt = document.createEvent("HTMLEvents");
+	var evt = document.createEvent('HTMLEvents');
 
 	evt.initEvent(type, true, true );
 
@@ -483,7 +483,7 @@ $.fire = function(target, type, properties) {
 };
 
 $.regExpEscape = function (s) {
-	return s.replace(/[-\\^$*+?.()|[\]{}]/g, "\\$&");
+	return s.replace(/[-\\^$*+?.()|[\]{}]/g, '\\$&');
 };
 
 $.siblingIndex = function (el) {
@@ -495,15 +495,15 @@ $.siblingIndex = function (el) {
 // Initialization
 
 function init() {
-	$$("input.awesomplete").forEach(function (input) {
+	$$('input.awesomplete').forEach(function (input) {
 		new _(input);
 	});
 }
 
 // Are we in a browser? Check for Document constructor
-if (typeof Document !== "undefined") {
+if (typeof Document !== 'undefined') {
 	// DOM already loaded?
-	if (document.readyState !== "loading") {
+	if (document.readyState !== 'loading') {
 		init();
 		/*document.addEventListener('search-data', function(e) {
 			_.list = e.detail.list;
@@ -512,7 +512,7 @@ if (typeof Document !== "undefined") {
 	}
 	else {
 		// Wait for it
-		document.addEventListener("DOMContentLoaded", init);
+		document.addEventListener('DOMContentLoaded', init);
 	}
 }
 
@@ -520,12 +520,12 @@ _.$ = $;
 _.$$ = $$;
 
 // Make sure to export Awesomplete on self when in a browser
-if (typeof self !== "undefined") {
+if (typeof self !== 'undefined') {
 	self.Awesomplete = _;
 }
 
 // Expose Awesomplete as a CJS module
-if (typeof module === "object" && module.exports) {
+if (typeof module === 'object' && module.exports) {
 	module.exports = _;
 }
 
