@@ -30,6 +30,36 @@
 
 </head>
 <body class="body-index">
+<div class="sidebar" id="sidebar">
+    <div class="sidebar__item sidebar__item_active" data-target="main-screen">
+        <div class="sidebar__title em-card">главная</div>
+        <div class="sidebar__icon em-card"><span class="icon-main"></span></div>
+    </div>
+    <div class="sidebar__item" data-target="schedule-screen">
+        <div class="sidebar__title em-card">расписание</div>
+        <div class="sidebar__icon em-card"><span class="icon-schedule"></span></div>
+    </div>
+    <div class="sidebar__item" data-target="results-screen">
+        <div class="sidebar__title em-card">результаты</div>
+        <div class="sidebar__icon em-card"><span class="icon-results">
+                    <span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span>
+                    </span></div>
+    </div>
+    <div class="sidebar__item" data-target="rating-screen">
+        <div class="sidebar__title em-card">рейтинг</div>
+        <div class="sidebar__icon em-card"><span class="icon-ratio"></span></div>
+    </div>
+    <div class="sidebar__item" data-target="services-screen">
+        <div class="sidebar__title em-card">услуги</div>
+        <div class="sidebar__icon em-card"><span class="icon-services"></span></div>
+    </div>
+    <div class="sidebar__item" data-target="about-screen">
+        <div class="sidebar__title em-card">о нас</div>
+        <div class="sidebar__icon em-card"><span class="icon-about">
+        <span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span><span class="path10"></span><span class="path11"></span><span class="path12"></span><span class="path13"></span>
+    </span></div>
+    </div>
+</div>
 <!--[if IE]>
 <p class="browserupgrade">Вы используете <strong>устаревший</strong> браузер. Пожалуйста, <a
         href="http://browsehappy.com/">обновите браузер. </a>Иначе сайт может отображаться не вполне корректно</p>
@@ -42,7 +72,7 @@
             <a class="navbar__hamburger navbar__item em-button em-hide-large em-right em-hover-light-grey"
                href="javascript:void(0);" onclick="EM.ui.navbar.click()" title="Показать\скрыть меню"><i
                     class="fa fa-bars"></i></a>
-            <a href="/" class="navbar__item em-button em-white">
+            <a href="index.html" class="navbar__item em-button em-white">
                 <div class="navbar__logo">Медицинский портал</div>
             </a>
             <a href="#schedule"
@@ -73,16 +103,14 @@
 
 <!-- Page -->
 <div class="page">
-    <div class="main-screen screen">
+    <div class="main-screen screen" id="main-screen">
         <div class="em-content">
         <!-- Header -->
             <header id="header" class="em-row">
                 <div class="header">
-                    <div class="header__header em-container em-border-bottom"><h2>Добро пожаловать на медицинский портал!</h2>
+                    <div class="header__header em-container em-border-bottom"><h2>Добро пожаловать!</h2>
                     </div>
-                    <div class="header__content em-container em-card-2">Томаты любят почти все люди, и нет дачника или садовода, который
-                        не выращивал бы их на своём участке. Агротехника томатов довольно проста, независимо от того,
-                        выращиваете Вы их в теплице или открытом грунте. Относительно того, как правильно сажать помидоры, споров обычно не возникает. Во-первых, должно пройти время ночных заморозков, а во-вторых, нужно выбрать для посадки пасмурный день, иначе томаты будут долго болеть и плохо приживаться.
+                    <div class="header__content em-container em-card-2">Медицинский портал — это сервис по предоставлению актуальной информации о работе медицинских учреждений города Томск и Томской области. Портал поможет Вам узнать стоимость медицинских услуг, получить результаты анализов, ознакомиться с расписанием работы специалистов и выбрать подходящее учреждение на основе общего рейтинга.
                     </div>
                 </div>
             </header>
@@ -122,14 +150,12 @@
                             </div>
                         </div>
                     </div>
-
-
                 </div>
             </section>
         </div>
     </div>
 
-    <div class="schedule-screen screen">
+    <div class="schedule-screen screen" id="schedule-screen">
         <span class="em-icon icon-schedule"></span>
         <div class="screen-wrap">
             <div class="em-content">    
@@ -137,24 +163,17 @@
                 <section id="schedule" class="site-section">
                     <div class="em-padding-12 em-row">
                         <div class="em-container em-left site-section__header">
-                            <span class="icon-schedule"></span>Расписание
+                            <span class="icon-schedule"></span> Расписание
                         </div>
                         <div class="site-section__wrap em-right">
-                            <div class="site-section__article-header">Вступительное слово</div>
+                            <!-- <div class="site-section__article-header">Вступительное слово</div> -->
                             <article class="site-section__article">
-                                Огурец – единственный овощ (а с точки зрения ботаники
-                                - фрукт), который мы употребляем в пищу недозрелым.
-                                Огурцы весьма популярны в составе овощных салатов, а
-                                также в засоленном или маринованном виде. В России
-                                и других славянских странах огурец - излюбленная
-                                закуска, а его рассол – любимое средство от похмелья.
-                                За многочисленные "заслуги" в 2007 году в г. Шклове
-                                (Беларусь) был даже открыт памятник огурцу.
+                                В разделе «Расписание» Вы можете узнать контактную информацию учреждений, расписание работы врачей на ближайшие 3 недели, а также наличие свободных талонов на приём. Удобный поиск позволит найти нужного специалиста. Если Вы выбрали врача и время посещения, можете воспользоваться переходом в электронную регистратуру из раздела с расписанием.
                             </article>
                         </div>
 
                         <div class="controls em-right">
-                            <a href="//er.em70.ru" target="_blank" class="controls__button em-button color-red em-text-white">расписание</a>
+                            <a href="https://er.em70.ru/" target="_blank" class="controls__button em-button color-red em-text-white">Перейти</a>
                         </div>
 
                     </div>
@@ -163,7 +182,7 @@
         </div>
     </div>
 
-    <div class="results-screen screen">
+    <div class="results-screen screen" id="results-screen">
         <span class="em-icon icon-results">
                 <span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span>
                 </span>
@@ -173,26 +192,19 @@
                 <section id="analazys-results" class="site-section">
                     <div class="em-padding-12 em-row">
                         <div class="em-container em-left site-section__header">
-                            <span class="icon-results"></span> <span class="icon-results">
+                            <span class="icon-results">
                     <span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span>
                     </span>Результаты анализов
                         </div>
                         <div class="site-section__wrap em-left">
-                            <div class="site-section__article-header">Вступительное слово</div>
+                            <!-- <div class="site-section__article-header">Вступительное слово</div> -->
                             <article class="site-section__article">
-                                Огурец – единственный овощ (а с точки зрения ботаники
-                                - фрукт), который мы употребляем в пищу недозрелым.
-                                Огурцы весьма популярны в составе овощных салатов, а
-                                также в засоленном или маринованном виде. В России
-                                и других славянских странах огурец - излюбленная
-                                закуска, а его рассол – любимое средство от похмелья.
-                                За многочисленные "заслуги" в 2007 году в г. Шклове
-                                (Беларусь) был даже открыт памятник огурцу.
+                                Введите дату своего рождения и код, полученный в медицинском учреждении при сдаче анализов, для получения подробного описания результатов с возможностью сохранения и печати.
                             </article>
                         </div>
 
                         <div class="controls em-left">
-                            <a href="https://er.em70.ru/misresult/index" target="_blank" class="controls__button em-button color-red em-text-white">Результаты анализов</a>
+                            <a href="https://er.em70.ru/misresult/index" target="_blank" class="controls__button em-button color-red em-text-white">Перейти</a>
                         </div>
                     </div>
                 </section>
@@ -200,7 +212,7 @@
         </div>
     </div>
 
-    <div class="rating-screen screen">
+    <div class="rating-screen screen" id="rating-screen">
     <span class="em-icon icon-ratio"></span>
         <div class="screen-wrap">
             <div class="em-content">    
@@ -211,21 +223,14 @@
                             <span class="icon-ratio"></span>Рейтинг учреждений
                         </div>
                         <div class="site-section__wrap em-right">
-                            <div class="site-section__article-header">Вступительное слово</div>
+                            <!-- <div class="site-section__article-header">Вступительное слово</div> -->
                             <article class="site-section__article">
-                                Огурец – единственный овощ (а с точки зрения ботаники
-                                - фрукт), который мы употребляем в пищу недозрелым.
-                                Огурцы весьма популярны в составе овощных салатов, а
-                                также в засоленном или маринованном виде. В России
-                                и других славянских странах огурец - излюбленная
-                                закуска, а его рассол – любимое средство от похмелья.
-                                За многочисленные "заслуги" в 2007 году в г. Шклове
-                                (Беларусь) был даже открыт памятник огурцу.
+                                Выбрать медицинское учреждение может оказаться достаточно трудным занятием. Для более взвешенного решения Вы можете воспользоваться общим рейтингом. Каждый посетитель имеет возможность проголосовать за то или иное учреждение, а также оставить отзыв об обслуживании. На основе полученной от посетителей информации формируется рейтинг, отражающий качество обслуживания.
                             </article>
                         </div>
 
                         <div class="controls em-right">
-                            <a href="/ratio-page.html" target="_blank" class="controls__button em-button color-red em-text-white">Рейтинг учреждений</a>
+                            <a href="ratio-page.html" target="_blank" class="controls__button em-button color-red em-text-white">Перейти</a>
                         </div>
                     </div>
                 </section>
@@ -233,7 +238,7 @@
         </div>
     </div>
 
-    <div class="services-screen screen">
+    <div class="services-screen screen" id="services-screen">
         <span class="em-icon icon-services"></span>
         <div class="screen-wrap">
             <div class="em-content">    
@@ -244,21 +249,14 @@
                             <span class="icon-services"></span>Услуги
                         </div>
                         <div class="site-section__wrap em-left">
-                            <div class="site-section__article-header">Вступительное слово</div>
+                            <!-- <div class="site-section__article-header">Вступительное слово</div> -->
                             <article class="site-section__article">
-                                Огурец – единственный овощ (а с точки зрения ботаники
-                                - фрукт), который мы употребляем в пищу недозрелым.
-                                Огурцы весьма популярны в составе овощных салатов, а
-                                также в засоленном или маринованном виде. В России
-                                и других славянских странах огурец - излюбленная
-                                закуска, а его рассол – любимое средство от похмелья.
-                                За многочисленные "заслуги" в 2007 году в г. Шклове
-                                (Беларусь) был даже открыт памятник огурцу.
+                                Каждое учреждение предоставляет как уникальные, так и стандартные услуги. Однако стоимость услуг может сильно варьироваться. Воспользуйтесь поиском по услугам и Вы определите оптимальный вариант по цене и местоположению медицинского учреждения.
                             </article>
                         </div>
 
                         <div class="controls em-left">
-                            <a href="/paid-services.html" target="_blank" class="controls__button em-button color-red em-text-white">Услуги</a>
+                            <a href="paid-services.html" target="_blank" class="controls__button em-button color-red em-text-white">Перейти</a>
                         </div>
                     </div>
                 </section>
@@ -266,7 +264,7 @@
         </div>
     </div>
 
-    <div class="about-screen screen">
+    <div class="about-screen screen" id="about-screen">
     <span class="em-icon icon-about">
         <span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span><span class="path10"></span><span class="path11"></span><span class="path12"></span><span class="path13"></span>
     </span>
@@ -283,83 +281,21 @@
                             О нас
                         </div>
                         <div class="site-section__wrap em-right">
-                            <div class="site-section__article-header">Вступительное слово</div>
+                            <!-- <div class="site-section__article-header">Вступительное слово</div> -->
                             <article class="site-section__article">
-                                Огурец – единственный овощ (а с точки зрения ботаники
-                                - фрукт), который мы употребляем в пищу недозрелым.
-                                Огурцы весьма популярны в составе овощных салатов, а
-                                также в засоленном или маринованном виде. В России
-                                и других славянских странах огурец - излюбленная
-                                закуска, а его рассол – любимое средство от похмелья.
-                                За многочисленные "заслуги" в 2007 году в г. Шклове
-                                (Беларусь) был даже открыт памятник огурцу.
+                                Мы, компания «Элекард-Мед», стремимся улучшить качество медицинского обслуживания населения страны, предоставляя свои высокотехнологичные решения как в области программных комплексов по автоматизации процессов в медицинских учреждениях, так и в области вспомогательной медицинской аппаратуры.<br>
+                                Основной нашей целью является создание единого информационного пространства страны/региона и автоматизация процессов в здравоохранении для осуществления оперативного учёта данных и наилучшего обмена информацией между городскими центрами и удалёнными регионами страны.
                             </article>
                         </div>
 
                         <div class="controls em-right">
-                            <a href="//er.em70.ru" target="_blank" class="controls__button em-button color-red em-text-white">О нас</a>
+                            <a href="https://er.em70.ru/" target="_blank" class="controls__button em-button color-red em-text-white">Перейти</a>
                         </div>
                     </div>
                 </section>
             </div>
         </div>
     </div>
-
-    <script type="text/javascript">
-
-        /*!(function () {
-            "use strict";
-            var
-                schedule = document.querySelector('#schedule'),
-                parentEl = document.querySelector('.page'),
-                content = schedule.querySelector('.site-section__article').innerHTML,
-                model = [
-                    {
-                        id: 'analazys-results',
-                        name: 'Результаты анализов',
-                        pHeader: 'Вступительное слово',
-                        text: content
-                    },
-                    {
-                        id: 'rating',
-                        name: 'Рейтинг учреждений',
-                        pHeader: 'Вступительное слово',
-                        text: content
-                    },
-                    {
-                        id: 'services',
-                        name: 'Услуги',
-                        pHeader: 'Вступительное слово',
-                        text: content
-                    },
-                    {
-                        id: 'about',
-                        name: 'О нас',
-                        pHeader: 'Вступительное слово',
-                        text: content
-                    }
-                ];
-
-            console.warn('отключи этот скрипт после окончания  вёрстки');
-
-            model.forEach(function (sec) {
-                let newSection = schedule.cloneNode(true);
-                newSection.id = sec.id;
-                newSection.querySelector('.site-section__header').innerHTML = sec.name;
-                newSection.querySelector('.site-section__article-header').innerHTML = sec.pHeader;
-                newSection.querySelector('.site-section__article').innerHTML = sec.text;
-                newSection.querySelector('.controls__button').innerHTML = sec.name;
-
-                parentEl.appendChild(newSection);
-            });
-
-
-        }());*/
-
-
-    </script>
-
-
     <!-- End page content -->
 </div>
 
@@ -370,10 +306,10 @@
         <h2>Не решили, что тут размещать</h2>
     </div>
     <div class="em-row em-xlarge  em-center">
-        <i class="fa fa-twitter"></i>
-        <i class="fa fa-vk"></i>
-        <i class="fa fa-facebook"></i>
-        <i class="fa fa-youtube-play"></i>
+        <!-- <a href="#"><i class="fa fa-twitter"></i></a> -->
+        <a href="https://vk.com/em70ru" target="_blank"><i class="fa fa-vk"></i></a>
+        <a href="https://www.facebook.com/em70ru" target="_blank"><i class="fa fa-facebook"></i></a>
+        <!-- <i class="fa fa-youtube-play"></i> -->
     </div>
 
     <div class="footer__copyright em-row em-center">
@@ -406,6 +342,7 @@
 <!-- build:js scripts/main-page.js -->
 <script src="scripts/service-selector.js"></script>
 <script src="scripts/main.js"></script>
+<script src="scripts/sidebar.js"></script>
 <!-- endbuild -->
 
 </body>
