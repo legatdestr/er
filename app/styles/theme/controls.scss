@@ -18,14 +18,25 @@
       size: 3.2rem;
     }
 
-    @media all and (max-width: $btn-min-width * 1.2) {
+    /* @media all and (max-width: $btn-min-width * 1.2) {
       min-width: $btn-min-width / 2;
       white-space: pre-wrap;
       margin: {
         top: 40px;
       }
+    
+    } */
 
-    }
+  }
+}
 
+
+@media (max-width: 600px) {
+  .controls {
+    width: 100%;
+  }
+
+  .controls__button {
+    width: 100%;
   }
 }

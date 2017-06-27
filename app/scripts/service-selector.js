@@ -18,20 +18,35 @@ EM.ui.serviceSelector = {
     }
 };
 
-/**
- * Вносит поправку на padding хедера при переходе по якорю.. Иначе после кликка заголовок секции скрыт под меню
- */
-!(function () {
-    const btns = window.document.querySelectorAll('.service-selector__tabs-content .em-button');
-    const onClick = function(e){
-        setTimeout(function () {
-            let headerPaddingTop = 105, val = headerPaddingTop ;
-            window.scrollTo(0, window.scrollY - val);
-        }, 20);
-    };
+/*(function (global) {
+    function selectorItemClickHandler(e) {
+        e.preventDefault();
+        var clickedItem = e.target,
+            targetId,
+            offsetTop;
 
-    btns.forEach(function (btn) {
-        btn.addEventListener('click', onClick);
-    });
+        targetId = clickedItem.getAttribute('data-target');
 
-}());
+        offsetTop = targetId === '#'
+            ? 0 
+            : (EM.offset(document.getElementById(targetId)).top - menuHeight + 15);
+        
+        EM.scrollToY(offsetTop);
+    }
+
+    var
+        selectorItems = Array.prototype.slice.call(document.querySelectorAll('.service-selector__item')),
+        lastId,
+        menuHeight = EM.outerHeight(document.getElementById('navbar')) + 15,
+        scrollItems = selectorItems.map(function(item) {
+            var innerItem = document.getElementById(item.getAttribute('data-target'));
+
+            if (innerItem) {
+                return innerItem;
+            }
+        });
+
+        selectorItems.forEach(function(item, index, arr) {
+            item.addEventListener('click', selectorItemClickHandler);
+        });
+}(window));*/

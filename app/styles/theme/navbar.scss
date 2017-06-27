@@ -5,6 +5,9 @@
 
   border-bottom: $navbar-border-bottom-size solid $color-red;
   &__logo {
+    margin: {
+      top: 15px;
+    }
     font: {
       family: 'BicubikRegular', AppleGothic, sans-serif;
       size: $logo-font-size;
@@ -54,4 +57,19 @@
     background-color: #ccc !important;
   }
 
+  &__item_active {
+    color: #000 !important;
+    background-color: #ccc !important;
+  }
+
+}
+
+.navbar .navbar__item {
+  padding-top: 20px;
+}
+
+.navbar .navbar__item_logo,
+.navbar .navbar__hamburger {
+  padding-top: 0px;
+  padding-bottom: 0px;
 }

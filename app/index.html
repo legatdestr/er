@@ -72,28 +72,30 @@
             <a class="navbar__hamburger navbar__item em-button em-hide-large em-right em-hover-light-grey"
                href="javascript:void(0);" onclick="EM.ui.navbar.click()" title="Показать\скрыть меню"><i
                     class="fa fa-bars"></i></a>
-            <a href="index.html" class="navbar__item em-button em-white">
-                <div class="navbar__logo">Медицинский портал</div>
+            <a href="index.html" class="navbar__item navbar__item_logo em-button em-white em-left" data-target="main-screen">
+                <div class="navbar__logo" data-target="main-screen">Медицинский портал</div>
             </a>
-            <a href="#schedule"
-               class="navbar__item em-button em-hide-medium em-hide-small em-hover-light-grey">Расписание</a>
-            <a href="#analazys-results" class="navbar__item em-button em-hide-medium em-hide-small em-hover-light-grey">Результаты</a>
-            <a href="#rating"
-               class="navbar__item em-button em-hide-medium em-hide-small em-hover-light-grey">Рейтинг</a>
-            <a href="#services"
-               class="navbar__item em-button em-hide-medium em-hide-small em-hover-light-grey">Услуги</a>
-            <a href="#about" class="navbar__item em-button em-hide-medium em-hide-small em-hover-light-grey">О нас</a>
+            <div class="em-right">
+                <a href="#schedule"
+                   class="navbar__item em-button em-hide-medium em-hide-small em-hover-light-grey" data-target="schedule-screen">Расписание</a>
+                <a href="#analazys-results" class="navbar__item em-button em-hide-medium em-hide-small em-hover-light-grey" data-target="results-screen">Результаты</a>
+                <a href="#rating"
+                   class="navbar__item em-button em-hide-medium em-hide-small em-hover-light-grey" data-target="rating-screen">Рейтинг</a>
+                <a href="#services"
+                   class="navbar__item em-button em-hide-medium em-hide-small em-hover-light-grey" data-target="services-screen">Услуги</a>
+                <a href="#about" class="navbar__item em-button em-hide-medium em-hide-small em-hover-light-grey" data-target="about-screen">О нас</a>
+            </div>
         </div>
     </div>
 
 
     <!-- Navbar on small screens -->
     <div id="navbar-small-screens" class="em-bar-block em-white em-hide em-hide-large em-large em-animate-right">
-        <a href="#schedule" class="navbar__item em-bar-item em-button em-padding-large">Расписание</a>
-        <a href="#analazys-results" class="navbar__item em-bar-item em-button em-padding-large">Результаты</a>
-        <a href="#rating" class="navbar__item em-button em-bar-item em-padding-large">Рейтинг</a>
-        <a href="#services" class="navbar__item em-button em-bar-item em-padding-large">Услуги</a>
-        <a href="#about" class="navbar__item em-button em-bar-item em-padding-large">О нас</a>
+        <a href="#schedule" class="navbar__item navbar__item_mobile em-bar-item em-button em-padding-large" data-target="schedule-screen">Расписание</a>
+        <a href="#analazys-results" class="navbar__item navbar__item_mobile em-bar-item em-button em-padding-large" data-target="results-screen">Результаты</a>
+        <a href="#rating" class="navbar__item navbar__item_mobile em-button em-bar-item em-padding-large" data-target="rating-screen">Рейтинг</a>
+        <a href="#services" class="navbar__item navbar__item_mobile em-button em-bar-item em-padding-large" data-target="services-screen">Услуги</a>
+        <a href="#about" class="navbar__item navbar__item_mobile em-button em-bar-item em-padding-large" data-target="about-screen">О нас</a>
     </div>
 
 
@@ -110,7 +112,7 @@
                 <div class="header">
                     <div class="header__header em-container em-border-bottom"><h2>Добро пожаловать!</h2>
                     </div>
-                    <div class="header__content em-container em-card-2">Медицинский портал — это сервис по предоставлению актуальной информации о работе медицинских учреждений города Томск и Томской области. Портал поможет Вам узнать стоимость медицинских услуг, получить результаты анализов, ознакомиться с расписанием работы специалистов и выбрать подходящее учреждение на основе общего рейтинга.
+                    <div class="header__content em-container em-card-2">Медицинский портал — это сервис по предоставлению актуальной информации о работе медицинских учреждений города Томска и Томской области. Портал поможет Вам узнать стоимость медицинских услуг, получить результаты анализов, ознакомиться с расписанием работы специалистов и выбрать подходящее учреждение на основе общего рейтинга.
                     </div>
                 </div>
             </header>
@@ -136,17 +138,17 @@
                         <!-- active tab content by default -->
                         <div class="service-selector__tabs-content-item em-bar" tabName="paid-services">
                             <div class="controls">
-                                <a href="#schedule" class="controls__button em-button color-red em-text-white">расписание</a>
-                                <a href="#services" class="controls__button em-button color-red em-text-white">услуги</a>
-                                <a href="#analazys-results" class="controls__button em-button color-red em-text-white">результаты</a>
-                                <a href="#rating" class="controls__button em-button color-red em-text-white">рейтинг</a>
+                                <a href="#schedule" class="controls__button service-selector__item em-button color-red em-text-white" data-target="schedule-screen">расписание</a>
+                                <a href="#services" class="controls__button service-selector__item em-button color-red em-text-white" data-target="services-screen">услуги</a>
+                                <a href="#analazys-results" class="controls__button service-selector__item em-button color-red em-text-white" data-target="results-screen">результаты</a>
+                                <a href="#rating" class="controls__button em-button service-selector__item color-red em-text-white" data-target="rating-screen">рейтинг</a>
                             </div>
                         </div>
                         <div class="service-selector__tabs-content-item em-bar" tabName="oms-service" style="display:none;">
                             <div class="controls">
-                                <a href="#schedule" class="controls__button em-button color-red em-text-white">расписание</a>
-                                <a href="#services" class="controls__button em-button color-red em-text-white">услуги</a>
-                                <a href="#analazys-results" class="controls__button em-button  color-red em-text-white">результаты</a>
+                                <a href="#schedule" class="controls__button em-button service-selector__item color-red em-text-white" data-target="schedule-screen">расписание</a>
+                                <a href="#services" class="controls__button em-button service-selector__item color-red em-text-white" data-target="services-screen">услуги</a>
+                                <a href="#analazys-results" class="controls__button em-button service-selector__item color-red em-text-white" data-target="results-screen">результаты</a>
                             </div>
                         </div>
                     </div>
@@ -162,19 +164,19 @@
                 <!-- Schedule -->
                 <section id="schedule" class="site-section">
                     <div class="em-padding-12 em-row">
-                        <div class="em-container em-left site-section__header">
-                            <span class="icon-schedule"></span> Расписание
-                        </div>
+                            <div class="em-left site-section__header">
+                                <span class="icon-schedule"></span> &nbsp;&nbsp;Расписание
+                            </div>
                         <div class="site-section__wrap em-right">
                             <!-- <div class="site-section__article-header">Вступительное слово</div> -->
                             <article class="site-section__article">
                                 В разделе «Расписание» Вы можете узнать контактную информацию учреждений, расписание работы врачей на ближайшие 3 недели, а также наличие свободных талонов на приём. Удобный поиск позволит найти нужного специалиста. Если Вы выбрали врача и время посещения, можете воспользоваться переходом в электронную регистратуру из раздела с расписанием.
                             </article>
+                            <div class="controls em-right">
+                                <a href="https://er.em70.ru/" target="_blank" class="controls__button em-button color-red em-text-white">Перейти</a>
+                            </div>
                         </div>
 
-                        <div class="controls em-right">
-                            <a href="https://er.em70.ru/" target="_blank" class="controls__button em-button color-red em-text-white">Перейти</a>
-                        </div>
 
                     </div>
                 </section>
@@ -191,21 +193,21 @@
                 <!-- Schedule -->
                 <section id="analazys-results" class="site-section">
                     <div class="em-padding-12 em-row">
-                        <div class="em-container em-left site-section__header">
-                            <span class="icon-results">
-                    <span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span>
-                    </span>Результаты анализов
-                        </div>
+                                <div class="em-left site-section__header">
+                                    <span class="icon-results">
+                            <span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span>
+                            </span>&nbsp;Результаты анализов
+                                </div>
                         <div class="site-section__wrap em-left">
                             <!-- <div class="site-section__article-header">Вступительное слово</div> -->
                             <article class="site-section__article">
-                                Введите дату своего рождения и код, полученный в медицинском учреждении при сдаче анализов, для получения подробного описания результатов с возможностью сохранения и печати.
+                                Для получения подробного описания результатов с возможностью сохранения и печати, введите дату своего рождения и код, полученный в медицинском учреждении при сдаче анализов.
                             </article>
+                            <div class="controls em-left">
+                                <a href="https://er.em70.ru/misresult/index" target="_blank" class="controls__button em-button color-red em-text-white">Перейти</a>
+                            </div>
                         </div>
 
-                        <div class="controls em-left">
-                            <a href="https://er.em70.ru/misresult/index" target="_blank" class="controls__button em-button color-red em-text-white">Перейти</a>
-                        </div>
                     </div>
                 </section>
             </div>
@@ -219,19 +221,19 @@
                 <!-- Schedule -->
                 <section id="rating" class="site-section">
                     <div class="em-padding-12 em-row">
-                        <div class="em-container em-left site-section__header">
-                            <span class="icon-ratio"></span>Рейтинг учреждений
+                        <div class="em-left site-section__header">
+                            <span class="icon-ratio"></span>&nbsp;&nbsp;&nbsp;Рейтинг учреждений
                         </div>
                         <div class="site-section__wrap em-right">
                             <!-- <div class="site-section__article-header">Вступительное слово</div> -->
                             <article class="site-section__article">
-                                Выбрать медицинское учреждение может оказаться достаточно трудным занятием. Для более взвешенного решения Вы можете воспользоваться общим рейтингом. Каждый посетитель имеет возможность проголосовать за то или иное учреждение, а также оставить отзыв об обслуживании. На основе полученной от посетителей информации формируется рейтинг, отражающий качество обслуживания.
+                                Выбор медицинского учреждения может оказаться достаточно трудным занятием. Для более взвешенного решения Вы можете воспользоваться общим рейтингом, а также проголосовать за то или иное учреждение и оставить отзыв об обслуживании.
                             </article>
+                            <div class="controls em-right">
+                                <a href="ratio-page.html" class="controls__button em-button color-red em-text-white">Перейти</a>
+                            </div>
                         </div>
 
-                        <div class="controls em-right">
-                            <a href="ratio-page.html" target="_blank" class="controls__button em-button color-red em-text-white">Перейти</a>
-                        </div>
                     </div>
                 </section>
             </div>
@@ -244,20 +246,20 @@
             <div class="em-content">    
                 <!-- Schedule -->
                 <section id="services" class="site-section">
-                    <div class="em-padding-12 em-row">
-                        <div class="em-container em-left site-section__header">
-                            <span class="icon-services"></span>Услуги
+                        <div class="em-left site-section__header">
+                            <span class="icon-services"></span>&nbsp;&nbsp;&nbsp;Услуги
                         </div>
+                    <div class="em-padding-12 em-row">
                         <div class="site-section__wrap em-left">
                             <!-- <div class="site-section__article-header">Вступительное слово</div> -->
                             <article class="site-section__article">
-                                Каждое учреждение предоставляет как уникальные, так и стандартные услуги. Однако стоимость услуг может сильно варьироваться. Воспользуйтесь поиском по услугам и Вы определите оптимальный вариант по цене и местоположению медицинского учреждения.
+                                Спектр оказываемых в учреждении услуг может зависеть не только от профиля учреждения, но и от множества других, зачастую неявных, факторов. Воспользуйтесь поиском по услугам! Вы без труда найдете все учреждения, которые оказывают данную услугу, а также сможете сравнить цены.
                             </article>
+                            <div class="controls em-left">
+                                <a href="paid-services.html" class="controls__button em-button color-red em-text-white">Перейти</a>
+                            </div>
                         </div>
 
-                        <div class="controls em-left">
-                            <a href="paid-services.html" target="_blank" class="controls__button em-button color-red em-text-white">Перейти</a>
-                        </div>
                     </div>
                 </section>
             </div>
@@ -273,12 +275,12 @@
                 <!-- Schedule -->
                 <section id="about" class="site-section">
                     <div class="em-padding-12 em-row">
-                        <div class="em-container site-section__header em-left">
+                        <div class="site-section__header em-left">
                             
                                 <span class="icon-about">
                                     <span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span><span class="path5"></span><span class="path6"></span><span class="path7"></span><span class="path8"></span><span class="path9"></span><span class="path10"></span><span class="path11"></span><span class="path12"></span><span class="path13"></span>
                                 </span>
-                            О нас
+                            &nbsp;&nbsp;О нас
                         </div>
                         <div class="site-section__wrap em-right">
                             <!-- <div class="site-section__article-header">Вступительное слово</div> -->
@@ -286,11 +288,11 @@
                                 Мы, компания «Элекард-Мед», стремимся улучшить качество медицинского обслуживания населения страны, предоставляя свои высокотехнологичные решения как в области программных комплексов по автоматизации процессов в медицинских учреждениях, так и в области вспомогательной медицинской аппаратуры.<br>
                                 Основной нашей целью является создание единого информационного пространства страны/региона и автоматизация процессов в здравоохранении для осуществления оперативного учёта данных и наилучшего обмена информацией между городскими центрами и удалёнными регионами страны.
                             </article>
+                            <div class="controls em-right">
+                                <a href="https://em70.ru/" target="_blank" class="controls__button em-button color-red em-text-white">Перейти</a>
+                            </div>
                         </div>
 
-                        <div class="controls em-right">
-                            <a href="https://er.em70.ru/" target="_blank" class="controls__button em-button color-red em-text-white">Перейти</a>
-                        </div>
                     </div>
                 </section>
             </div>
@@ -341,8 +343,7 @@
 
 <!-- build:js scripts/main-page.js -->
 <script src="scripts/service-selector.js"></script>
-<script src="scripts/main.js"></script>
-<script src="scripts/sidebar.js"></script>
+<script src="scripts/main-page.js"></script>
 <!-- endbuild -->
 
 </body>

@@ -52,6 +52,18 @@
 	cursor: pointer;
 }
 
+@media (max-width: 1300px) {
+	.sidebar {
+		display: none;
+	}
+}
+
+@media (max-width: 1460px) {
+	.sidebar {
+		right: 40px;
+	}
+}
+
 @media (max-width: 1715px) {
 	.sidebar__item {
 		height: 30px;

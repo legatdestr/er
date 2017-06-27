@@ -19,7 +19,10 @@
     -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-    <link rel="stylesheet" href="styles/main.css">
+    <!-- build:css styles/main.css -->
+        <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+
     <!-- build:css styles/ps-widget.css -->
         <link rel="stylesheet" href="styles/ps-widget.css">
         <link rel="stylesheet" href="styles/awesomplete.css">
@@ -32,17 +35,19 @@
                 <a class="navbar__hamburger navbar__item em-hide-large em-right em-hover-light-grey"
                    href="javascript:void(0);" onclick="EM.ui.navbar.click()" title="Показать\скрыть меню"><i
                         class="fa fa-bars"></i></a>
-                <a href="index.html" class="navbar__item em-button em-white">
+                <a href="index.html" class="navbar__item em-button em-white em-left">
                     <div class="navbar__logo">Медицинский портал</div>
                 </a>
-                <a href="https://er.em70.ru/"
-                   class="navbar__item em-hide-medium em-hide-small em-hover-light-grey" target="_blank">Расписание</a>
-                <a href="https://er.em70.ru/misresult/" class="navbar__item em-hide-medium em-hide-small em-hover-light-grey" target="_blank">Результаты</a>
-                <a href="ratio-page.html"
-                   class="navbar__item em-hide-medium em-hide-small em-hover-light-grey">Рейтинг</a>
-                <a href="paid-services.html"
-                   class="navbar__item em-hide-medium em-hide-small em-hover-light-grey">Услуги</a>
-                <a href="/index.html#about" class="navbar__item em-hide-medium em-hide-small em-hover-light-grey">О нас</a>
+                <div class="em-right">
+                    <a href="https://er.em70.ru/"
+                       class="navbar__item em-hide-medium em-hide-small em-hover-light-grey" target="_blank">Расписание</a>
+                    <a href="https://er.em70.ru/misresult/" class="navbar__item em-hide-medium em-hide-small em-hover-light-grey" target="_blank">Результаты</a>
+                    <a href="ratio-page.html"
+                       class="navbar__item em-hide-medium em-hide-small em-hover-light-grey">Рейтинг</a>
+                    <a href="paid-services.html"
+                       class="navbar__item em-hide-medium em-hide-small em-hover-light-grey">Услуги</a>
+                    <a href="/index.html#about" class="navbar__item em-hide-medium em-hide-small em-hover-light-grey">О нас</a>
+                </div>
             </div>
 
 
