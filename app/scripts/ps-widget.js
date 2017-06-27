@@ -61,16 +61,16 @@
 
 	    // previous page
 	    Prev: function() {
-	    	if (Pagination.page !== 1) {
-	    		runSearch(Pagination.page - 1);
-	    	}
+	    	// if (Pagination.page !== 1) {
+	    		runSearch(Pagination.page - 2);
+	    	// }
 	    },
 
 	    // next page
 	    Next: function() {
-	        if (Pagination.page < Pagination.size) {
-	        	runSearch(Pagination.page + 1);
-	        }
+	        // if (Pagination.page < Pagination.size) {
+	        	runSearch(Pagination.page);
+	        // }
 	    },
 
 	    // --------------------
@@ -97,20 +97,20 @@
 
 	    // find pagination type
 	    Start: function() {
-	        if (Pagination.size < Pagination.step * 2 + 6) {
+	        if (Pagination.size < Pagination.step  + 1) {
 	            Pagination.Add(1, Pagination.size + 1);
 	        }
-	        else if (Pagination.page < Pagination.step * 2 + 1) {
-	            Pagination.Add(1, Pagination.step * 2 + 4);
+	        else if (Pagination.page < Pagination.step) {
+	            Pagination.Add(1, Pagination.step + 1);
 	            Pagination.Last();
 	        }
-	        else if (Pagination.page > Pagination.size - Pagination.step * 2) {
+	        else if (Pagination.page > Pagination.size - Pagination.step + 1) {
 	            Pagination.First();
-	            Pagination.Add(Pagination.size - Pagination.step * 2 - 2, Pagination.size + 1);
+	            Pagination.Add(Pagination.size - 2, Pagination.size + 1);
 	        }
 	        else {
 	            Pagination.First();
-	            Pagination.Add(Pagination.page - Pagination.step, Pagination.page + Pagination.step + 1);
+	            Pagination.Add(Pagination.page - 1, Pagination.page + 2);
 	            Pagination.Last();
 	        }
 	        Pagination.Finish();
@@ -122,19 +122,42 @@
 
 	    // binding buttons
 	    Buttons: function(e) {
-	        var nav = e.getElementsByTagName('a');
-	        nav[0].addEventListener('click', Pagination.Prev, false);
-	        nav[1].addEventListener('click', Pagination.Next, false);
+	        var nav = e.getElementsByTagName('a'),
+                next = e.querySelector('a.pagination__next'),
+                prev = e.querySelector('a.pagination__prev');
+
+            if (prev != null) {
+                prev.addEventListener('click', Pagination.Prev, false);
+            }
+            if (next != null) {
+                next.addEventListener('click', Pagination.Next, false);
+            }
+
+	        // nav[0].addEventListener('click', Pagination.Prev, false);
+	        // nav[1].addEventListener('click', Pagination.Next, false);
 	    },
 
 	    // create skeleton
 	    Create: function(e) {
 
-	        var html = [
-	            '<a class="pagination__prev em-button">&#9668;</a>', // previous button
-	            '<span></span>',  // pagination container
-	            '<a class="pagination__next em-button">&#9658;</a>'  // next button
-	        ];
+	        var html = [],
+                prev = '<a class="pagination__prev em-button">&#9668;</a>',
+                cont = '<span></span>',
+                next = '<a class="pagination__next em-button">&#9658;</a>';
+
+            if (Pagination.page == 1) {
+                html[0] = cont;
+                html[1] = next;
+            }
+            else if (Pagination.page == Pagination.size) {
+                html[0] = prev;
+                html[1] = cont;
+            }
+            else {
+                html[0] = prev;
+                html[1] = cont;
+                html[2] = next;
+            }
 
 	        e.innerHTML = html.join('');
 	        Pagination.e = e.getElementsByTagName('span')[0];
@@ -151,7 +174,13 @@
 	    },
 
 	    run: function(size, page, step) {
-	    	Pagination.Init(document.getElementById('pagination'), {
+	    	Pagination.Init(document.getElementById('pagination-top'), {
+		        size: size, // pages size
+		        page: page,  // selected page
+		        step: step   // pages before and after current
+		    });
+
+		    Pagination.Init(document.getElementById('pagination-bottom'), {
 		        size: size, // pages size
 		        page: page,  // selected page
 		        step: step   // pages before and after current
@@ -219,7 +248,7 @@
 			result += wordsArr[i];
 
 			if (i !== (wordsArr.length - 1)) {
-				result += ' ' 
+				result += ' '
 			}
 		}
 		return result;
@@ -359,9 +388,9 @@
                 );
                 document.querySelector('.ps-sorting').classList.add('ps-sorting_show');
                 Pagination.run(
-                	Math.ceil(parseInt(response.total,10) / parseInt(response.limit, 10)), 
-                	parseInt(response.offset, 10) + 1, 
-                	parseInt(response.limit, 10)
+                	Math.ceil(parseInt(response.total,10) / parseInt(response.limit, 10)),
+                	parseInt(response.offset, 10) + 1,
+                	3// parseInt(response.limit, 10)
                 );
                 //hideLoading();
             });
@@ -493,7 +522,7 @@
         .then(function(response) {
         	categories = getCategories(response.paidcategories);
             renderTemplate(
-	            EM.templates.psMain, 
+	            EM.templates.psMain,
 	            {
 	                formHeader: settings.formHeader,
 	                searchPlaceholder: settings.searchPlaceholder,

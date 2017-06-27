@@ -12,6 +12,7 @@
     <!-- endbuild -->
     <link href="fonts/Bicubik/Bicubik.css" rel="stylesheet">
     <link href="fonts/CenturyGothic/CenturyGothic.css" rel="stylesheet">
+    <link href="fonts/EmPortal/EmPortal.css" rel="stylesheet">
 
     <!--
         TODO: Оптимизировать. данный стиль используется лишь для 1-ой иконки гамбургера. ~80 килобайт лишних.
@@ -29,13 +30,13 @@
     <!-- endbuild -->
 </head>
 <body class="body-services">
-    <nav id="navbar" class="navbar em-top">
-        <div class="em-bar em-white em-card-2 em-left-align em-large">
-            <div class="em-content">
-                <a class="navbar__hamburger navbar__item em-hide-large em-right em-hover-light-grey"
+<nav id="navbar" class="navbar em-top">
+    <div class="em-bar em-white em-card-2 em-left-align em-large">
+        <div class="em-content em-row">
+            <a class="navbar__hamburger navbar__item em-hide-large em-right em-hover-light-grey"
                    href="javascript:void(0);" onclick="EM.ui.navbar.click()" title="Показать\скрыть меню"><i
                         class="fa fa-bars"></i></a>
-                <a href="index.html" class="navbar__item em-button em-white em-left">
+                <a href="index.html" class="navbar__item navbar__item_logo em-button em-white em-left">
                     <div class="navbar__logo">Медицинский портал</div>
                 </a>
                 <div class="em-right">
@@ -44,26 +45,37 @@
                     <a href="https://er.em70.ru/misresult/" class="navbar__item em-hide-medium em-hide-small em-hover-light-grey" target="_blank">Результаты</a>
                     <a href="ratio-page.html"
                        class="navbar__item em-hide-medium em-hide-small em-hover-light-grey">Рейтинг</a>
-                    <a href="paid-services.html"
+                    <a href="#"
                        class="navbar__item em-hide-medium em-hide-small em-hover-light-grey">Услуги</a>
-                    <a href="/index.html#about" class="navbar__item em-hide-medium em-hide-small em-hover-light-grey">О нас</a>
-                </div>
-            </div>
-
-
-            <!-- Navbar on small screens -->
-            <div id="navbar-small-screens" class="em-bar-block em-white em-hide em-hide-large em-large em-animate-right">
-                <a href="https://er.em70.ru/" target="_blank" class="navbar__item em-bar-item em-button em-padding-large">Расписание</a>
-                <a href="https://er.em70.ru/misresult/" target="_blank" class="navbar__item em-bar-item em-button em-padding-large">Результаты</a>
-                <a href="ratio-page.html" class="navbar__item em-button em-bar-item em-padding-large">Рейтинг</a>
-                <a href="paid-services.html" class="navbar__item em-button em-bar-item em-padding-large">Услуги</a>
-                <a href="index.html#about" class="navbar__item em-button em-bar-item em-padding-large">О нас</a>
+                    <a href="index.html#about" class="navbar__item em-hide-medium em-hide-small em-hover-light-grey">О нас</a>
             </div>
         </div>
-    </nav>
+    </div>
+
+
+    <!-- Navbar on small screens -->
+    <div id="navbar-small-screens" class="em-bar-block em-white em-hide em-hide-large em-large em-animate-right">
+        <a href="#schedule" class="navbar__item navbar__item_mobile em-bar-item em-button em-padding-large" data-target="schedule-screen">Расписание</a>
+        <a href="#analazys-results" class="navbar__item navbar__item_mobile em-bar-item em-button em-padding-large" data-target="results-screen">Результаты</a>
+        <a href="#rating" class="navbar__item navbar__item_mobile em-button em-bar-item em-padding-large" data-target="rating-screen">Рейтинг</a>
+        <a href="#services" class="navbar__item navbar__item_mobile em-button em-bar-item em-padding-large" data-target="services-screen">Услуги</a>
+        <a href="#about" class="navbar__item navbar__item_mobile em-button em-bar-item em-padding-large" data-target="about-screen">О нас</a>
+    </div>
+</nav>
+    <div class="em-content service_panel em-container">
+        <div class="breadcrumbs-container">
+            <ul class="breadcrumbs-list">
+                <li><a href="./index.html">главная</a></li>
+                <li><span>услуги</span></li>
+            </ul>
+        </div>
+        <div class="em-left service__header">
+            <span class="icon-services"></span>Услуги
+        </div>
+    </div>
     <div class="page em-content page_services" style="max-width:1100px;">
         <div id="paid-services-widget">
-            
+
         </div>
     </div>
     <footer id="footer" class="em-container em-text-white" style="min-height: 300px; background-color: #006d8c;">
@@ -83,7 +95,7 @@
         </div>
     </footer>
     <div id="serviceWrap">
-        
+
     </div>
 
 <!-- build:js scripts/vendor.js -->

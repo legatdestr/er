@@ -2,9 +2,6 @@
     <div class="spinner"></div>
 </div> -->
 
-<div class="em-container em-white">
-    <h2>{{formHeader}}</h2>
-</div>
 <div id={{searchFormId}} class="em-container em-row em-padding">
     Воспользуйтесь поиском для нахождения интересующих вас услуг.<br><br>
     <div>
@@ -12,7 +9,7 @@
         <input placeholder={{searchPlaceholder}} id="searchString" class="em-input em-border" type="text">
         <div class="error-message em-text-red">Пожалуйста, уточните запрос с помощью формы поиска выше.</div>
     </div>
-    <div class="em-left">
+    <div class="em-left advanced-search-wrap">
         <div class="advanced-search">
         	<div class="advanced-search-group">
                 <div class="select" id="catSelect">
@@ -43,7 +40,7 @@
         <div class="spinner"></div>
     </div>
     <div class="ps-sorting em-row em-right">
-        <div class="em-right">
+        <div class="em-right ps-sorting-wrap">
             <div class="ps-sorting__title">Сортировать:</div>
             <div class="ps-sorting__item ps-button em-button" data-sort-field="service_name" onclick="EM.ps.sort(this);">Название услуги</div>
             <div class="ps-sorting__item ps-button em-button" data-sort-field="price" onclick="EM.ps.sort(this);">Цена</div>

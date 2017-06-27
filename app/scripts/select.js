@@ -29,6 +29,7 @@
             if (document.querySelectorAll('#' + target.getAttribute('data-parent') + ' .select-list__item:not(.select-list__item_hide)').length === 0) {
                 document.querySelector('#' + target.getAttribute('data-parent') + ' .select__label').classList.add('select__label_disabled');
             }
+            EM.ps.runSearch();
         }
     }
 
@@ -43,6 +44,7 @@
         if (document.querySelectorAll('#' + choice.getAttribute('data-parent') + ' .select-list__item:not(.select-list__item_hide)').length > 0) {
             document.querySelector('#' + choice.getAttribute('data-parent') + ' .select__label').classList.remove('select__label_disabled');
         }
+        EM.ps.runSearch();
     }
 
     function toggleSelect(select) {
