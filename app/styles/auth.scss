@@ -2,6 +2,27 @@
 	font-size: 1.384rem;
 }
 
+.signin-button {
+    padding: 4px 14px;
+}
+
+.auth-header {
+    padding: 0px 30px;
+}
+
+.providers-container {
+    padding: 15px 30px;
+}
+
+.auth__link:link {
+    text-decoration: none;
+}
+
+.auth__item {
+    display: inline-block;
+    margin-right: 50px;
+}
+
 .auth__item:hover {
 	display: inline-block;
 	cursor: pointer;
