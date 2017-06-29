@@ -11,29 +11,38 @@
     </div>
     <div class="em-left advanced-search-wrap">
         <div class="advanced-search">
-        	<div class="advanced-search-group">
-                <div class="select" id="catSelect">
-                    <div class="select__label">Тип услуги</div>
-                    <div class="select-list">
-                        {{#each categories}}
-                            <div data-value="{{@key}}" data-parent="catSelect" class="select-list__item" onclick="EM.selects.makeChoice(this);">{{this.name}}</div>
-                        {{/each}}
+            <div class="category-select em-border">
+            	<div class="advanced-search-group" id="category-select">
+                    <div class="select" id="catSelect">
+                        <div class="select__label category-select__active" data-value="default">-- Не выбрано --</div>
+                        <div class="select-list">
+                            {{#each categories}}
+                                <div data-value="{{@key}}" data-select="catSelect" data-group="category-select" class="select-list__item" onclick="EM.selects.changeCategory(this);">{{this.name}}</div>
+                            {{/each}}
+                        </div>
                     </div>
+                    <div class="select" id="subcatSelect">
+                        <div class="select__label category-select__active" data-value="default">-- Не выбрано --</div>
+                        <div class="select-list"></div>
+                    </div><br><br>
+                    <div class="category-select__add em-button" onclick="EM.selects.categoryChoice();">Добавить</div>
                     <div class="select-choices"></div>
-                </div>
-        	</div>
+            	</div>
+            </div>
             <!-- <div id="subcat" class="advanced-search-group advanced-search-group_subcat"></div> -->
-        	<div class="advanced-search-group">
-                <div class="select" id="lpuSelect">
-                    <div class="select__label">Название учреждения</div>
-                    <div class="select-list">
-                        {{#each lpus}}
-                            <div data-value="{{this.lpu}}" data-parent="lpuSelect" class="select-list__item" onclick="EM.selects.makeChoice(this);">{{this.name}}</div>
-                        {{/each}}
+            <div class="lpu-select em-border">
+            	<div class="advanced-search-group" id="lpu-select">
+                    <div class="select" id="lpuSelect">
+                        <div class="select__label">Название учреждения</div>
+                        <div class="select-list">
+                            {{#each lpus}}
+                                <div data-value="{{this.lpu}}" data-select="lpu-select" class="select-list__item" onclick="EM.selects.lpuChoice(this);">{{this.name}}</div>
+                            {{/each}}
+                        </div>
                     </div>
                     <div class="select-choices"></div>
-                </div>
-    	    </div>
+        	    </div>
+            </div>
         </div>
         <a class="em-button color-red" onclick="EM.ps.runSearch()">Поиск</a>
         <a class="em-button color-red" onclick="EM.ps.resetSearchForm()">Сбросить</a>

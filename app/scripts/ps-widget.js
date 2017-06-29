@@ -326,9 +326,10 @@
 			i;
 
 		for (i = 0; i < fields.length; i++) {
-			if (fields[i].getAttribute('data-parent') === 'catSelect') {
+			if (fields[i].getAttribute('data-select') === 'catSelect' ||
+				fields[i].getAttribute('data-select') === 'subcatSelect') {
 				result[0].value.push(fields[i].getAttribute('data-value'));
-			} else if (fields[i].getAttribute('data-parent') === 'lpuSelect') {
+			} else if (fields[i].getAttribute('data-select') === 'lpu-select') {
 				//result[1].value.push(fields[i].getAttribute('data-value'));
 				result.push({
 					name: 'lpu_code',
@@ -447,6 +448,8 @@
         document.getElementById(settings.psContentId).innerHTML = '';
         document.querySelector('.ps-sorting').classList.remove('ps-sorting_show');
         document.querySelector('.error-message').classList.remove('error-message_active');
+        document.querySelector('#lpu-select .select-choices').innerHTML = '';
+        document.querySelector('#category-select .select-choices').innerHTML = '';
 
         resetSorting();
     }
@@ -580,6 +583,10 @@
 		document.getElementById('service').style.display = 'block';
 	}
 
+	function getCats() {
+		return categories;
+	}
+
 	function hideService() {
 		document.getElementById('service').style.display = 'none';
 	}
@@ -600,4 +607,5 @@
 	EM.ps.onCategoryChangeHandler = onCategoryChangeHandler;
 	EM.ps.showService = showService;
 	EM.ps.hideService = hideService;
+	EM.ps.getCats = getCats;
 }(window));

@@ -1,0 +1,3 @@
+{{#each cats}}
+	<div data-value="{{this.id}}" data-select="subcatSelect" data-parent="{{this.parent}}" class="select-list__item" onclick="EM.selects.changeCategory(this);">{{this.name}}</div>
+{{/each}}
