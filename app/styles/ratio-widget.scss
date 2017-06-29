@@ -7,6 +7,85 @@
 	text-align: center;
 }
 
+
+.ratio-table thead {
+    display: table-header-group;
+}
+
+.ratio-table table, .ratio-table td {
+    border: 1px solid #ddd;
+    vertical-align: middle;
+}
+
+.ratio-table th:first-child,  .ratio-table td:first-child,{
+    padding-left: 8px;
+    width: 30px;
+}
+
+.ratio-table th:first-child,  .ratio-table td:first-child,{
+    padding-left: 8px;
+    width: 30px;
+}
+
+.vote-positive{
+    margin-right: 5px;
+}
+
+.vote-negative {
+    margin-left: 5px;
+}
+
+.ratio-table th:last-child, .ratio-table td:last-child,{
+    min-width: 145px;
+}
+
+.review-container, .change-vote-container {
+    margin-bottom: 10px;
+}
+
+.review-textarea {
+    box-shadow: 0px 0px 5px #888888;
+}
+
 .vote-button {
 	width: 40px;
+}
+
+.review-button {
+    width:150px;
+}
+
+@media (max-width: 450px) {
+    .ratio-table thead {
+        display: none;
+    }
+
+    .ratio-table td:first-child,{
+        display: none;
+    }
+
+    .ratio-table td {
+        display: list-item;
+    }
+
+    .vote-button {
+        width: 45%;
+    }
+
+    .review-button {
+        width: 100%;
+    }
+
+    .review__form .vote-button {
+        width: 45%;
+        margin-bottom: 10px;
+    }
+
+    .review__form .vote-positive {
+        float: left;
+    }
+
+    .review__form .vote-negative {
+        float: right;
+    }
 }

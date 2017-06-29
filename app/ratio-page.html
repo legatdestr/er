@@ -12,6 +12,7 @@
     <!-- endbuild -->
     <link href="fonts/Bicubik/Bicubik.css" rel="stylesheet">
     <link href="fonts/CenturyGothic/CenturyGothic.css" rel="stylesheet">
+    <link href="fonts/EmPortal/EmPortal.css" rel="stylesheet">
 
     <!--
         TODO: Оптимизировать. данный стиль используется лишь для 1-ой иконки гамбургера. ~80 килобайт лишних.
@@ -22,7 +23,7 @@
     <!-- build:css styles/main.css -->
         <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
-    
+
     <!-- build:css styles/ratio.css -->
         <link rel="stylesheet" href="styles/ratio-widget.css">
         <link rel="stylesheet" href="styles/auth.css">
@@ -48,8 +49,6 @@
                     <a href="paid-services.html"
                        class="navbar__item em-hide-medium em-hide-small em-hover-light-grey">Услуги</a>
                     <a href="index.html#about" class="navbar__item em-hide-medium em-hide-small em-hover-light-grey">О нас</a>
-                    <a href="#" class="navbar__item navbar__item_login em-hide-medium em-hide-small em-hover-light-grey" onclick="EM.auth.showLoginForm();">Войти</a>
-                    <div class="user-info" id="userInfo">Вы зашли, как: <b class="user-info__name"></b><br><a href="#" onclick="EM.auth.logout();">Выйти</a></div>
                 </div>
             </div>
 
@@ -64,9 +63,24 @@
             </div>
         </div>
     </nav>
-    <div class="page em-content page_ratio em-padding" style="max-width:1100px;">
+    <div class="em-content page_panel em-container">
+        <div class="breadcrumbs-container em-row">
+            <ul class="breadcrumbs-list em-left">
+                <li><a href="./index.html">главная</a></li>
+                <li><span>рейтинг</span></li>
+            </ul>
+            <!-- <div class="signin-button em-right em-button"> -->
+            <a href="#" class="signin-button em-right auth__link em-button" onclick="EM.auth.showLoginForm();">Войти</a>
+            <!-- <div class="user-info" id="userInfo" style="display: block !important">Вы зашли, как: <b class="user-info__name"></b><br><a href="#" onclick="EM.auth.logout();">Выйти</a></div> -->
+            <!-- </div> -->
+        </div>
+        <div class="page__header">
+            <span class="icon-ratio"></span>Рейтинг учреждений
+        </div>
+    </div>
+    <div class="page em-content page_ratio" style="max-width:1100px;">
         <div id="ratio-widget">
-            
+
         </div>
     </div>
     <footer id="footer" class="main-footer em-container em-text-white" style="min-height: 300px; background-color: #006d8c;">
@@ -74,11 +88,11 @@
             <div class="counter">
                 <!-- Yandex.Metrika informer -->
                 <a href="https://metrika.yandex.ru/stat/?id=25662194&amp;from=informer" target="_blank" rel="nofollow">
-                    <img   
-                        src="" 
-                        style="width:88px; height:31px; border:0;" 
-                        alt="Яндекс.Метрика" 
-                        title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" 
+                    <img
+                        src=""
+                        style="width:88px; height:31px; border:0;"
+                        alt="Яндекс.Метрика"
+                        title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)"
                         onclick="try {
                                     Ya.Metrika.informer({i: this, id: 25662194, lang: 'ru'});
                                     return false
