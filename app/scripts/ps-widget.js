@@ -56,20 +56,20 @@
 
 	    // change page
 	    Click: function() {
-	    	runSearch((+this.innerHTML) - 1);
+	    	runSearch(((+this.innerHTML) - 1)*10);
 	    },
 
 	    // previous page
 	    Prev: function() {
 	    	// if (Pagination.page !== 1) {
-	    		runSearch(Pagination.page - 2);
+	    		runSearch((Pagination.page - 2)*10);
 	    	// }
 	    },
 
 	    // next page
 	    Next: function() {
 	        // if (Pagination.page < Pagination.size) {
-	        	runSearch(Pagination.page);
+	        	runSearch(Pagination.page * 10);
 	        // }
 	    },
 
@@ -390,7 +390,7 @@
                 document.querySelector('.ps-sorting').classList.add('ps-sorting_show');
                 Pagination.run(
                 	Math.ceil(parseInt(response.total,10) / parseInt(response.limit, 10)),
-                	parseInt(response.offset, 10) + 1,
+                	(parseInt(response.offset, 10) / 10) + 1,
                 	3// parseInt(response.limit, 10)
                 );
                 //hideLoading();
@@ -439,11 +439,7 @@
     }
 
     function resetSearchForm() {
-    	var resetEvent = new Event('clear-form');
-
-    	document.dispatchEvent(resetEvent);
-
-        searchString.value = '';
+    	searchString.value = '';
 
         document.getElementById(settings.psContentId).innerHTML = '';
         document.querySelector('.ps-sorting').classList.remove('ps-sorting_show');
