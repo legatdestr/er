@@ -388,11 +388,14 @@
                     '#' + settings.psContentId
                 );
                 document.querySelector('.ps-sorting').classList.add('ps-sorting_show');
-                Pagination.run(
-                	Math.ceil(parseInt(response.total,10) / parseInt(response.limit, 10)),
-                	(parseInt(response.offset, 10) / 10) + 1,
-                	3// parseInt(response.limit, 10)
-                );
+                if (parseInt(response.total,10) > parseInt(response.limit, 10)) {
+                	Pagination.run(
+	                	Math.ceil(parseInt(response.total,10) / parseInt(response.limit, 10)),
+	                	(parseInt(response.offset, 10) / 10) + 1,
+	                	3// parseInt(response.limit, 10)
+	                );
+                }
+                
                 //hideLoading();
             });
     	}
