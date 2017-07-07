@@ -1,8 +1,14 @@
 @import "vars";
 @import "default";
 
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
+}
+
 html, body {
-    font-family: Arial, sans-serif;
+    font-family: "RubikRegular", Arial, sans-serif;
 }
 
 html {
@@ -10,7 +16,7 @@ html {
 }
 
 body {
-	font-size: 1.9rem;
+	font-size: 1.8rem;
 }
 
 a {
@@ -19,7 +25,6 @@ a {
 
 i {
 	display: inline-block;
-    font-size: 1.6rem;
     font-style: normal;
     font-variant: normal;
     font-weight: 400;
@@ -27,14 +32,20 @@ i {
     text-decoration: inherit;
 }
 
+h2 {
+    font-size: 2.6rem;
+    color: #2196F3;
+}
+
 .container {
-	max-width: 1000px;
+	max-width: 1260px;
 	margin: 0 auto;
 	padding-left: 10px;
 	padding-right: 10px;
 }
 
 .title {
+    font-family: "RubikLight", Arial, sans-serif;
 	font-size: 2.8rem;
     color: #343434;
     margin-bottom: 0;
@@ -42,8 +53,42 @@ i {
     line-height: 1;
     font-weight: 300;
     text-transform: uppercase;
+    color: #e31e24;
 }
 
 .index {
 	padding: 40px 0 35px;
+}
+
+.main-links {
+    color:  #54c6ff;
+    text-transform: uppercase;
+    text-decoration: underline;
+    font-size: 1.8rem;
+}
+
+.main-page-bottom {
+    margin-bottom: 20px;
+}
+
+.main-page-bottom .container {
+    max-width: 1050px;
+}
+
+.main-page-bottom-wrapper {
+    display: flex;
+    justify-content: space-around;
+    flex-flow: row wrap;
+}
+
+.main-content__title {
+    font-family: "RubikLight", Arial, sans-serif;
+    color:  #e31e24;
+    font-size: 32px;
+    text-transform: uppercase;
+}
+
+.main-content {
+    font-family: "RubikLight", Arial, sans-serif;
+    font-size: 1.6rem;
 }

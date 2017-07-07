@@ -1,0 +1,32 @@
+.breadcrumbs__item {
+	position: relative;
+	display: inline-block;
+	vertical-align: top;
+	margin-right: 20px;
+	margin-bottom: 20px;
+	color: #828282;
+}
+
+a.breadcrumbs__item:hover {
+	text-decoration: underline;
+}
+
+.breadcrumbs__item:last-child {
+	margin-right: 0;
+}
+
+.breadcrumbs__item:before {
+	content: "";
+	position: absolute;
+	top: 8px;
+	left: -20px;
+	width: 10px;
+	height: 10px;
+	border-right: 2px solid #828282;
+	border-bottom: 2px solid #828282;
+	transform: rotate(-45deg);
+}
+
+.breadcrumbs__item:first-child:before {
+	display: none;
+}

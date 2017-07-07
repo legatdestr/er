@@ -1,5 +1,7 @@
 .main-footer {
 	padding: 37px 0;
+    background-color:  #54c6ff;
+    color: #fff;
 }
 
 .main-footer__top {
@@ -10,33 +12,23 @@
 	padding-top: 5px;
 }
 
+.main-footer-menu__item:hover a {
+    text-decoration: underline;
+}
+
+.main-footer__bottom {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row wrap;
+    align-items: flex-start;
+}
+
 .main-footer__cell {
-    float: left;
-    padding-right: 50px;
-    box-sizing: border-box;
-    width: 42%;
-    font-size: 1.4rem;
-}
-@media screen and (max-width: 1015px) {
-    .main-footer__cell_last {
-        width: 100%;
-        text-align: left;
-    }
+    max-width: 450px;
 }
 
-@media screen and (max-width: 1015px) {
-    .main-footer__cell {
-        padding-bottom: 20px;
-        width: 50%;
-        margin: 0;
-        float: left;
-    }
-}
-
-.main-footer__cell_last {
-    width: 16%;
-    text-align: right;
-    padding-right: 0;
+.main-footer__cell_social {
+    align-self: flex-end;
 }
 
 .main-footer__title {
@@ -44,18 +36,8 @@
     text-transform: uppercase;
 }
 
-
 .main-footer__text {
-    padding-bottom: 5px;
-    padding-top: 24px;
-}
-
-.main-footer__mail {
-    display: inline-block;
-    margin-top: 15px;
-    font-size: 16px;
-    color: #fff;
-    white-space: nowrap;
+    margin-bottom: 40px;
 }
 
 .main-footer__social-item_1 {
@@ -65,9 +47,9 @@
 
 .main-footer__social-item {
     display: inline-block;
-    width: 29px;
-    height: 29px;
-    padding-top: 3px;
+    width: 40px;
+    height: 40px;
+    padding-top: 5px;
     border: 1px solid #fff;
     border-radius: 29px;
     -webkit-transition: opacity .1s linear 0s;
@@ -83,11 +65,24 @@
 	text-align: center;
 }
 
-.main-footer__cell_last {
-    width: 16%;
-    text-align: right;
-    padding-right: 0;
+.main-footer__call-wrap,
+.main-footer__question-wrap {
+    position: relative;
 }
+
+.main-footer__call-wrap i,
+.main-footer__question-wrap i {
+    position: absolute;
+    top: 0;
+    left: -40px;
+}
+
+.main-footer__call-wrap {
+    margin-bottom: 10px;
+}
+
+
+
 @media (min-width: 1015px) {
 	.main-footer__top {
 		display: block;

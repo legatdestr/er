@@ -2,35 +2,65 @@
 	width: 100%;
 }
 
+.reviews__header {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #828282;
+}
+
 .reviews__body {
 	position: relative;
     margin-top: 14px;
-    box-sizing: border-box;
-    border: 2px solid #ffd200;
-    border-radius: 12px;
-    border-bottom-left-radius: 0;
-    padding: 19px 36px 20px 18px;
+    border-radius: 10px;
+    border-width: 2px;
+    border-color:  #e31e24;
+    border-style: solid;
+    padding: 15px 20px 15px 20px;
     zoom: 1;
 }
 
-.reviews__image img {
-	float: left;
-    width: 98px;
-    border-radius: 50px;
+.reviews__image {
+    margin-right: 20px;
+    
+    float: left;
 }
 
-.reviews__wrap {
-	margin-left: 115px;
-	font-size: 1.4rem;
+.reviews__image img {
+    display: block;
+    width: 98px;
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 5px;
+    border-color:  #ffffff;
+    background-color:  #959595;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
 }
 
 .reviews__all {
-	font-size: 18px;
-    text-transform: uppercase;
-    text-decoration: underline;
-    display: inline-block;
-    float: right;
+    text-align: center;
     margin-top: 15px;
+}
+
+.reviews__name {
+    font-style: italic;
+}
+
+.reviews__doctor,
+.reviews__author {
+    font-weight: bold;
+    font-style: normal;
+    color: #303030;
+    letter-spacing: 1.5px;
+}
+
+.reviews__doctor {
+    color: #016ec0;
+    text-decoration: underline;
+}
+
+.reviews__text {
+    font-style: italic;
+    color: #828282;
 }
 
 .index__about {

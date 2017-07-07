@@ -1,13 +1,20 @@
+.actions-index .container {
+    max-width: 1020px;
+}
+
 .carousel {
-	width: 980px;
     overflow: hidden;
+    display: flex;
+    justify-content: space-around;
+    flex-flow: row wrap;
+
 }
 
 .carousel__item {
 	list-style: none;
     position: relative;
     width: 235px;
-    margin-right: 13px;
+    margin-bottom: 20px;
 }
 
 .carousel__item:last-child {
@@ -29,17 +36,22 @@
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    border-radius: 3px;
-    -webkit-transform: translateZ(0);
+    border-style: solid;
+    border-width: 2px;
+    border-color:  #54c6ff;
+    background-color:  #959595;
+    background-image: url('../images/action.jpg');
 }
 
 .actions-index__item:hover {
-	box-shadow: inset 0 0 0 2px #ffd200;
+	border-style: solid;
+    border-width: 2px;
+    border-color:  #e31e24;
+    cursor: pointer;
 }
 
 .actions-index__item:hover .actions-index__title {
-	background: #ffd200;
-	color: #000;
+    background-color: rgba(227, 30, 36, .7);
 }
 
 .actions-index__title {
@@ -56,9 +68,7 @@
     font-weight: 300;
     line-height: 18px;
     color: #fff;
-    background: #2196F3;
-    border-bottom-right-radius: 3px;
-    border-bottom-left-radius: 3px;
+    background: rgba(84, 198, 255, .7);
 }
 
 .actions-index__all {

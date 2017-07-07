@@ -1,0 +1,39 @@
+/*@font-face {
+    font-family: "RubikBold";
+    src: url("Rubik-Bold/Rubik-Bold.eot");
+    src: url("Rubik-Bold/Rubik-Bold.eot?#iefix")format("embedded-opentype"),
+    url("Rubik-Bold/Rubik-Bold.woff") format("woff"),
+    url("Rubik-Bold/Rubik-Bold.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "RubikItalic";
+    src: url("Rubik-Italic/Rubik-Italic.eot");
+    src: url("Rubik-Italic/Rubik-Italic.eot?#iefix")format("embedded-opentype"),
+    url("Rubik-Italic/Rubik-Italic.woff") format("woff"),
+    url("Rubik-Italic/Rubik-Italic.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}*/
+
+@font-face {
+    font-family: "RubikRegular";
+    src: url("Rubik-Regular/Rubik-Regular.eot");
+    src: url("Rubik-Regular/Rubik-Regular.eot?#iefix")format("embedded-opentype"),
+    url("Rubik-Regular/Rubik-Regular.woff") format("woff"),
+    url("Rubik-Regular/Rubik-Regular.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "RubikLight";
+    src: url("Rubik-Light/Rubik-Light.eot");
+    src: url("Rubik-Light/Rubik-Light.eot?#iefix")format("embedded-opentype"),
+    url("Rubik-Light/Rubik-Light.woff") format("woff"),
+    url("Rubik-Light/Rubik-Light.ttf") format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}

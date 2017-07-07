@@ -3,8 +3,14 @@
 	overflow: hidden;
 }
 
+.doctors .container {
+    max-width: 1050px;
+}
+
 .doctors__items {
-	width: 980px;
+    display: flex;
+    justify-content: space-around;
+    flex-flow: row wrap;
 }
 
 .doctors__header {
@@ -13,26 +19,34 @@
 
 .doctors__item {
     max-width: 180px;
-    float: left;
     list-style: none;
     position: relative;
-    width: 300px;
-    margin-right: 15px;
+    margin-bottom: 20px;
 }
 
 .doctors__img {
     display: block;
+    padding-bottom: 5px;
+    border-style: solid;
+    border-width: 5px;
+    border-color:  #ffffff;
+    background-color:  #ffffff;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.45);
+}
+
+.doctors__img img {
+    display: block;
     max-width: 100%;
     width: 100%;
-    -webkit-transition: opacity .1s linear 0s;
+        -webkit-transition: opacity .1s linear 0s;
     -moz-transition: opacity .1s linear 0s;
     -o-transition: opacity .1s linear 0s;
     transition: opacity .1s linear 0s;
     -webkit-backface-visibility: hidden;
 }
 
-.doctors__img:hover {
-    opacity: .8;
+.doctors__img img:hover {
+    opacity: .5;
 }
 
 .doctors__name {
@@ -47,16 +61,20 @@
 
 .doctors__place {
     color: #5d5d5e;
-    font-size: 16px;
     line-height: 16px;
     font-weight: 300;
 }
 
+.doctors__name:hover,
+.doctors__place:hover {
+    text-decoration: underline;
+}
+
 .doctors__type {
+    position: relative;
+    font-family: "RubikLight", Arial, sans-serif;
     font-size: 28px;
     text-transform: uppercase;
-    color: #fff;
-    background: #2196F3;
     text-align: center;
     display: inline-block;
     height: 45px;
@@ -65,19 +83,29 @@
     text-decoration: none;
     margin-right: 17px;
     box-sizing: border-box;
-    border: 2px solid #2196F3;
     -webkit-transition: background .1s linear 0s;
     -moz-transition: background .1s linear 0s;
     -o-transition: background .1s linear 0s;
     transition: background .1s linear 0s;
     -webkit-backface-visibility: hidden;
-    position: relative;
 }
 
-.doctors__type_active,
 .doctors__type:hover {
+    text-decoration: underline;
+}
+
+.doctors__type_active:hover {
+    text-decoration: none;
+}
+
+.doctors__type_kids {
+    border: 2px solid #2196F3;
     background: #fff;
     color: #2196F3;
+}
+
+.doctors__type_adult {
+    color:  #e31e24;
 }
 
 .doctors__type_active:after, 
@@ -93,6 +121,11 @@
     border-width: 10px 9px 0;
     border-color: #2196F3 transparent transparent transparent;
     content: '';
+}
+
+.doctors__type_kids:after, 
+.doctors__type_kids:before {
+    border-color: #2196F3 transparent transparent transparent;
 }
 
 .doctors__type_active:after {

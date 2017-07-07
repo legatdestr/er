@@ -1,11 +1,10 @@
-.news__item {
-    float: right;
-    width: 47%;
-    padding-bottom: 30px;
+.news {
+    max-width: 400px;
 }
 
-.news__item:first-child {
-    float: left;
+.news__item {
+    padding-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 .news__item, .news__items {
@@ -13,6 +12,7 @@
 }
 
 .news__img {
+    display: block;
     float: left;
     width: 198px;
 }
@@ -20,12 +20,10 @@
 .news__info {
     margin-left: 218px;
     font-weight: 300;
-    font-size: 1.4rem;
 }
 
 .news__title {
     text-decoration: none;
-    font-size: 1.4rem;
     line-height: 1.1;
     display: inline-block;
     font-weight: 300;
@@ -61,19 +59,19 @@
 }
 
 .news__header-button {
+    font-family: "RubikLight", Arial, sans-serif;
     font-size: 28px;
     text-transform: uppercase;
-    color: #fff;
-    background: #2196F3;
+    color: #e31e24;
+    background: #fff;
     text-align: center;
-    display: inline-block;
     height: 45px;
     line-height: 46px;
     padding: 0 22px;
     text-decoration: none;
     margin-right: 17px;
     box-sizing: border-box;
-    border: 2px solid #2196F3;
+    border: 2px solid #e31e24;
     -webkit-transition: background .1s linear 0s;
     -moz-transition: background .1s linear 0s;
     -o-transition: background .1s linear 0s;
@@ -82,14 +80,12 @@
     position: relative;
 }
 
-.news__header-button_active,
 .news__header-button:hover {
-    background: #fff;
-    color: #2196F3;
+    text-decoration: underline;
 }
 
-.news__header-button_active:after, 
-.news__header-button_active:before {
+.news__header-button:after, 
+.news__header-button:before {
 	content: "";
     position: absolute;
     bottom: -10px;
@@ -99,19 +95,11 @@
     height: 0;
     border-style: solid;
     border-width: 10px 9px 0;
-    border-color: #2196F3 transparent transparent transparent;
+    border-color: #e31e24 transparent transparent transparent;
     content: '';
 }
 
-.news__header-button_active:after {
+.news__header-button:after {
     bottom: -7px;
     border-color: #fff transparent transparent transparent;
-}
-
-@media screen and (max-width: 760px) {
-
-	.news__item {
-	    float: none;
-	    width: 100%;
-	}
 }

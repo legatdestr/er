@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="Медицинский портал">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Медицинский портал</title>
+
+    <!-- <link rel="apple-touch-icon" href="apple-touch-icon.png"> -->
+    <!-- Place favicon.ico in the root directory -->
+
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!--
+        TODO: Оптимизировать. данный стиль используется лишь для 1-ой иконки гамбургера. ~80 килобайт лишних.
+        Живой гамбургер https://jonsuh.com/hamburgers/   извлечь из проекта минимально достаточную иконку
+    -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="fonts/Rubik/style.css">
+    <link rel="stylesheet" href="fonts/Icons/style.css">
+
+    <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+
+</head>
+<body class="em-white">
+
+<!-- Page -->
+<div class="page">
+    <div class="main-header-offset"></div>
+    <div class="main-header">
+        <div class="main-header__top">
+            <div class="container em-padding em-row">
+                <div class="main-header__title em-left">Поликлиника идёт к Вам!</div>
+                <div class="em-right main-header__right">
+                    <div class="main-header__phone em-show-inline-block em-margin-right"><i class="fa fa-phone em-margin-right"></i><b>(999) 999-99-99</b></div>
+                    <div class="main-header__search em-show-inline-block"><i class="fa fa-search"></i></div>
+                </div>
+            </div>
+        </div>
+        <div class="main-header__bottom">
+            <div class="container em-row">
+                <div class="main-header__logo em-col">
+                    <a href="index.html">
+                        <img src="images/logo.png" alt="">
+                    </a>
+                </div>
+
+                <div class="main-header__bottom-right em-rest">
+                    <div class="main-header__buttons">
+                        <div class="main-header__button em-button em-blue">Оплатить</div>
+                        <div class="main-header__button em-button em-blue">Записаться на приём</div>
+                        <div class="main-header__button em-button em-blue">Заказать звонок</div>
+                        <div class="main-header__button em-button em-blue">Задать вопрос</div>
+                    </div>
+                    <div class="main-header__menu">
+                        <nav class="topmenu">
+                            <div class="topmenu__item em-show-inline-block"><a href="index.html">Главная</a></div>
+                            <div class="topmenu__item topmenu__item_active em-show-inline-block"><a href="#">О клинике</a></div>
+                            <div class="topmenu__item em-show-inline-block"><a href="#">Услуги и цены</a></div>
+                            <div class="topmenu__item em-show-inline-block"><a href="#">Врачи</a></div>
+                            <div class="topmenu__item em-show-inline-block"><a href="#">Программы</a></div>
+                            <div class="topmenu__item em-show-inline-block"><a href="#">Акции</a></div>
+                            <div class="topmenu__item em-show-inline-block"><a href="#">Контакты</a></div>
+                        </nav>
+                    </div>
+                </div>
+                <nav class="main-header-mobile-menu">
+                    <a class="main-header-mobile-menu__link"><i class="fa fa-bars" onclick="EM.ui.navbar.click()"></i></a>
+                    <div class="main-header-mobile-menu__current">Главная</div>
+                    <ul class="main-header-mobile-menu__container">
+                        <li class="main-header-mobile-menu__item"><a href="#">О клинике</a></li>
+                        <li class="main-header-mobile-menu__item"><a href="#">Услуги и цены</a></li>
+                        <li class="main-header-mobile-menu__item"><a href="#">Врачи</a></li>
+                        <li class="main-header-mobile-menu__item"><a href="#">Программы</a></li>
+                        <li class="main-header-mobile-menu__item"><a href="#">Аптека</a></li>
+                        <li class="main-header-mobile-menu__item"><a href="#">Акции</a></li>
+                        <li class="main-header-mobile-menu__item"><a href="#">Контакты</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <div class="page">
+        <div class="container">
+            <div class="breadcrumbs">
+                <a href="/rav/free-doctor/v2/" class="breadcrumbs__item">Главная</a>
+                <div class="breadcrumbs__item">О клинике</div>
+            </div>
+
+            <div class="main-content">
+                <h1 class="main-content__title">О клинике</h1>
+
+                <p>Наша компания предоставляет населению услуги по оказанию выездной амбулаторно-поликлинической медицинской помощи и сестринскому уходу на дому и в условиях специализированных учреждений, а также ряд дополнительных услуг (проведение медицинских манипуляций на дому, забор анализов, дежурство медсестры или врача, сопровождение медиками корпоративных мероприятий, подготовка и перевозка больных, доставка медикаментов и др.)</p>
+
+                <p>Мы работаем с населением города Томска и пригородных районов в радиусе 30 километров от города Томска.</p>
+
+                <p>В штате ООО "Медика-Томск" трудятся опытные специалисты следующих профилей:</p>
+
+                <ul>
+                    <li>терапия</li>
+                    <li>неврология</li>
+                    <li>наркология</li>
+                </ul>
+
+                <h2>Если всё очень серьёзно</h2>
+
+                <p>Если во время своего визита наш врач выявляет у больного состояние, требующее госпитализации, врач даёт рекомендации о госпитализации  в соответствующий стационар. В случаях если состояние острое настолько, что жизни угрожает опасность, наши врачи оказывают неотложную помощь и вызывают бригаду специализированной скорой медицинской помощи на себя с целью транспортировки в дежурное лечебное учреждение.</p>
+
+                <h2>Сестринский уход</h2>
+
+                <p>При необходимости ухода за тяжелобольными, существует возможность организовать сестринский уход на дому. С этой целью возможно создание бригады сестринского ухода в круглосуточном режиме.</p>
+
+                <p>Когда вы уверены, что близкий и дорогой вам человек находится в надежных руках, пока вы заняты, вы эффективны на работе и имеете возможность полноценно отдыхать. Специалисты ООО "Медика-Томск" помогут больному быстрее встать на ноги, постоянно наблюдая за его состоянием, проводя квалифицированное медицинское лечение, осуществляя профилактику последствий длительного нахождения в лежачем или сидячем положении. Медицинская сестра квалифицированно выполнит назначения врача  и осуществит все необходимые мероприятия, связанные с уходом.</p>
+
+                <p>Если у вас имеется потребность в услугах сестринского ухода, обращайтесь в компанию ООО «Медика-Томск». Мы предоставим вам гарантии качества своей работы и составим соответствующий Договор, в котором будут прописаны обязанности среднего медицинского персонала.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="main-footer__top em-row">
+                <div class="main-footer__logo em-left em-xlarge">Свободный доктор</div>
+                <div class="main-footer-menu em-right">
+                    <div class="main-footer-menu__item em-show-inline-block em-margin-left"><a href="/rav/free-doctor/v2/">Главная</a></div>
+                    <div class="main-footer-menu__item em-show-inline-block em-margin-left"><a href="#">Услуги и цены</a></div>
+                    <div class="main-footer-menu__item em-show-inline-block em-margin-left"><a href="#">Врачи</a></div>
+                    <div class="main-footer-menu__item em-show-inline-block em-margin-left"><a href="#">Врачи</a></div>
+                    <div class="main-footer-menu__item em-show-inline-block em-margin-left"><a href="#">Программы</a></div>
+                    <div class="main-footer-menu__item em-show-inline-block em-margin-left"><a href="#">Контакт</a>ы</div>
+                </div>
+            </div>
+            <div class="main-footer__bottom">
+                <div class="main-footer__cell">
+                    <div class="main-footer__text">                  
+                        Наш адрес<br>
+                        634045, г. Томск,<br>ул. Мокрушина, 9/30
+                    </div>
+                    <a href="" class="main-footer__map"><i class="fa fa-map-o"></i> смотреть на карте</a>
+                </div>
+                <div class="main-footer__cell main-footer__cell_social">
+                    <div class="main-footer__social">
+                        <a href="#" target="_blank" class="main-footer__social-item main-footer__social-item_1"><i class="fa fa-vk"></i></a>
+                        <a href="#" target="_blank" class="main-footer__social-item main-footer__social-item_2"><i class="fa fa-facebook"></i></a>
+                    </div>
+                </div>
+                <div class="main-footer__cell">
+                    <div class="main-footer__call-wrap">
+                        <i class="fa fa-phone"></i>
+                        <div class="main-footer__call">
+                            Позвонить нам:<br>
+                            +7 (3822) 90-04-43<br>
+                            +7 (3822) 90-03-34
+                        </div>
+                    </div>
+                    <div class="main-footer__question-wrap">
+                        <i class="fa fa-send-o"></i>
+                        <div class="main-footer__question">
+                            Задать нам вопрос:<br>
+                            <a href="mailto:medicatomsk@mail.ru">medicatomsk@mail.ru</a>
+                        </div>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<!-- build:js scripts/vendor.js -->
+<!-- bower:js -->
+<!-- endbower -->
+<!-- endbuild -->
+
+<!-- build:js scripts/main.js -->
+<script src="scripts/check-browser.js"></script>
+<script src="scripts/EM.js"></script>
+<script src="scripts/em.ui.js"></script>
+<script src="scripts/navbar.js"></script>
+<script src="scripts/main.js"></script>
+<!-- endbuild -->
+</body>
+</html>
