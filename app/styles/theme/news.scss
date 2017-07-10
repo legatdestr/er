@@ -13,12 +13,24 @@
 
 .news__img {
     display: block;
-    float: left;
     width: 198px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (min-width: 500px) {
+    .news__img {
+        float: left;
+        margin-bottom: 0;
+    }
+
+    .news__info {
+        margin-left: 218px;
+    }
 }
 
 .news__info {
-    margin-left: 218px;
     font-weight: 300;
 }
 
@@ -55,7 +67,7 @@
 }
 
 .news__header {
-	margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 .news__header-button {
@@ -86,7 +98,7 @@
 
 .news__header-button:after, 
 .news__header-button:before {
-	content: "";
+    content: "";
     position: absolute;
     bottom: -10px;
     left: 50%;

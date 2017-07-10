@@ -1,9 +1,5 @@
 .intro-wrap {
-	position: relative;
-	background: url('../images/intro-bg.jpg');
-	background-size: 270% auto;
-	background-position: center 19%;
-    background-repeat: no-repeat;
+	background: #8e8e8e;
 }
 
 .intro {
@@ -30,6 +26,24 @@
     }
 }
 
+@media (min-width: 600px) {
+    .intro-wrap {
+        position: relative;
+        background: url('../images/intro-bg.jpg');
+        background-repeat: no-repeat;
+        background-position: center top;
+        background-size: cover;
+        overflow: hidden;
+        z-index: 1;
+    }
+}
+
+@media (min-width: 768px) {
+    .intro-wrap {
+        background-position: 0 20%;
+    }
+} 
+
 .intro__info {
     font-family: "RubikLight", Arial, sans-serif;
     font-size: 3rem;
@@ -38,12 +52,4 @@
 
 .intro__info a {
     font-family: "RubikRegular", Arial, sans-serif;
-}
-
-@media (min-width: 761px) {
-	.intro-wrap {
-		background-size: cover;
-    	overflow: hidden;
-    	z-index: 1;
-	}
 }

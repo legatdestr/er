@@ -2,9 +2,9 @@
 <html lang="ru">
 <head>
     <meta charset="utf-8">
-    <meta name="description" content="Медицинский портал">
+    <meta name="description" content="Клиника Свободный доктор">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Медицинский портал</title>
+    <title>Свободный доктор</title>
 
     <!-- <link rel="apple-touch-icon" href="apple-touch-icon.png"> -->
     <!-- Place favicon.ico in the root directory -->
@@ -18,7 +18,7 @@
         TODO: Оптимизировать. данный стиль используется лишь для 1-ой иконки гамбургера. ~80 килобайт лишних.
         Живой гамбургер https://jonsuh.com/hamburgers/   извлечь из проекта минимально достаточную иконку
     -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
 
     <link rel="stylesheet" href="fonts/Rubik/style.css">
     <link rel="stylesheet" href="fonts/Icons/style.css">
@@ -38,8 +38,8 @@
             <div class="container em-padding em-row">
                 <div class="main-header__title em-left">Поликлиника идёт к Вам!</div>
                 <div class="em-right main-header__right">
-                    <div class="main-header__phone em-show-inline-block em-margin-right"><i class="fa fa-phone em-margin-right"></i><b>(999) 999-99-99</b></div>
-                    <div class="main-header__search em-show-inline-block"><i class="fa fa-search"></i></div>
+                    <div class="main-header__phone em-show-inline-block em-margin-right"><i class="icon-phone em-margin-right"></i><b>(999) 999-99-99</b></div>
+                    <div class="main-header__search em-show-inline-block"><i class="icon-search"></i></div>
                 </div>
             </div>
         </div>
@@ -62,24 +62,35 @@
                         <nav class="topmenu">
                             <div class="topmenu__item topmenu__item_active em-show-inline-block"><a href="#">Главная</a></div>
                             <div class="topmenu__item em-show-inline-block"><a href="about.html">О клинике</a></div>
+                            <div class="topmenu__item em-show-inline-block"><a href="advantages.html">Наши преимущества</a></div>
                             <div class="topmenu__item em-show-inline-block"><a href="#">Услуги и цены</a></div>
                             <div class="topmenu__item em-show-inline-block"><a href="#">Врачи</a></div>
-                            <div class="topmenu__item em-show-inline-block"><a href="#">Программы</a></div>
-                            <div class="topmenu__item em-show-inline-block"><a href="#">Акции</a></div>
+                            <!-- <div class="topmenu__item em-show-inline-block"><a href="#">Программы</a></div>
+                            <div class="topmenu__item em-show-inline-block"><a href="#">Акции</a></div> -->
                             <div class="topmenu__item em-show-inline-block"><a href="#">Контакты</a></div>
                         </nav>
                     </div>
                 </div>
-                <nav class="main-header-mobile-menu">
-                    <a class="main-header-mobile-menu__link"><i class="fa fa-bars" onclick="EM.ui.navbar.click()"></i></a>
-                    <div class="main-header-mobile-menu__current">Главная</div>
-                    <ul class="main-header-mobile-menu__container">
+                <nav class="main-header-mobile-menu em-row">
+                    <a class="main-header-mobile-menu__link em-right"><!-- <i class="fa fa-bars" onclick="EM.ui.navbar.click()"></i> -->
+                        <div class="icon-nav" onclick="EM.ui.navbar.click()"">
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                        </div>
+                    </a>
+                    <div class="main-header-mobile-menu__current em-left">Главная</div>
+                    <ul class="main-header-mobile-menu__container em-left">
                         <li class="main-header-mobile-menu__item"><a href="about.html">О клинике</a></li>
+                        <li class="main-header-mobile-menu__item"><a href="advantages.html">Наши преимущества</a></li>
                         <li class="main-header-mobile-menu__item"><a href="#">Услуги и цены</a></li>
                         <li class="main-header-mobile-menu__item"><a href="#">Врачи</a></li>
-                        <li class="main-header-mobile-menu__item"><a href="#">Программы</a></li>
+                        <!-- <li class="main-header-mobile-menu__item"><a href="#">Программы</a></li>
                         <li class="main-header-mobile-menu__item"><a href="#">Аптека</a></li>
-                        <li class="main-header-mobile-menu__item"><a href="#">Акции</a></li>
+                        <li class="main-header-mobile-menu__item"><a href="#">Акции</a></li> -->
                         <li class="main-header-mobile-menu__item"><a href="#">Контакты</a></li>
                     </ul>
                 </nav>
@@ -90,11 +101,17 @@
     <div class="intro-wrap">
         <div class="container">
             <div class="intro">
-                <div class="intro__title">Служба неотложной медицинской помощи</div>
+                <div class="intro__title">Вызов врача на дом</div>
                 <div class="intro__info">
-                    Вызов врача на дом - 800 рублей<br>
+                    <a href="#">Терапевт</a><br>
+                    <a href="#">Педиатр</a><br>
+                    <a href="#">Кардиолог</a><br>
+                    <a href="#">Эндокринолог</a><br>
+                    <a href="#">Невролог</a><br>
+                    <a href="#">Нарколог</a>
+                    <!-- Вызов врача на дом - 800 рублей<br>
                     <a href="tel:+73822900443">+7 (3822) 90-04-43</a><br>
-                    <a href="tel:+73822900334">+7 (3822) 90-03-34</a>
+                    <a href="tel:+73822900334">+7 (3822) 90-03-34</a> -->
                 </div>
             </div>
         </div>
@@ -122,10 +139,9 @@
 
             <div class="index__about">
                 <div class="title">О проекте</div>
-                <p>Неотложная помощь предполагает наличие у больного серьёзной проблемы со здоровьем вместе с тем, не представляюзей явной опасности для его жизни.</p>
-                <p>Неотложная помощь работает с 8:00 до 22:00 без выходных.</p>
-                <p>Бригаду неотложной помощи можно также вызвать по телефону 03 (030 с мобильного, 003 с номеров Билайн) или по телефонам 8 (3822) 90-04-43, 90-03-34</p>
-                <p><a href="#" class="main-links">Подробнее</a></p>
+                <p>«Свободный доктор» — это медицинское обслуживание на дому для всей семьи! Специалист нужного профиля приедет по вызову в любую точку Томска или пригорода. Мы проведем необходимые исследования, примем анализы, выпишем рецепт и больничный лист прямо у вас дома.</p>
+                <p>Мы обеспечиваем профессиональный уход за тяжелобольными и пожилыми людьми. При необходимости готовы способствовать госпитализации в любую клинику Томска, России, мира. Если у вас нет времени и желания идти в поликлинику — поликлиника сама придет к вам!</p>
+                <p><a href="advantages.html" class="main-links">Наши преимущества</a></p>
             </div>
         </div>
     </section>
@@ -199,18 +215,14 @@
                                             <li><a href="#">Невролог</a></li>
                                             <li><a href="#">Эндокринолог</a></li>
                                             <li><a href="#">Нарколог</a></li>
-                                            <li><a href="#">Взятие анализов на дому</a></li>
-                                            <li><a href="#">Выдача больничных</a></li>
+                                            
                                         </ul>
                                         <ul class="services__list">
-                                            <li><a href="#">Педиатр</a></li>
-                                            <li><a href="#">Терапевт</a></li>
-                                            <li><a href="#">Кардиолог</a></li>
-                                            <li><a href="#">Невролог</a></li>
-                                            <li><a href="#">Эндокринолог</a></li>
-                                            <li><a href="#">Нарколог</a></li>
-                                            <li><a href="#">Взятие анализов на дому</a></li>
-                                            <li><a href="#">Выдача больничных</a></li>
+                                            <li><a href="#">Сестринский уход</a></li>
+                                            <li><a href="#">Справки</a></li>
+                                            <li><a href="#">Онкопрофилактика</a></li>
+                                            <li><a href="#">Психотерапевт</a></li>
+                                            <li><a href="#">Приём анализов</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -227,32 +239,32 @@
             <div class="features-wrap">
                 <a href="#" class="features__item">
                     <span class="features__title">
-                        <span class="features__header">Предложение</span>
-                        Описание предложения     </span>
+                        <span class="features__header">От вызова до госпитализации</span>
+                    </span>
                 </a>
                         <a href="#" class="features__item">
                     <span class="features__title">
-                        <span class="features__header">Предложение</span>
-                        Описание предложения</span>
+                        <span class="features__header">Паллиативная помощь</span>
+                    </span>
                 </a>
                         <a href="#" class="features__item">
                     <span class="features__title">
-                        <span class="features__header">Предложение</span>
-                        Описание предложения        </span>
+                        <span class="features__header">Медицинский депозит</span>
+                    </span>
                 </a>
                         <a href="#" class="features__item">
                     <span class="features__title">
-                        <span class="features__header">Предложение</span>
-                        Описание предложения        </span>
+                        <span class="features__header">Экспресс-обследование на дому</span>
+                    </span>
                 </a>
                         <a href="#" class="features__item">
                     <span class="features__title">
-                        <span class="features__header">Предложение</span>
-                        Описание предложения       </span>
+                        <span class="features__header">Восстановление после инсультов</span>
+                    </span>
                 </a>
                         <a href="#" class="features__item">
                     <span class="features__title">
-                        <span class="features__header">Предложение</span>
+                        <span class="features__header">Кардиопрофилактика</span>
                                 </span>
                 </a>
             </div>
@@ -371,17 +383,17 @@
                         Наш адрес<br>
                         634045, г. Томск,<br>ул. Мокрушина, 9/30
                     </div>
-                    <a href="" class="main-footer__map"><i class="fa fa-map-o"></i> смотреть на карте</a>
+                    <a href="" class="main-footer__map"><i class="icon-map"></i> смотреть на карте</a>
                 </div>
                 <div class="main-footer__cell main-footer__cell_social">
                     <div class="main-footer__social">
-                        <a href="#" target="_blank" class="main-footer__social-item main-footer__social-item_1"><i class="fa fa-vk"></i></a>
-                        <a href="#" target="_blank" class="main-footer__social-item main-footer__social-item_2"><i class="fa fa-facebook"></i></a>
+                        <a href="#" target="_blank" class="main-footer__social-item main-footer__social-item_1"><i class="icon-vk"></i></a>
+                        <a href="#" target="_blank" class="main-footer__social-item main-footer__social-item_2"><i class="icon-fb"></i></a>
                     </div>
                 </div>
                 <div class="main-footer__cell">
                     <div class="main-footer__call-wrap">
-                        <i class="fa fa-phone"></i>
+                        <i class="icon-phone"></i>
                         <div class="main-footer__call">
                             Позвонить нам:<br>
                             +7 (3822) 90-04-43<br>
@@ -389,7 +401,7 @@
                         </div>
                     </div>
                     <div class="main-footer__question-wrap">
-                        <i class="fa fa-send-o"></i>
+                        <i class="icon-mail"></i>
                         <div class="main-footer__question">
                             Задать нам вопрос:<br>
                             <a href="mailto:medicatomsk@mail.ru">medicatomsk@mail.ru</a>

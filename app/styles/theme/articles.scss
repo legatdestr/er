@@ -13,14 +13,28 @@
 }
 
 .articles__img {
-    float: left;
+    display: block;
     width: 198px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .articles__preview {
-    margin-left: 218px;
     font-weight: 300;
 }
+
+@media (min-width: 500px) {
+    .articles__img {
+        float: left;
+        margin-bottom: 0;
+    }
+
+    .articles__preview {
+        margin-left: 218px;
+    }
+}
+
 
 .articles__img img {
     border-radius: 5px;
